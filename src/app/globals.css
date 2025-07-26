@@ -1,26 +1,290 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Reset & Base */
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: #fff;
+  color: #111;
+  line-height: 1.6;
+}
+
+/* Container for page content */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding-bottom: 4rem;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: inline-block;
+  user-select: none;
+}
+
+.btn.primary {
+  background-color: #111;
+  color: #fff;
+}
+
+.btn.primary:hover,
+.btn.primary:focus {
+  background-color: #333;
+}
+
+.btn.secondary {
+  background-color: transparent;
+  border: 2px solid #111;
+  color: #111;
+}
+
+.btn.secondary:hover,
+.btn.secondary:focus {
+  background-color: #111;
+  color: #fff;
+}
+
+/* NOTION TEMPLATE */
+.notion-template {
+  padding-bottom: 4rem;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+.notion-template h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.notion-template p {
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  color: #444;
+  font-size: 1rem;
+}
+
+.notion-embed-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.notion-embed-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* BLOG POSTS */
+.blog-posts {
+  border-top: 1px solid #eee;
+  padding: 4rem 0;
+}
+
+.blog-posts h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.post-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.post-card p {
+  flex-grow: 1;
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.post-card small {
+  color: #999;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.read-more {
+  color: #111;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.read-more:hover,
+.read-more:focus {
+  color: #333;
+}
+
+/* NEWSLETTER */
+.newsletter {
+  border-top: 1px solid #eee;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.newsletter h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.newsletter p {
+  max-width: 400px;
+  margin: 0 auto 1.5rem;
+  color: #444;
+  font-size: 1rem;
+}
+
+.newsletter form {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.newsletter input[type="email"] {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  min-width: 250px;
+  flex-grow: 1;
+  max-width: 350px;
+}
+
+.newsletter button {
+  background-color: #111;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.newsletter button:hover,
+.newsletter button:focus {
+  background-color: #333;
+}
+
+/* SOCIAL LINKS */
+.social-links {
+  border-top: 1px solid #eee;
+  padding: 4rem 0 2rem;
+  text-align: center;
+}
+
+.social-links h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 2.5rem;
+}
+
+.social-icons a {
+  color: #111;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.social-icons a:hover,
+.social-icons a:focus {
+  color: #555;
+  outline: none;
+}
+
+/* FOOTER */
+.footer {
+  border-top: 1px solid #eee;
+  padding: 1rem 0 3rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 2.25rem;
+  }
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+  .newsletter form {
+    flex-direction: column;
+  }
+  .newsletter input[type="email"],
+  .newsletter button {
+    max-width: 100%;
+    width: 100%;
+  }
 }

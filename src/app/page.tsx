@@ -1,103 +1,124 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React from "react";
+
+const blogPosts = [
+  {
+    id: 1,
+    title: "How I Built My Custom Notion Template",
+    excerpt: "A walkthrough of my thought process, tools, and design decisions in creating a powerful productivity template.",
+    date: "July 24, 2025",
+    link: "#",
+  },
+  {
+    id: 2,
+    title: "5 Tips for Writing Clean, Maintainable Code",
+    excerpt: "Best practices that keep your codebase healthy and easy to work with, even on complex projects.",
+    date: "July 18, 2025",
+    link: "#",
+  },
+  {
+    id: 3,
+    title: "Why I Cut Sugar for 30 Days and What Happened",
+    excerpt: "My personal experiment with cutting sugar and the surprising effects it had on my energy and focus.",
+    date: "July 10, 2025",
+    link: "#",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <main className="container">
+        {/* HERO */}
+        <section className="hero">
+          <h1 className="hero-title">Maurik — Software Engineer & Creator</h1>
+          <p className="hero-subtitle">
+            Building clean, minimal, and meaningful digital experiences. Sharing my journey, tools, and tips along the way.
+          </p>
+          <div className="hero-buttons">
+            <a href="#" className="btn primary">Watch My Demo</a>
+            <a href="#" className="btn secondary">See My Work</a>
+          </div>
+        </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        {/* NOTION TEMPLATE */}
+        <section className="notion-template">
+          <h2>My Custom Notion Template</h2>
+          <p>
+            I designed a powerful Notion workspace to organize projects, tasks, and ideas efficiently.
+            Here’s a preview—click below to explore.
+          </p>
+          {/* Replace iframe src below with your actual public Notion share link */}
+          <div className="notion-embed-wrapper">
+            <iframe
+              src="https://www.notion.so/embed-placeholder"
+              frameBorder="0"
+              allowFullScreen
+              title="Notion Template Preview"
+            ></iframe>
+          </div>
+          <a href="#" className="btn primary mt-3">Open Notion Template</a>
+        </section>
+
+        {/* BLOG POSTS */}
+        <section className="blog-posts">
+          <h2>Latest Blog Posts</h2>
+          <div className="posts-grid">
+            {blogPosts.map(({ id, title, excerpt, date, link }) => (
+              <article key={id} className="post-card">
+                <h3>{title}</h3>
+                <p>{excerpt}</p>
+                <small>{date}</small>
+                <a href={link} className="read-more">Read more →</a>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* NEWSLETTER SUBSCRIBE */}
+        <section className="newsletter">
+          <h2>Subscribe to My Newsletter</h2>
+          <p>Get updates, tutorials, and exclusive content delivered right to your inbox.</p>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              alert("Thanks for subscribing! (This is just a demo)");
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            <input
+              type="email"
+              placeholder="Your email address"
+              required
+              aria-label="Email address"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+            <button type="submit" className="btn primary">Subscribe</button>
+          </form>
+        </section>
+
+        {/* SOCIAL LINKS */}
+        <section className="social-links">
+          <h2>Find Me on Social Media</h2>
+          <div className="social-icons">
+            <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter">
+              🐦
+            </a>
+            <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub">
+              💻
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              🔗
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube">
+              ▶️
+            </a>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="footer">
+        &copy; {new Date().getFullYear()} Maurik. All rights reserved.
       </footer>
-    </div>
+    </>
   );
 }
