@@ -1,0 +1,21 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black rounded square background -->
+  <rect x="4" y="4" width="72" height="72" rx="16" fill="#000000"/>
+  
+  <!-- Musical note with chromatic aberration effect -->
+  <!-- Cyan shadow (bottom-left) -->
+  <path d="M30 25C30 25 32 25 32 27V45C32 47 30 47 30 45V25Z" fill="#00F2EA"/>
+  <path d="M32 45C32 47 34 47 34 45V27C34 25 32 25 32 27V45Z" fill="#00F2EA"/>
+  <circle cx="34" cy="47" r="2" fill="#00F2EA"/>
+  
+  <!-- Pink shadow (top-right) -->
+  <path d="M30 25C30 25 32 25 32 27V45C32 47 30 47 30 45V25Z" fill="#FF0080"/>
+  <path d="M32 45C32 47 34 47 34 45V27C34 25 32 25 32 27V45Z" fill="#FF0080"/>
+  <circle cx="34" cy="47" r="2" fill="#FF0080"/>
+  
+  <!-- White main note -->
+  <path d="M30 25C30 25 32 25 32 27V45C32 47 30 47 30 45V25Z" fill="white"/>
+  <path d="M32 45C32 47 34 47 34 45V27C34 25 32 25 32 27V45Z" fill="white"/>
+  <circle cx="34" cy="47" r="2" fill="white"/>
+</svg>
+
