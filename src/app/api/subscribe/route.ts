@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// const CONVERTKIT_API_KEY = 'Wuw1zeX6J_j7gRw5iDvWLwWuw1zeX6J_j7gRw5iDvWLw';
+// Simple email storage (in production, you'd use a database)
+let subscribers: string[] = [];
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,37 +14,40 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // For now, let's log the subscription and return success
-    // This will work immediately while you set up ConvertKit properly
-    console.log('New newsletter subscription:', email);
-
-    // TODO: Replace this with actual ConvertKit API call
-    // You'll need to:
-    // 1. Go to ConvertKit dashboard
-    // 2. Create a form
-    // 3. Get the Form ID
-    // 4. Uncomment the code below
-
-    /*
-    const response = await fetch(`https://api.convertkit.com/v3/forms/YOUR_FORM_ID/subscribe`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        api_key: CONVERTKIT_API_KEY,
-        email: email,
-      }),
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to subscribe');
+    // Check if email is valid
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Please enter a valid email address' },
+        { status: 400 }
+      );
     }
-    */
 
-    // For now, simulate success
+    // Check if already subscribed
+    if (subscribers.includes(email)) {
+      return NextResponse.json(
+        { error: 'This email is already subscribed' },
+        { status: 400 }
+      );
+    }
+
+    // Add to subscribers list
+    subscribers.push(email);
+    
+    // Log the subscription (you can see this in Vercel logs)
+    console.log('New subscriber:', email);
+    console.log('Total subscribers:', subscribers.length);
+
+    // TODO: For production, you should:
+    // 1. Store emails in a database (like MongoDB, PostgreSQL)
+    // 2. Send welcome email
+    // 3. Integrate with ConvertKit, Mailchimp, or similar
+
     return NextResponse.json(
-      { message: 'Successfully subscribed! Check your email for confirmation.' },
+      { 
+        message: 'Successfully subscribed! Check your email for confirmation.',
+        subscriberCount: subscribers.length
+      },
       { status: 200 }
     );
   } catch (error) {
@@ -53,4 +57,15 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
+}
+
+// GET endpoint to view subscribers (for admin purposes)
+export async function GET() {
+  return NextResponse.json(
+    { 
+      subscribers: subscribers,
+      count: subscribers.length 
+    },
+    { status: 200 }
+  );
 }
