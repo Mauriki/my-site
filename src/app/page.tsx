@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 export default function PersonalWebsite() {
   const [email, setEmail] = useState('');
@@ -17,7 +18,7 @@ export default function PersonalWebsite() {
       <header className="header">
         <h1>Maurik Munir</h1>
         <p>
-          I'm a programmer passionate about learning new technologies and building innovative solutions. 
+          I&apos;m a programmer passionate about learning new technologies and building innovative solutions. 
           I share my journey through code, content creation, and continuous learning.
         </p>
       </header>
@@ -33,15 +34,15 @@ export default function PersonalWebsite() {
       {/* Social Links */}
       <div className="social-links">
         <a href="https://x.com/MaurikMunir" target="_blank" rel="noopener noreferrer" className="social-link">
-          <img src="/x-logo.svg" alt="X" />
+          <Image src="/x-logo.svg" alt="X" width={20} height={20} />
           X (Twitter)
         </a>
         <a href="https://www.youtube.com/@MaurikMunir" target="_blank" rel="noopener noreferrer" className="social-link">
-          <img src="/youtube-logo.svg" alt="YouTube" />
+          <Image src="/youtube-logo.svg" alt="YouTube" width={20} height={20} />
           YouTube
         </a>
         <a href="https://www.tiktok.com/@MaurikMunir" target="_blank" rel="noopener noreferrer" className="social-link">
-          <img src="/tiktok-logo.svg" alt="TikTok" />
+          <Image src="/tiktok-logo.svg" alt="TikTok" width={20} height={20} />
           TikTok
         </a>
       </div>
@@ -50,11 +51,11 @@ export default function PersonalWebsite() {
       <section id="about" className="section">
         <h2>About Me</h2>
         <p>
-          I'm a dedicated programmer who loves exploring new technologies and sharing knowledge with the community. 
+          I&apos;m a dedicated programmer who loves exploring new technologies and sharing knowledge with the community. 
           My journey in tech has been driven by curiosity and a desire to solve real-world problems through code.
         </p>
         <p>
-          When I'm not coding, you'll find me creating content on YouTube, sharing insights on X, 
+          When I&apos;m not coding, you&apos;ll find me creating content on YouTube, sharing insights on X, 
           or experimenting with the latest programming trends. I believe in continuous learning and 
           helping others grow in their tech journey.
         </p>
@@ -63,7 +64,7 @@ export default function PersonalWebsite() {
       {/* Projects Section */}
       <section id="projects" className="section">
         <h2>Projects</h2>
-        <p>Here are some of the projects I've been working on:</p>
+        <p>Here are some of the projects I&apos;ve been working on:</p>
         
         <div className="projects-grid">
           <div className="project-card">
@@ -109,8 +110,8 @@ export default function PersonalWebsite() {
 
           <article className="blog-post">
             <div className="date">December 10, 2024</div>
-            <h3><a href="#">Why I'm Learning TypeScript</a></h3>
-            <p>My journey into TypeScript and how it's improving my code quality and development experience.</p>
+            <h3><a href="#">Why I&apos;m Learning TypeScript</a></h3>
+            <p>My journey into TypeScript and how it&apos;s improving my code quality and development experience.</p>
           </article>
 
           <article className="blog-post">

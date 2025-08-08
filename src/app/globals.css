@@ -125,6 +125,12 @@ body {
   height: 20px;
 }
 
+/* Next.js Image component styling */
+.social-link .next-image {
+  width: 20px;
+  height: 20px;
+}
+
 /* Sections */
 .section {
   margin-bottom: 80px;
