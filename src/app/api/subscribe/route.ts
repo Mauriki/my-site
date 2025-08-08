@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // Simple email storage (in production, you'd use a database)
+// eslint-disable-next-line prefer-const
 let subscribers: string[] = [];
 
 export async function POST(request: NextRequest) {

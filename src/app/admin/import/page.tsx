@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 'use client';
 import React, { useState } from 'react';
 
@@ -18,6 +19,7 @@ export default function ImportPage() {
     e.preventDefault();
     
     // Generate the code to copy
+    // eslint-disable-next-line react/no-unescaped-entities
     const postCode = `
 // Add this to src/app/blog/[slug]/page.tsx in the blogPosts array:
 {
