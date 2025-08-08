@@ -16,7 +16,7 @@ export default function PersonalWebsite() {
     <div className="container">
       {/* Header */}
       <header className="header">
-        <h1>Maurik Munir</h1>
+        <h1>Maurik</h1>
         <p>
           I&apos;m a programmer passionate about learning new technologies and building innovative solutions. 
           I share my journey through code, content creation, and continuous learning.
@@ -51,13 +51,13 @@ export default function PersonalWebsite() {
       <section id="about" className="section">
         <h2>About Me</h2>
         <p>
-          I&apos;m a dedicated programmer who loves exploring new technologies and sharing knowledge with the community. 
-          My journey in tech has been driven by curiosity and a desire to solve real-world problems through code.
+          I began my journey into programming during my first year at university, initially without a clear idea of what programming entailed. 
+          Over time, I discovered my passion for coding, driven by the desire to create useful and innovative solutions.
         </p>
         <p>
-          When I&apos;m not coding, you&apos;ll find me creating content on YouTube, sharing insights on X, 
-          or experimenting with the latest programming trends. I believe in continuous learning and 
-          helping others grow in their tech journey.
+          Although I dropped out of university, I&apos;ve been self-learning and building my skills independently. 
+          I&apos;ve created a Notion template and a simple web component using HTML, CSS, and JavaScript. 
+          My ultimate goal is to develop applications that people find genuinely helpful and that offer better features at more affordable prices.
         </p>
       </section>
 
@@ -73,6 +73,15 @@ export default function PersonalWebsite() {
             <div className="project-links">
               <a href="#" target="_blank" rel="noopener noreferrer">View Live</a>
               <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+
+          <div className="project-card">
+            <h3>Notion Course & Lecture Template</h3>
+            <p>An all-in-one Notion template designed for students and lifelong learners to organize courses, track lectures, and streamline study workflows.</p>
+            <div className="project-links">
+              <a href="https://maurik.gumroad.com/l/zdwgwb?_gl=1*13lfz2a*_ga*ODc0NDk4MTk1LjE3MzkwMjM4MzA.*_ga_6LJN6D94N6*czE3NTQ2NTg1NDgkbzE3JGcxJHQxNzU0NjU5MDk0JGo1NCRsMCRoMA.." target="_blank" rel="noopener noreferrer">Get Template</a>
+              <a href="#" target="_blank" rel="noopener noreferrer">Learn More</a>
             </div>
           </div>
 
@@ -145,7 +154,7 @@ export default function PersonalWebsite() {
 
       {/* Footer */}
       <footer className="footer">
-        <p>&copy; 2024 Maurik Munir. Built with Next.js and ❤️</p>
+        <p>&copy; 2024 Maurik. Built with Next.js and ❤️</p>
       </footer>
     </div>
   );
