@@ -29,7 +29,7 @@ export default function PersonalWebsite() {
       } else {
         setSubscriptionStatus('error');
       }
-    } catch (error) {
+    } catch {
       setSubscriptionStatus('error');
     } finally {
       setIsSubmitting(false);

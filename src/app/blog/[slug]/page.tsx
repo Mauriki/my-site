@@ -116,6 +116,38 @@ const blogPosts = [
     category: 'Career',
     readTime: '6 min read',
     author: 'Maurik'
+  },
+  {
+    id: 'my-hashnode-post',
+    title: 'My First Hashnode Post',
+    excerpt: 'This is the post I created on Hashnode that I want to show on my website.',
+    content: `
+      <p>This is the content from your Hashnode post. You can copy and paste your Hashnode content here to display it on your own website.</p>
+      
+      <h2>How This Works</h2>
+      <p>When you write a post on Hashnode, you can copy the content and add it to your website's blog system. This way, you have the content on both platforms.</p>
+      
+      <h2>Benefits of This Approach</h2>
+      <ul>
+        <li><strong>Own Your Content:</strong> Your posts live on your own domain</li>
+        <li><strong>Better SEO:</strong> Search engines index your own website</li>
+        <li><strong>Custom Design:</strong> Your posts match your website's style</li>
+        <li><strong>No External Dependencies:</strong> Your blog works even if Hashnode is down</li>
+      </ul>
+      
+      <p>You can also add a link to the original Hashnode post at the bottom:</p>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <p><strong>Originally published on Hashnode:</strong></p>
+        <a href="https://hashnode.com/post/cme2vomws000702jy3ulhhlnk" target="_blank" rel="noopener noreferrer">
+          Read on Hashnode →
+        </a>
+      </div>
+    `,
+    date: '2024-12-18',
+    category: 'Programming',
+    readTime: '3 min read',
+    author: 'Maurik'
   }
 ];
 

@@ -28,6 +28,15 @@ const blogPosts = [
     category: 'Career',
     readTime: '6 min read',
     featured: false
+  },
+  {
+    id: 'my-hashnode-post',
+    title: 'My First Hashnode Post',
+    excerpt: 'This is the post I created on Hashnode that I want to show on my website.',
+    date: '2024-12-18',
+    category: 'Programming',
+    readTime: '3 min read',
+    featured: false
   }
 ];
 
