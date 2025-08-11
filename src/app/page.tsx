@@ -39,35 +39,95 @@ export default function PersonalWebsite() {
   return (
     <div className="container">
       {/* Header */}
-      <header className="header">
-        <h1>Maurik</h1>
-        <p>
-          I&apos;m a programmer passionate about learning new technologies and building innovative solutions. 
-          I share my journey through code, content creation, and continuous learning.
-        </p>
+      <header
+        className="header"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '2rem',
+          marginBottom: '2.5rem',
+        }}
+      >
+        <Image
+          src="/1000030440-modified.png"
+          alt="Maurik Logo"
+          width={100}
+          height={100}
+          style={{
+            borderRadius: '50%',
+            boxShadow: '0 6px 24px rgba(0,0,0,0.12)',
+            border: '4px solid #fff',
+            background: '#f3f3f3',
+            objectFit: 'cover',
+          }}
+          priority
+        />
+        <h1
+          style={{
+            margin: 0,
+            fontSize: '3rem',
+            fontWeight: 700,
+            letterSpacing: '-1px',
+            lineHeight: 1.1,
+          }}
+        >
+          Maurik
+        </h1>
       </header>
 
       {/* Navigation */}
       <nav className="nav">
         <a href="#about" className="active">About</a>
-        <a href="#projects">Projects</a>
+        <a href="#projects">My Work</a>
         <a href="#blog">Blog</a>
         <a href="#newsletter">Newsletter</a>
       </nav>
 
       {/* Social Links */}
       <div className="social-links">
-        <a href="https://x.com/MaurikMunir" target="_blank" rel="noopener noreferrer" className="social-link">
-          <Image src="/x-logo.svg" alt="X" width={20} height={20} />
-          X (Twitter)
-        </a>
         <a href="https://www.youtube.com/@MaurikMunir" target="_blank" rel="noopener noreferrer" className="social-link">
-          <Image src="/youtube-logo.svg" alt="YouTube" width={20} height={20} />
+          <Image
+            src="/YouTube Logo 2017.png"
+            alt="YouTube"
+            width={32}
+            height={32}
+            className="social-img"
+            priority
+          />
           YouTube
         </a>
-        <a href="https://www.tiktok.com/@MaurikMunir" target="_blank" rel="noopener noreferrer" className="social-link">
-          <Image src="/tiktok-logo.svg" alt="TikTok" width={20} height={20} />
+        <a href="https://x.com/MaurikMunir" target="_blank" rel="noopener noreferrer" className="social-link">
+          <Image
+            src="/X Logo White Background Vector.avif"
+            alt="X"
+            width={32}
+            height={32}
+            className="social-img"
+            priority
+          />
+          X (Twitter)
+        </a>
+        <a href="https://www.tiktok.com/@maurik.munir" target="_blank" rel="noopener noreferrer" className="social-link tiktok">
+          <Image
+            src="/TikTok Logo.png"
+            alt="TikTok"
+            width={32}
+            height={32}
+            className="social-img"
+            priority
+          />
           TikTok
+        </a>
+        <a href="https://www.fiverr.com/s/6YWwYLB" target="_blank" rel="noopener noreferrer" className="social-link">
+          <Image
+            src="/Fiverr Logo.png"
+            alt="Fiverr"
+            width={32}
+            height={32}
+            className="social-img"
+            priority
+          />
+          Fiverr
         </a>
       </div>
 
@@ -86,47 +146,53 @@ export default function PersonalWebsite() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="section">
-        <h2>Projects</h2>
-        <p>Here are some of the projects I&apos;ve been working on:</p>
-        
-        <div className="projects-grid">
-          <div className="project-card">
-            <h3>Personal Website</h3>
-            <p>A modern, responsive personal website built with Next.js and TypeScript, featuring clean design and optimal performance.</p>
-            <div className="project-links">
-              <a href="#" target="_blank" rel="noopener noreferrer">View Live</a>
-              <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </div>
-          </div>
+      <section id="projects" className="section" style={{ marginBottom: '3.5rem' }}>
+        <h2 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1.2rem' }}>Projects</h2>
+        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+          <li style={{ marginBottom: '1.2rem' }}>
+            <a
+              href="#"
+              style={{
+                fontSize: '1.15rem',
+                fontWeight: 600,
+                color: '#0070f3',
+                textDecoration: 'none',
+                transition: 'color 0.18s',
+              }}
+              onMouseOver={e => (e.currentTarget.style.color = '#0051a3')}
+              onMouseOut={e => (e.currentTarget.style.color = '#0070f3')}
+            >
+              Example Project (coming soon)
+            </a>
+          </li>
+          {/* Add more project links here in the future */}
+        </ul>
+      </section>
 
-          <div className="project-card">
-            <h3>Notion Course & Lecture Template</h3>
-            <p>An all-in-one Notion template designed for students and lifelong learners to organize courses, track lectures, and streamline study workflows.</p>
-            <div className="project-links">
-              <a href="https://maurik.gumroad.com/l/zdwgwb?_gl=1*13lfz2a*_ga*ODc0NDk4MTk1LjE3MzkwMjM4MzA.*_ga_6LJN6D94N6*czE3NTQ2NTg1NDgkbzE3JGcxJHQxNzU0NjU5MDk0JGo1NCRsMCRoMA.." target="_blank" rel="noopener noreferrer">Get Template</a>
-              <a href="#" target="_blank" rel="noopener noreferrer">Learn More</a>
-            </div>
-          </div>
-
-          <div className="project-card">
-            <h3>Tech Blog</h3>
-            <p>A blog platform for sharing programming insights, tutorials, and tech discoveries with the developer community.</p>
-            <div className="project-links">
-              <a href="#" target="_blank" rel="noopener noreferrer">View Live</a>
-              <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </div>
-          </div>
-
-          <div className="project-card">
-            <h3>Learning Tracker</h3>
-            <p>An application to track learning progress, set goals, and monitor skill development across different technologies.</p>
-            <div className="project-links">
-              <a href="#" target="_blank" rel="noopener noreferrer">View Live</a>
-              <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </div>
-          </div>
-        </div>
+      {/* Notion Templates Section */}
+      <section id="notion-templates" className="section" style={{ marginBottom: '3.5rem' }}>
+        <h2 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1.2rem' }}>Notion Templates</h2>
+        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+          <li style={{ marginBottom: '1.2rem' }}>
+            <a
+              href="https://maurik.gumroad.com/l/zdwgwb?_gl=1*13lfz2a*_ga*ODc0NDk4MTk1LjE3MzkwMjM4MzA.*_ga_6LJN6D94N6*czE3NTQ2NTg1NDgkbzE3JGcxJHQxNzU0NjU5MDk0JGo1NCRsMCRoMA.."
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontSize: '1.15rem',
+                fontWeight: 600,
+                color: '#0070f3',
+                textDecoration: 'none',
+                transition: 'color 0.18s',
+              }}
+              onMouseOver={e => (e.currentTarget.style.color = '#0051a3')}
+              onMouseOut={e => (e.currentTarget.style.color = '#0070f3')}
+            >
+              Minimal Course & Lecture template
+            </a>
+          </li>
+          {/* Add more Notion template links here in the future */}
+        </ul>
       </section>
 
       {/* Blog Section */}

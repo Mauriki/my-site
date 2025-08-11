@@ -1,12 +1,14 @@
-// app/layout.tsx
-import './globals.css'; // 1️⃣ Bring in global styles
-import type { ReactNode } from 'react'; // 2️⃣ Tell TypeScript what "children" will be
+import './globals.css';
+import type { ReactNode } from 'react';
 
-export default function RootLayout({ children }: { children: ReactNode }) { // 3️⃣ Function that wraps all pages
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en"> {/* 4️⃣ Required outer HTML tag */}
-      <body> {/* 5️⃣ Body styles applied everywhere */}
-        {children} {/* 7️⃣ Page content gets inserted here */}
+    <html lang="en">
+      <head>
+        <link rel="icon" href="/1000030440-modified.png" />
+      </head>
+      <body>
+        {children}
       </body>
     </html>
   );
