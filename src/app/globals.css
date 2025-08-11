@@ -94,8 +94,10 @@ body {
 /* Social Links */
 .social-links {
   display: flex;
+  flex-wrap: wrap;         /* Allows wrapping on small screens */
   gap: 1.2rem;
   margin: 1.5rem 0;
+  justify-content: flex-start; /* Or center, if you want them centered */
 }
 
 .social-link {
@@ -103,12 +105,11 @@ body {
   align-items: center;
   gap: 0.6rem;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   color: #222;
   font-size: 1.08rem;
-  transition: color 0.18s;
-  padding: 0.2rem 0.4rem;
-  border-radius: 6px;
+  transition: color 0.2s;
+  margin-bottom: 0.5rem;   /* Adds space between rows on mobile */
 }
 
 .social-link:hover {
