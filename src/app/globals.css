@@ -867,8 +867,24 @@ body {
     gap: 20px;
   }
   
+  .social-links {
+    width: 100%;
+    gap: 0.8rem;
+    justify-content: flex-start;
+  }
   .social-link {
-    padding: 10px 16px;
-    font-size: 13px;
+    flex: 1 1 140px;
+    min-width: 120px;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+    background: none;
+  }
+  .social-img {
+    margin-right: 0.5rem;
   }
 }
