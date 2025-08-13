@@ -264,6 +264,14 @@ export default function PersonalWebsite() {
       {/* Footer */}
       <footer className="footer">
         <p>&copy; 2024 Maurik. Built with Next.js and ❤️</p>
+        <div style={{ marginTop: '16px', fontSize: '14px' }}>
+          <Link href="/privacy" style={{ marginRight: '20px', color: '#666', textDecoration: 'none' }}>
+            Privacy Policy
+          </Link>
+          <Link href="/terms" style={{ color: '#666', textDecoration: 'none' }}>
+            Terms of Use
+          </Link>
+        </div>
       </footer>
     </div>
   );
