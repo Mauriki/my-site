@@ -1,4 +1,13 @@
+/**
+ * Notion OAuth Callback Handler
+ * 
+ * This endpoint handles the OAuth callback from Notion after user authorization.
+ * It exchanges the authorization code for an access token and stores it securely.
+ * The token is stored in a JSON file for persistence across deployments.
+ */
+
 import { NextResponse } from "next/server";
+import { storeToken } from "@/lib/notion";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
@@ -32,11 +41,17 @@ export async function GET(req: Request) {
     }
 
     const data = await response.json();
-
-    // For now, just return it so you can see it works
-    // Later you should store this securely in a database
-    return NextResponse.json({ ok: true, token: data });
-  } catch (error) {
-    return NextResponse.json({ error: (error as Error).message }, { status: 500 });
+    
+    // Store the token securely
+    storeToken(data);
+    
+    return NextResponse.json({ 
+      ok: true, 
+      message: "Successfully connected to Notion!",
+      workspace: data.workspace_name,
+      token_stored: true
+    });
+  } catch (err) {
+    return NextResponse.json({ error: (err as Error).message }, { status: 500 });
   }
 }

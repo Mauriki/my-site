@@ -1,217 +1,335 @@
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
+/**
+ * Individual Blog Post Page
+ * 
+ * This page displays a single blog post fetched from your Notion database.
+ * It includes SEO meta tags, table of contents, and navigation between posts.
+ * The content is converted from Notion blocks to HTML for proper display.
+ */
 
-// Blog post data - this is where you'll add new posts
-const blogPosts = [
-  {
-    id: 'getting-started-with-nextjs-14',
-    title: 'Getting Started with Next.js 14',
-    excerpt: 'A comprehensive guide to building modern web applications with Next.js 14, covering the latest features and best practices.',
-    content: `
-      <p>Next.js 14 represents a significant leap forward in the React framework ecosystem. With its new App Router, improved performance, and enhanced developer experience, it's become the go-to choice for building modern web applications.</p>
-      
-      <h2>What's New in Next.js 14</h2>
-      <p>The latest version introduces several groundbreaking features that make development faster and more efficient:</p>
-      
-      <ul>
-        <li><strong>App Router:</strong> A new file-system based router that's more intuitive and powerful</li>
-        <li><strong>Server Components:</strong> React components that run on the server for better performance</li>
-        <li><strong>Streaming:</strong> Progressive rendering for faster page loads</li>
-        <li><strong>Improved TypeScript Support:</strong> Better type safety and developer experience</li>
-      </ul>
-      
-      <h2>Getting Started</h2>
-      <p>To create a new Next.js 14 project, run:</p>
-      
-      <pre><code>npx create-next-app@latest my-app --typescript --tailwind --app</code></pre>
-      
-      <p>This command will set up a new project with TypeScript, Tailwind CSS, and the new App Router structure.</p>
-      
-      <h2>Key Benefits</h2>
-      <p>Next.js 14 offers several advantages over previous versions:</p>
-      
-      <ul>
-        <li>Faster development with hot reloading</li>
-        <li>Better SEO with server-side rendering</li>
-        <li>Automatic code splitting for optimal performance</li>
-        <li>Built-in API routes for backend functionality</li>
-      </ul>
-      
-      <p>Whether you're building a personal blog, e-commerce site, or enterprise application, Next.js 14 provides the tools and performance you need to create exceptional user experiences.</p>
-    `,
-    date: '2024-12-15',
-    category: 'Programming',
-    readTime: '8 min read',
-    author: 'Maurik'
-  },
-  {
-    id: 'why-im-learning-typescript',
-    title: 'Why I\'m Learning TypeScript',
-    excerpt: 'My journey into TypeScript and how it\'s improving my code quality and development experience.',
-    content: `
-      <p>TypeScript has been a game-changer in my programming journey. As someone who started with JavaScript, the transition to TypeScript has been both challenging and rewarding.</p>
-      
-      <h2>The Learning Curve</h2>
-      <p>When I first encountered TypeScript, I was intimidated by the type system. Coming from JavaScript, where everything was flexible and dynamic, the idea of defining types seemed restrictive. However, I quickly realized that this "restriction" was actually a superpower.</p>
-      
-      <h2>Benefits I've Experienced</h2>
-      <ul>
-        <li><strong>Fewer Bugs:</strong> TypeScript catches errors at compile time that would only surface at runtime in JavaScript</li>
-        <li><strong>Better IDE Support:</strong> Enhanced autocomplete and refactoring capabilities</li>
-        <li><strong>Improved Code Documentation:</strong> Types serve as living documentation</li>
-        <li><strong>Better Team Collaboration:</strong> Clear interfaces make code easier to understand and maintain</li>
-      </ul>
-      
-      <h2>My Learning Strategy</h2>
-      <p>I started by gradually adding TypeScript to existing JavaScript projects. This incremental approach allowed me to learn without overwhelming myself. I began with simple type annotations and gradually moved to more advanced features like generics and utility types.</p>
-      
-      <p>TypeScript has made me a more confident developer. The safety net it provides allows me to refactor code with confidence and build more robust applications.</p>
-    `,
-    date: '2024-12-10',
-    category: 'Programming',
-    readTime: '5 min read',
-    author: 'Maurik'
-  },
-  {
-    id: 'building-personal-brand-as-developer',
-    title: 'Building a Personal Brand as a Developer',
-    excerpt: 'Strategies for creating content, sharing knowledge, and building a presence in the tech community.',
-    content: `
-      <p>Building a personal brand as a developer isn't just about getting more job offers—it's about creating opportunities, sharing knowledge, and making meaningful connections in the tech community.</p>
-      
-      <h2>Why Personal Branding Matters</h2>
-      <p>In today's digital age, your online presence is often the first impression potential employers, clients, or collaborators have of you. A strong personal brand can open doors to opportunities you never knew existed.</p>
-      
-      <h2>My Approach to Content Creation</h2>
-      <ul>
-        <li><strong>Share Your Journey:</strong> Document your learning process, including both successes and failures</li>
-        <li><strong>Create Valuable Content:</strong> Focus on helping others solve real problems</li>
-        <li><strong>Be Consistent:</strong> Regular posting builds trust and keeps you top of mind</li>
-        <li><strong>Engage with the Community:</strong> Comment on others' posts and participate in discussions</li>
-      </ul>
-      
-      <h2>Platforms I Use</h2>
-      <p>I focus on platforms where developers actually spend time:</p>
-      
-      <ul>
-        <li><strong>Personal Blog:</strong> Deep-dive technical content and tutorials</li>
-        <li><strong>YouTube:</strong> Video tutorials and coding walkthroughs</li>
-        <li><strong>X (Twitter):</strong> Quick tips, industry insights, and community engagement</li>
-        <li><strong>GitHub:</strong> Open source contributions and project showcases</li>
-      </ul>
-      
-      <h2>Measuring Success</h2>
-      <p>Success isn't just about follower counts. I measure my personal brand success by:</p>
-      
-      <ul>
-        <li>Meaningful connections made</li>
-        <li>Knowledge shared and questions answered</li>
-        <li>Projects that inspire others</li>
-        <li>Opportunities that come from my online presence</li>
-      </ul>
-      
-      <p>Building a personal brand is a long-term investment. It's about consistently showing up, providing value, and being authentic in everything you share.</p>
-    `,
-    date: '2024-12-05',
-    category: 'Career',
-    readTime: '6 min read',
-    author: 'Maurik'
-  },
-  {
-    id: 'my-hashnode-post',
-    title: 'My First Hashnode Post',
-    excerpt: 'This is the post I created on Hashnode that I want to show on my website.',
-    content: `
-      <p>This is the content from your Hashnode post. You can copy and paste your Hashnode content here to display it on your own website.</p>
-      
-      <h2>How This Works</h2>
-      <p>When you write a post on Hashnode, you can copy the content and add it to your website's blog system. This way, you have the content on both platforms.</p>
-      
-      <h2>Benefits of This Approach</h2>
-      <ul>
-        <li><strong>Own Your Content:</strong> Your posts live on your own domain</li>
-        <li><strong>Better SEO:</strong> Search engines index your own website</li>
-        <li><strong>Custom Design:</strong> Your posts match your website's style</li>
-        <li><strong>No External Dependencies:</strong> Your blog works even if Hashnode is down</li>
-      </ul>
-      
-      <p>You can also add a link to the original Hashnode post at the bottom:</p>
-      
-      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
-        <p><strong>Originally published on Hashnode:</strong></p>
-        <a href="https://hashnode.com/post/cme2vomws000702jy3ulhhlnk" target="_blank" rel="noopener noreferrer">
-          Read on Hashnode →
-        </a>
-      </div>
-    `,
-    date: '2024-12-18',
-    category: 'Programming',
-    readTime: '3 min read',
-    author: 'Maurik'
+import { Metadata } from 'next';
+import Link from 'next/link';
+import Image from 'next/image';
+import { getStoredToken } from "@/lib/notion";
+
+interface BlogPost {
+  id: string;
+  title: string;
+  slug: string;
+  date: string;
+  tags: string[];
+  coverImage?: string;
+  excerpt: string;
+  content: string;
+  readTime: string;
+}
+
+// Generate metadata for SEO
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  
+  try {
+    const token = getStoredToken();
+    if (!token) {
+      return {
+        title: 'Post Not Found',
+        description: 'The blog post you\'re looking for doesn\'t exist.'
+      };
+    }
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/notion/sync`);
+    if (!response.ok) {
+      return {
+        title: 'Post Not Found',
+        description: 'The blog post you\'re looking for doesn\'t exist.'
+      };
+    }
+
+    const data = await response.json();
+    const post = data.posts.find((p: BlogPost) => p.slug === slug);
+
+    if (!post) {
+      return {
+        title: 'Post Not Found',
+        description: 'The blog post you\'re looking for doesn\'t exist.'
+      };
+    }
+
+    return {
+      title: `${post.title} | Maurik's Blog`,
+      description: post.excerpt,
+      openGraph: {
+        title: post.title,
+        description: post.excerpt,
+        type: 'article',
+        publishedTime: post.date,
+        authors: ['Maurik'],
+        tags: post.tags,
+        images: post.coverImage ? [post.coverImage] : [],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: post.title,
+        description: post.excerpt,
+        images: post.coverImage ? [post.coverImage] : [],
+      },
+    };
+  } catch (err) {
+    return {
+      title: 'Post Not Found',
+      description: 'The blog post you\'re looking for doesn\'t exist.'
+    };
   }
-];
+}
+
+// Generate static params for all posts
+export async function generateStaticParams() {
+  try {
+    const token = getStoredToken();
+    if (!token) return [];
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/notion/sync`);
+    if (!response.ok) return [];
+
+    const data = await response.json();
+    return data.posts.map((post: BlogPost) => ({
+      slug: post.slug,
+    }));
+  } catch (err) {
+    return [];
+  }
+}
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = blogPosts.find(p => p.id === slug);
+  
+  try {
+    const token = getStoredToken();
+    if (!token) {
+      return (
+        <div className="container">
+          <div className="text-center py-12">
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">Notion Integration Required</h1>
+            <p className="text-gray-600 mb-6">Please authorize the Notion integration to view blog posts.</p>
+            <Link href="/" className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+              Go Home
+            </Link>
+          </div>
+        </div>
+      );
+    }
 
-  if (!post) {
-    notFound();
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/notion/sync`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch posts');
+    }
+
+    const data = await response.json();
+    const post = data.posts.find((p: BlogPost) => p.slug === slug);
+
+    if (!post) {
+      return (
+        <div className="container">
+          <div className="text-center py-12">
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">Post Not Found</h1>
+            <p className="text-gray-600 mb-6">The blog post you&apos;re looking for doesn&apos;t exist.</p>
+            <Link href="/blog" className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+              Back to Blog
+            </Link>
+          </div>
+        </div>
+      );
+    }
+
+    // Find next and previous posts
+    const currentIndex = data.posts.findIndex((p: BlogPost) => p.slug === slug);
+    const nextPost = currentIndex > 0 ? data.posts[currentIndex - 1] : null;
+    const prevPost = currentIndex < data.posts.length - 1 ? data.posts[currentIndex + 1] : null;
+
+    // Generate table of contents from headings
+    const toc = generateTableOfContents(post.content);
+
+    return (
+      <div className="container max-w-4xl mx-auto px-6 py-8">
+        {/* Breadcrumbs */}
+        <nav className="mb-8">
+          <ol className="flex items-center space-x-2 text-sm text-gray-500">
+            <li><Link href="/" className="hover:text-gray-700">Home</Link></li>
+            <li><span className="mx-2">/</span></li>
+            <li><Link href="/blog" className="hover:text-gray-700">Blog</Link></li>
+            <li><span className="mx-2">/</span></li>
+            <li className="text-gray-900">{post.title}</li>
+          </ol>
+        </nav>
+
+        <article className="bg-white rounded-lg shadow-lg overflow-hidden">
+          {/* Cover Image */}
+          {post.coverImage && (
+            <div className="relative h-64 md:h-80 bg-gray-200">
+              <Image
+                src={post.coverImage}
+                alt={post.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          )}
+
+          <div className="p-8">
+            {/* Post Header */}
+            <header className="mb-8">
+              <h1 className="text-4xl font-bold text-gray-900 mb-4 leading-tight">{post.title}</h1>
+              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-4">
+                <time dateTime={post.date}>
+                  {new Date(post.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </time>
+                <span>•</span>
+                <span>{post.readTime}</span>
+                {post.tags.length > 0 && (
+                  <>
+                    <span>•</span>
+                    <div className="flex gap-2">
+                      {post.tags.map((tag: string) => (
+                        <Link
+                          key={tag}
+                          href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+                          className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs hover:bg-blue-200 transition-colors"
+                        >
+                          {tag}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+              {post.excerpt && (
+                <p className="text-xl text-gray-600 leading-relaxed">{post.excerpt}</p>
+              )}
+            </header>
+
+            {/* Table of Contents */}
+            {toc.length > 0 && (
+              <div className="mb-8 p-6 bg-gray-50 rounded-lg">
+                <h2 className="text-lg font-semibold text-gray-900 mb-4">Table of Contents</h2>
+                <nav>
+                  <ul className="space-y-2">
+                    {toc.map((item, index) => (
+                      <li key={index}>
+                        <a
+                          href={`#${item.id}`}
+                          className={`text-blue-600 hover:text-blue-800 transition-colors ${
+                            item.level === 3 ? 'ml-4' : ''
+                          }`}
+                        >
+                          {item.text}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </div>
+            )}
+
+            {/* Post Content */}
+            <div 
+              className="prose prose-lg max-w-none"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+
+            {/* Post Footer */}
+            <footer className="mt-12 pt-8 border-t border-gray-200">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div className="flex items-center gap-4">
+                  <span className="text-sm text-gray-600">Share this post:</span>
+                  <a
+                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`${process.env.NEXT_PUBLIC_BASE_URL || 'https://maurik.vercel.app'}/blog/${post.slug}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    Twitter
+                  </a>
+                  <a
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${process.env.NEXT_PUBLIC_BASE_URL || 'https://maurik.vercel.app'}/blog/${post.slug}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </article>
+
+        {/* Navigation */}
+        <nav className="mt-12 flex justify-between items-center">
+          {prevPost ? (
+            <Link
+              href={`/blog/${prevPost.slug}`}
+              className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              <span className="hidden sm:inline">Previous: {prevPost.title}</span>
+              <span className="sm:hidden">Previous</span>
+            </Link>
+          ) : (
+            <div></div>
+          )}
+          
+          {nextPost ? (
+            <Link
+              href={`/blog/${nextPost.slug}`}
+              className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors"
+            >
+              <span className="hidden sm:inline">Next: {nextPost.title}</span>
+              <span className="sm:hidden">Next</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          ) : (
+            <div></div>
+          )}
+        </nav>
+      </div>
+    );
+  } catch (err) {
+    return (
+      <div className="container">
+        <div className="text-center py-12">
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">Error Loading Post</h1>
+          <p className="text-gray-600 mb-6">There was an error loading this blog post.</p>
+          <Link href="/blog" className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+            Back to Blog
+          </Link>
+        </div>
+      </div>
+    );
   }
+}
 
-  return (
-    <div className="container">
-      <article className="blog-post-full">
-        {/* Back to Blog */}
-        <Link href="/blog" className="back-link">
-          ← Back to Blog
-        </Link>
+// Generate table of contents from HTML content
+function generateTableOfContents(content: string) {
+  const headings = content.match(/<h[23][^>]*>(.*?)<\/h[23]>/g);
+  if (!headings) return [];
 
-        {/* Post Header */}
-        <header className="post-header">
-          <div className="post-meta">
-            <span className="category">{post.category}</span>
-            <span className="date">{new Date(post.date).toLocaleDateString('en-US', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
-            })}</span>
-            <span className="read-time">{post.readTime}</span>
-            <span className="author">By {post.author}</span>
-          </div>
-          <h1>{post.title}</h1>
-          <p className="excerpt">{post.excerpt}</p>
-        </header>
-
-        {/* Post Content */}
-        <div 
-          className="post-content"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
-
-        {/* Post Footer */}
-        <footer className="post-footer">
-          <div className="share-buttons">
-            <span>Share this post:</span>
-            <a 
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://yourdomain.com/blog/${post.id}`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="share-button twitter"
-            >
-              X (Twitter)
-            </a>
-            <a 
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://yourdomain.com/blog/${post.id}`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="share-button linkedin"
-            >
-              LinkedIn
-            </a>
-          </div>
-        </footer>
-      </article>
-    </div>
-  );
+  return headings.map((heading, index) => {
+    const level = heading.charAt(2);
+    const text = heading.replace(/<[^>]*>/g, '');
+    const id = `heading-${index}`;
+    
+    return {
+      id,
+      text,
+      level: parseInt(level)
+    };
+  });
 }
