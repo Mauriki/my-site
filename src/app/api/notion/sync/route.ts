@@ -159,14 +159,16 @@ export async function GET() {
     const token = getStoredToken();
     if (!token) {
       return NextResponse.json({ 
-        error: "No valid Notion token found. Please authorize the integration first." 
+        error: "No valid Notion token found. Please authorize the integration first.",
+        action_required: "Visit /auth/notion to connect your Notion database"
       }, { status: 401 });
     }
 
     const databaseId = process.env.NOTION_DATABASE_ID;
     if (!databaseId) {
       return NextResponse.json({ 
-        error: "NOTION_DATABASE_ID environment variable not set" 
+        error: "NOTION_DATABASE_ID environment variable not set",
+        action_required: "Add NOTION_DATABASE_ID to your Vercel environment variables"
       }, { status: 500 });
     }
 
