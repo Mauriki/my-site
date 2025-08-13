@@ -45,11 +45,24 @@ export default function NotionAuthSuccess() {
         </div>
 
         <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
-          <h2 className="font-semibold text-green-800 mb-3">What happens next?</h2>
+          <h2 className="font-semibold text-green-800 mb-3">Next Steps:</h2>
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
+            <h3 className="font-medium text-yellow-800 mb-2">⚠️ Important: Add Token to Vercel</h3>
+            <p className="text-yellow-700 text-sm mb-3">
+              Check your console/logs for the NOTION_ACCESS_TOKEN and add it to your Vercel environment variables.
+            </p>
+            <ol className="text-sm text-yellow-700 space-y-1 text-left">
+              <li>1. Copy the NOTION_ACCESS_TOKEN from your console</li>
+              <li>2. Go to Vercel → Project Settings → Environment Variables</li>
+              <li>3. Add: NOTION_ACCESS_TOKEN=your_token_here</li>
+              <li>4. Redeploy your project</li>
+            </ol>
+          </div>
+          
           <ul className="text-left text-green-700 space-y-2">
             <li className="flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-              Write blog posts in your Notion database
+              After adding the token, write blog posts in your Notion database
             </li>
             <li className="flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full"></span>

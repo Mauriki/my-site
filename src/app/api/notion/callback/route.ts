@@ -2,12 +2,11 @@
  * Notion OAuth Callback Handler
  * 
  * This endpoint handles the OAuth callback from Notion after user authorization.
- * It exchanges the authorization code for an access token and stores it securely.
- * The token is stored in a JSON file for persistence across deployments.
+ * It exchanges the authorization code for an access token and logs it to the console.
+ * Copy the token from the console and add it as NOTION_ACCESS_TOKEN in your Vercel environment variables.
  */
 
 import { NextResponse } from "next/server";
-import { storeToken } from "@/lib/notion";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
@@ -64,17 +63,24 @@ export async function GET(req: Request) {
 
     const data = await response.json();
     
-    // Store the token securely
-    storeToken(data);
+    // Log the access token to console for manual copying
+    console.log('🔐 NOTION ACCESS TOKEN (copy this to Vercel environment variables):');
+    console.log('NOTION_ACCESS_TOKEN=' + data.access_token);
+    console.log('📋 Token details:');
+    console.log('- Workspace:', data.workspace_name);
+    console.log('- Workspace ID:', data.workspace_id);
+    console.log('- Bot ID:', data.bot_id);
+    console.log('- Token expires in:', data.expires_in, 'seconds');
+    console.log('⚠️  IMPORTANT: Copy the NOTION_ACCESS_TOKEN above and add it to your Vercel environment variables!');
     
-    // Return success response with redirect to blog
     return NextResponse.json({ 
       ok: true, 
-      message: "Successfully connected to Notion!",
+      message: "Successfully connected to Notion! Check your console for the access token.",
       workspace: data.workspace_name,
       workspace_id: data.workspace_id,
-      token_stored: true,
-      redirect_url: "/blog"
+      token_logged: true,
+      instructions: "Copy the NOTION_ACCESS_TOKEN from your console and add it to Vercel environment variables",
+      redirect_url: "/auth/notion/success"
     });
   } catch (err) {
     console.error("OAuth callback error:", err);

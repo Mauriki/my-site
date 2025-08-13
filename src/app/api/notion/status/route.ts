@@ -17,7 +17,7 @@ export async function GET() {
         connected: false,
         status: "not_connected",
         message: "No valid Notion token found",
-        action_required: "Visit /auth/notion to connect your Notion database"
+        action_required: "Add NOTION_ACCESS_TOKEN to your Vercel environment variables"
       });
     }
 
@@ -31,7 +31,7 @@ export async function GET() {
         connected: false,
         status: "token_expired",
         message: "Notion token has expired",
-        action_required: "Visit /auth/notion to reconnect your Notion database"
+        action_required: "Update NOTION_ACCESS_TOKEN in your Vercel environment variables"
       });
     }
 

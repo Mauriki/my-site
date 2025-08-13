@@ -33,6 +33,7 @@ export default function Blog() {
     connected: boolean;
     status: string;
     message: string;
+    action_required?: string;
     workspace?: { name: string; id: string };
     database?: { title: string; id: string };
     token_expires_in?: number;
@@ -243,12 +244,9 @@ export default function Blog() {
                     {connectionStatus.message}
                   </span>
                 </div>
-                <Link
-                  href="/auth/notion"
-                  className="bg-yellow-600 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition-colors text-sm"
-                >
-                  Reconnect
-                </Link>
+                <div className="text-sm text-yellow-700">
+                  {connectionStatus.action_required}
+                </div>
               </div>
             </div>
           )}
