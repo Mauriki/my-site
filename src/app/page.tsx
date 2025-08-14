@@ -1,40 +1,10 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { getRecentPosts } from '@/data/blog-posts';
 
 export default function PersonalWebsite() {
-  const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [subscriptionStatus, setSubscriptionStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubscriptionStatus('idle');
-
-    try {
-      // ConvertKit API integration
-      const response = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      if (response.ok) {
-        setSubscriptionStatus('success');
-        setEmail('');
-      } else {
-        setSubscriptionStatus('error');
-      }
-    } catch {
-      setSubscriptionStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <div className="container">
@@ -201,23 +171,13 @@ export default function PersonalWebsite() {
         <p>Thoughts on programming, technology, and continuous learning.</p>
         
         <div className="blog-posts">
-          <article className="blog-post">
-            <div className="date">December 15, 2024</div>
-            <h3><Link href="/blog/getting-started-with-nextjs-14">Getting Started with Next.js 14</Link></h3>
-            <p>A comprehensive guide to building modern web applications with Next.js 14, covering the latest features and best practices.</p>
-          </article>
-
-          <article className="blog-post">
-            <div className="date">December 10, 2024</div>
-            <h3><Link href="/blog/why-im-learning-typescript">Why I&apos;m Learning TypeScript</Link></h3>
-            <p>My journey into TypeScript and how it&apos;s improving my code quality and development experience.</p>
-          </article>
-
-          <article className="blog-post">
-            <div className="date">December 5, 2024</div>
-            <h3><Link href="/blog/building-personal-brand-as-developer">Building a Personal Brand as a Developer</Link></h3>
-            <p>Strategies for creating content, sharing knowledge, and building a presence in the tech community.</p>
-          </article>
+          {getRecentPosts(3).map(post => (
+            <article key={post.id} className="blog-post">
+              <div className="date">{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
+              <h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3>
+              <p>{post.excerpt}</p>
+            </article>
+          ))}
         </div>
         
         <div style={{ textAlign: 'center', marginTop: '40px' }}>
@@ -230,34 +190,19 @@ export default function PersonalWebsite() {
       {/* Newsletter Section */}
       <section id="newsletter" className="section">
         <div className="newsletter">
-          <h3>Stay Updated</h3>
+          <h3>The Manual</h3>
           <p>
-            Subscribe to my newsletter for weekly insights on programming, tech trends, and personal development. 
-            No spam, just valuable content.
+            Subscribe to my monthly newsletter for exclusive content, programming insights, and curated resources. 
+            I don&apos;t share this content anywhere else.
           </p>
-          <form onSubmit={handleNewsletterSubmit} className="newsletter-form">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              disabled={isSubmitting}
-            />
-            <button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? 'Subscribing...' : 'Subscribe'}
-            </button>
-          </form>
-          {subscriptionStatus === 'success' && (
-            <p style={{ color: 'green', marginTop: '16px', fontSize: '14px' }}>
-              ✅ Thanks for subscribing! Check your email for confirmation.
-            </p>
-          )}
-          {subscriptionStatus === 'error' && (
-            <p style={{ color: 'red', marginTop: '16px', fontSize: '14px' }}>
-              ❌ Something went wrong. Please try again.
-            </p>
-          )}
+          <div style={{ textAlign: 'center', marginTop: '24px' }}>
+            <Link href="/newsletter" className="cta-button">
+              Subscribe to The Manual →
+            </Link>
+          </div>
+          <p style={{ textAlign: 'center', marginTop: '16px', fontSize: '14px', color: '#666' }}>
+            Monthly newsletter with personal stories and curated resources
+          </p>
         </div>
       </section>
 
