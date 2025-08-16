@@ -29,7 +29,7 @@ export default function TermsPage() {
         <section className="legal-card">
           <h2>Limitations & disclaimers</h2>
           <p>
-            Information is provided "as is" and for informational purposes only. The site owner is not liable for damages arising
+            Information is provided &quot;as is&quot; and for informational purposes only. The site owner is not liable for damages arising
             from site use.
           </p>
         </section>
