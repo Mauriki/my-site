@@ -1,10 +1,10 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getRecentPosts } from '@/data/blog-posts';
 
 export default function PersonalWebsite() {
+  const [showSubscribeOnLoad] = useState(true); // set to true to show immediately
 
   return (
     <div className="container">
@@ -166,42 +166,42 @@ export default function PersonalWebsite() {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="section">
-        <h2>Latest Posts</h2>
-        <p>Thoughts on programming, technology, and continuous learning.</p>
-        
-        <div className="blog-posts">
-          {getRecentPosts(3).map(post => (
-            <article key={post.id} className="blog-post">
-              <div className="date">{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
-              <h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3>
-              <p>{post.excerpt}</p>
-            </article>
-          ))}
-        </div>
-        
-        <div style={{ textAlign: 'center', marginTop: '40px' }}>
-          <Link href="/blog" className="cta-button">
-            View All Posts
-          </Link>
+      <section id="blog" className="section" style={{ marginBottom: '3.5rem' }}>
+        <h2 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1.2rem' }}>Blog</h2>
+        <p style={{ color: '#666', marginBottom: '1rem' }}>Blog coming soon.</p>
+        <div style={{ marginTop: '0.6rem' }}>
+          <a href="#" style={{ color: '#0070f3', textDecoration: 'none', fontWeight: 600 }}>Read updates (coming soon)</a>
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section id="newsletter" className="section">
-        <div className="newsletter">
-          <h3>The Manual</h3>
-          <p>
-            Subscribe to my monthly newsletter for exclusive content, programming insights, and curated resources. 
-            I don&apos;t share this content anywhere else.
+      {/* Newsletter Section - REPLACED with inline Substack embed */}
+      <section id="newsletter" className="section" style={{ marginTop: '2.5rem' }}>
+        <div style={{ maxWidth: 720, margin: '0 auto', textAlign: 'center', padding: '1rem' }}>
+          <h3 style={{ fontSize: '1.6rem', marginBottom: '0.5rem' }}>The Manual — Newsletter</h3>
+          <p style={{ color: '#666', marginBottom: '1rem' }}>
+            Subscribe for short notes, updates and exclusive resources.
           </p>
-          <div style={{ textAlign: 'center', marginTop: '24px' }}>
-            <Link href="/newsletter" className="cta-button">
-              Subscribe to The Manual →
-            </Link>
+
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.6rem' }}>
+            <div style={{ width: '100%', maxWidth: 560 }}>
+              <iframe
+                src="https://maurik.substack.com/embed"
+                title="Subscribe to Maurik on Substack"
+                style={{
+                  width: '100%',
+                  height: 320,
+                  border: '1px solid #EEE',
+                  background: '#fff',
+                  borderRadius: 8,
+                }}
+                frameBorder="0"
+                scrolling="no"
+              />
+            </div>
           </div>
-          <p style={{ textAlign: 'center', marginTop: '16px', fontSize: '14px', color: '#666' }}>
-            Monthly newsletter with personal stories and curated resources
+
+          <p style={{ color: '#888', fontSize: 13 }}>
+            By subscribing you agree to the <Link href="/privacy"><a style={{ color: '#0070f3' }}>Privacy Policy</a></Link>.
           </p>
         </div>
       </section>
