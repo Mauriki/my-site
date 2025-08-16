@@ -16,6 +16,13 @@
   --hover-color: #f8f8f8;
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+
+  /* ===== SOCIAL LINKS - fixed uniform boxes, responsive stacking on small screens ===== */
+
+  /* adjust this value to change desktop box width */
+  --social-box-w: 160px;
+  --social-icon-size: 36px;
+  --social-gap: 10px;
 }
 
 /* ===== RESET & BASE STYLES ===== */
@@ -101,37 +108,189 @@ body {
   background-color: var(--primary-color);
 }
 
-/* ===== SOCIAL LINKS ===== */
+/* ===== SOCIAL LINKS - fixed uniform boxes, responsive stacking on small screens ===== */
+
+/* adjust this value to change desktop box width */
+:root {
+  --social-box-w: 160px;
+  --social-icon-size: 36px;
+  --social-gap: 10px;
+}
+
+/* container */
 .social-links {
   display: flex;
+  gap: var(--social-gap);
   flex-wrap: wrap;
-  gap: 1.2rem;
-  margin: 1.5rem 0;
-  justify-content: flex-start;
-}
-
-.social-link {
-  display: flex;
   align-items: center;
-  gap: 0.5rem;
-  color: var(--secondary-color);
+  margin: 0;
+  padding: 0;
+  justify-content: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* fixed-size boxes on desktop/tablet */
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-  padding: 0.5rem 0.75rem;
-  border-radius: 8px;
-  background-color: var(--hover-color);
+  color: inherit;
+  box-sizing: border-box;
+
+  /* FIXED width & prevent growth/shrink on larger viewports */
+  flex: 0 0 var(--social-box-w);
+  width: var(--social-box-w);
+  max-width: var(--social-box-w);
+  min-width: var(--social-box-w);
+
+  min-height: 48px;
+  justify-content: flex-start;
+  background: transparent;
+  overflow: hidden; /* prevent overflow when label is long */
+
+  /* subtle card for social items — minimal, keeps existing sizes/spacing */
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,255,0.95));
+  border: 1px solid rgba(10,12,20,0.04);
+  box-shadow: 0 6px 18px rgba(12,15,20,0.04), inset 0 1px 0 rgba(255,255,255,0.6);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
 
-.social-link:hover {
-  color: var(--primary-color);
-  background-color: #f0f0f0;
+/* logo fixed size, never scale */
+.social-link .social-img,
+.social-link img {
+  width: var(--social-icon-size) !important;
+  height: var(--social-icon-size) !important;
+  object-fit: contain !important;
+  border-radius: 6px;
+  flex-shrink: 0;
+  display: block;
 }
 
-.social-img {
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
+/* label: single-line ellipsis inside fixed box */
+.social-link .social-label,
+.social-link {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+}
+.social-link .social-label {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: calc(var(--social-box-w) - (var(--social-icon-size) + 34px)); /* icon + gaps/padding */
+}
+
+/* Slightly stronger affordance on hover for pointer devices */
+@media (hover: hover) and (pointer: fine) {
+  .social-link:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(12,15,20,0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+    background: linear-gradient(180deg, rgba(255,255,255,1), rgba(250,250,255,1));
+  }
+}
+
+/* keep card look on mobile but avoid heavy shadows */
+@media (max-width: 599px) {
+  .social-link {
+    box-shadow: 0 8px 22px rgba(12,15,20,0.06);
+  }
+}
+
+/* SMALL SCREENS: switch to stacked full-width cards (then boxes can expand to viewport) */
+@media (max-width: 599px) {
+  .social-links {
+    gap: 12px;
+  }
+  .social-link {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    justify-content: flex-start;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(12,15,20,0.06);
+    border-radius: 12px;
+    overflow: visible;
+    white-space: normal;
+    min-height: 56px;
+  }
+  .social-link .social-img,
+  .social-link img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .social-link .social-label {
+    max-width: calc(100% - (40px + 36px));
+    white-space: normal;
+  }
+}
+
+/* Ensure social links start at the left of the content and stay left-aligned on small screens */
+.social-links {
+  justify-content: flex-start !important;   /* always start from left */
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  align-items: flex-start;                  /* align items to top/left */
+}
+
+/* Make sure each item does not get auto-centered by parent */
+.social-link {
+  margin-left: 0 !important;
+}
+
+/* Mobile: stacked cards align to left of the content area */
+@media (max-width: 599px) {
+  .social-links {
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    padding-left: 0 !important;
+  }
+
+  /* keep each stacked item flush with the content area */
+  .social-link {
+    margin-left: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+}
+
+/* ensure images never cause horizontal overflow */
+.social-link img { max-width: 100%; height: auto; }
+
+/* ===== SMALL LAYOUT IMPROVEMENTS ===== */
+/* Keep header image responsive and aligned */
+.header img,
+.header :global(img) {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 40px 0 30px;
+    margin-bottom: 40px;
+  }
+  .header img,
+  .header :global(img) {
+    width: 64px;
+    height: 64px;
+  }
+  .nav {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+}
+
+/* Prevent accidental horizontal scroll from long content */
+html, body {
+  overflow-x: hidden;
 }
 
 /* ===== SECTIONS ===== */
@@ -185,54 +344,6 @@ body {
 .project-card p {
   color: var(--secondary-color);
   font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-/* ===== BLOG ===== */
-.blog-posts {
-  display: grid;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.blog-post {
-  padding: 1.5rem;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  transition: all 0.3s ease;
-}
-
-.blog-post:hover {
-  border-color: var(--accent-color);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.blog-post .date {
-  font-size: 0.875rem;
-  color: var(--secondary-color);
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.blog-post h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-}
-
-.blog-post h3 a {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.blog-post h3 a:hover {
-  color: var(--accent-color);
-}
-
-.blog-post p {
-  color: var(--secondary-color);
   line-height: 1.6;
 }
 
@@ -303,6 +414,91 @@ body {
   cursor: not-allowed;
 }
 
+/* Newsletter subscribe styles (left aligned, responsive) */
+#newsletter {}
+
+/* Box that holds the form */
+#newsletter .subscribe-box {
+  display: flex;
+  justify-content: flex-start; /* keep left-aligned */
+  padding: 14px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(12,15,20,0.06);
+  max-width: 520px; /* slightly smaller as requested */
+  width: 100%;
+  align-items: center;
+}
+
+/* Form layout (desktop: row; mobile: column) */
+#newsletter .subscribe-form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Input styling */
+#newsletter .subscribe-input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+  transition: box-shadow .12s ease, border-color .12s ease;
+}
+#newsletter .subscribe-input:focus {
+  box-shadow: 0 8px 24px rgba(2,6,23,0.06);
+  border-color: #d0e6ff;
+}
+
+/* Button styling (vibrant, subtle shadow) */
+#newsletter .subscribe-button {
+  background: linear-gradient(90deg,#1e90ff 0%,#0070f3 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  min-width: 120px;
+  box-shadow: 0 8px 28px rgba(2,112,243,0.18);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+#newsletter .subscribe-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(2,112,243,0.22);
+}
+
+/* small note styling */
+#newsletter .subscribe-note {
+  color: #888;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+/* Mobile: stack input and button, full-width */
+@media (max-width: 600px) {
+  #newsletter .subscribe-box {
+    padding: 12px;
+    max-width: 95%;
+  }
+  #newsletter .subscribe-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #newsletter .subscribe-input,
+  #newsletter .subscribe-button {
+    width: 100%;
+  }
+  #newsletter .subscribe-button {
+    min-width: 0;
+    padding: 12px;
+  }
+}
+
 /* ===== BUTTONS ===== */
 .cta-button {
   display: inline-block;
@@ -334,6 +530,77 @@ body {
 .footer p {
   color: var(--secondary-color);
   margin-bottom: 1rem;
+}
+
+/* ===== LEGAL PAGES ===== */
+/* Legal pages (privacy / terms) - modern, readable card layout */
+.legal-page {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.legal-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 28px rgba(10,12,20,0.06);
+  border: 1px solid rgba(10,12,20,0.03);
+}
+
+/* header variant */
+.legal-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 28px;
+  text-align: left;
+  border-left: 6px solid #0070f3;
+}
+
+.legal-header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  letter-spacing: -0.5px;
+}
+
+.legal-sub {
+  margin: 0;
+  color: #556;
+  font-size: 0.97rem;
+}
+
+/* section headings and body */
+.legal-card h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.05rem;
+  color: #0b1726;
+}
+
+.legal-card p {
+  margin: 0 0 10px 0;
+  color: #444;
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
+
+/* small footer note */
+.legal-note {
+  text-align: left;
+  max-width: 900px;
+  margin: 8px auto 40px;
+  color: #7a7a7a;
+  font-size: 0.88rem;
+}
+
+/* responsive */
+@media (max-width: 720px) {
+  .legal-page { margin: 18px auto; }
+  .legal-header { padding: 18px; border-left-width: 5px; }
+  .legal-card { padding: 14px; border-radius: 10px; }
+  .legal-header h1 { font-size: 1.4rem; }
 }
 
 /* ===== UTILITY CLASSES ===== */
@@ -422,77 +689,6 @@ body {
   }
 }
 
-/* ===== PROSE STYLES FOR BLOG CONTENT ===== */
-.prose {
-  color: var(--text-color);
-  line-height: 1.7;
-}
-
-.prose h2 {
-  font-size: 1.875rem;
-  font-weight: 700;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
-}
-
-.prose h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
-  color: var(--primary-color);
-}
-
-.prose h4 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-top: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: var(--primary-color);
-}
-
-.prose p {
-  margin-bottom: 1rem;
-  color: var(--text-color);
-}
-
-.prose ul, .prose ol {
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
-}
-
-.prose li {
-  margin-bottom: 0.5rem;
-}
-
-.prose strong {
-  font-weight: 600;
-  color: var(--primary-color);
-}
-
-.prose pre {
-  background: #f8f9fa;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1rem;
-  overflow-x: auto;
-  margin: 1rem 0;
-}
-
-.prose code {
-  background: #f8f9fa;
-  padding: 0.125rem 0.25rem;
-  border-radius: 4px;
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-}
-
-.prose pre code {
-  background: none;
-  padding: 0;
-}
-
 /* ===== LINE CLAMP UTILITIES ===== */
 .line-clamp-2 {
   display: -webkit-box;
@@ -506,4 +702,68 @@ body {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* ===== GIT INSTRUCTIONS ===== */
+.git-instructions {
+  font-family: var(--font-mono);
+  background: #f4f4f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+
+.git-instructions h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.git-instructions code {
+  background: #eef;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+.git-instructions pre {
+  background: #eef;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.git-instructions pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.git-instructions .npm-run {
+  display: inline-block;
+  background: var(--accent-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.git-instructions .npm-run:hover {
+  background: #0056b3;
+}
+
+.git-instructions .git-command {
+  display: inline-block;
+  background: #e2f0d9;
+  color: #3c763d;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.git-instructions .git-command:hover {
+  background: #d6e9c6;
 }

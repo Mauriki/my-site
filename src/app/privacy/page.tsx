@@ -1,74 +1,53 @@
-export default function Privacy() {
+import Link from 'next/link';
+
+export default function PrivacyPage() {
   return (
-    <main className="mx-auto max-w-2xl px-6 py-12 leading-7">
-      <h1 className="text-4xl font-bold mb-4">Privacy Policy</h1>
-      <p className="text-gray-600 mb-8">Last updated: August 13, 2025</p>
-      
-      <div className="space-y-6">
-        <p>
-          This site and integration (the &quot;Service&quot;) connect your Notion account to receive and store blog posts from https://maurik.vercel.app.
-        </p>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-3">What we collect</h2>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>We do not sell personal data.</li>
-            <li>We may process technical data sent by your browser (e.g., IP, user agent, timestamps).</li>
-            <li>OAuth tokens (if/when you authorize) to perform requested actions in your Notion workspace.</li>
-          </ul>
-        </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-3">How we use data</h2>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>To operate and improve the Service.</li>
-            <li>To authenticate your connection with Notion.</li>
-            <li>To communicate with you if you contact us.</li>
-          </ul>
-        </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-3">Data sharing</h2>
+    <div className="container">
+      <main className="legal-page">
+        <header className="legal-card legal-header">
+          <h1>Privacy Policy</h1>
+          <p className="legal-sub">
+            Short summary: how your data is handled — clear, minimal, and privacy-first.
+          </p>
+        </header>
+
+        <section className="legal-card">
+          <h2>What we collect</h2>
           <p>
-            We do not sell your personal data. We may share data with service providers strictly to operate the Service, or if required by law.
+            We only collect the information you provide intentionally (for example, your email when subscribing).
+            We do not sell personal data. Aggregated analytics may be used to improve the site.
           </p>
         </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-3">Data retention</h2>
+
+        <section className="legal-card">
+          <h2>How we use it</h2>
           <p>
-            We retain data only as long as necessary for the purposes above or as required by law. You may request deletion at any time.
+            Email addresses are used only to deliver newsletter content via the third-party provider you subscribe with.
+            We may use basic analytics to understand site performance and improve content.
           </p>
         </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-3">Security</h2>
+
+        <section className="legal-card">
+          <h2>Third-party services</h2>
           <p>
-            We use reasonable safeguards, but no method of transmission or storage is 100% secure.
+            Subscription handling and email delivery are performed by Substack (or other chosen provider). Please review their
+            policies for details on data usage. This site links to external services and is not responsible for their practices.
           </p>
         </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-3">Children</h2>
+
+        <section className="legal-card">
+          <h2>Contact</h2>
           <p>
-            The Service is not intended for children under 13.
+            Questions or requests about your data? <Link href="/contact">Contact me</Link>.
           </p>
         </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-3">Changes</h2>
-          <p>
-            We may update this policy. We will post updates on this page.
-          </p>
-        </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-3">Contact</h2>
-          <p>
-            Questions? Email: <a href="mailto:maurikmunir@gmail.com" className="text-blue-600 hover:underline">maurikmunir@gmail.com</a>
-          </p>
-        </section>
-      </div>
-    </main>
+
+        <footer className="legal-note">
+          <small>
+            This page is for informational purposes. The original legal text remains in effect where applicable.
+          </small>
+        </footer>
+      </main>
+    </div>
   );
 }
