@@ -2,9 +2,22 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import SupascribeEmbed from '../components/SupascribeEmbed';
 
 export default function PersonalWebsite() {
-  const [showSubscribeOnLoad] = useState(true); // set to true to show immediately
+  const [email, setEmail] = useState('');
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      alert('Please enter a valid email.');
+      return;
+    }
+    const url = `https://maurik.substack.com/subscribe?email=${encodeURIComponent(email)}`;
+    window.open(url, '_blank', 'noopener');
+    setEmail('');
+    alert('A new tab was opened to complete your subscription.');
+  };
 
   return (
     <div className="container">
@@ -49,7 +62,7 @@ export default function PersonalWebsite() {
       <nav className="nav">
         <a href="#about" className="active">About</a>
         <a href="#projects">My Work</a>
-        <a href="#blog">Blog</a>
+        <a href="#posts">Posts</a>
         <a href="#newsletter">Newsletter</a>
       </nav>
 
@@ -165,43 +178,36 @@ export default function PersonalWebsite() {
         </ul>
       </section>
 
-      {/* Blog Section */}
-      <section id="blog" className="section" style={{ marginBottom: '3.5rem' }}>
-        <h2 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1.2rem' }}>Blog</h2>
-        <p style={{ color: '#666', marginBottom: '1rem' }}>Blog coming soon.</p>
-        <div style={{ marginTop: '0.6rem' }}>
-          <a href="#" style={{ color: '#0070f3', textDecoration: 'none', fontWeight: 600 }}>Read updates (coming soon)</a>
-        </div>
+      {/* Blog Section -> Posts */}
+      <section id="posts" className="section" style={{ marginBottom: '3.5rem' }}>
+        <h2 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1.2rem' }}>Posts</h2>
+
+        {/* Supascribe feed embed (keeps your feed present) */}
+        <SupascribeEmbed />
       </section>
 
-      {/* Newsletter Section - REPLACED with inline Substack embed */}
+      {/* Newsletter Section - left-aligned minimal subscribe */}
       <section id="newsletter" className="section" style={{ marginTop: '2.5rem' }}>
-        <div style={{ maxWidth: 720, margin: '0 auto', textAlign: 'center', padding: '1rem' }}>
-          <h3 style={{ fontSize: '1.6rem', marginBottom: '0.5rem' }}>The Manual — Newsletter</h3>
-          <p style={{ color: '#666', marginBottom: '1rem' }}>
-            Subscribe for short notes, updates and exclusive resources.
-          </p>
-
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.6rem' }}>
-            <div style={{ width: '100%', maxWidth: 560 }}>
-              <iframe
-                src="https://maurik.substack.com/embed"
-                title="Subscribe to Maurik on Substack"
-                style={{
-                  width: '100%',
-                  height: 320,
-                  border: '1px solid #EEE',
-                  background: '#fff',
-                  borderRadius: 8,
-                }}
-                frameBorder="0"
-                scrolling="no"
+        <div style={{ maxWidth: 820, margin: '0 auto', padding: '1rem' }}>
+          <div className="subscribe-box" style={{ marginLeft: 0 }}>
+            <form className="subscribe-form" onSubmit={handleSubscribe}>
+              <input
+                type="email"
+                aria-label="Email address"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="subscribe-input"
               />
-            </div>
+              <button type="submit" className="subscribe-button">
+                Subscribe
+              </button>
+            </form>
           </div>
 
-          <p style={{ color: '#888', fontSize: 13 }}>
-            By subscribing you agree to the <Link href="/privacy"><a style={{ color: '#0070f3' }}>Privacy Policy</a></Link>.
+          <p className="subscribe-note">
+            By subscribing you agree to the <Link href="/privacy" style={{ color: '#0070f3' }}>Privacy Policy</Link>.
           </p>
         </div>
       </section>
