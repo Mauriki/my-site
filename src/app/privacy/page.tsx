@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import React from 'react';
 
 export default function PrivacyPage() {
   return (
@@ -38,7 +39,7 @@ export default function PrivacyPage() {
         <section className="legal-card">
           <h2>Contact</h2>
           <p>
-            Questions or requests about your data? <Link href="/contact">Contact me</Link>.
+            Questions or requests about your data? <a href="mailto:maurikmunir@gmail.com">Contact me</a>.
           </p>
         </section>
 
