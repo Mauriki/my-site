@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import SupascribeEmbed from '../components/SupascribeEmbed';
+// Replaced SupascribeEmbed with a direct Substack iframe to avoid loading external Supascribe loader
 
 export default function PersonalWebsite() {
   const [email, setEmail] = useState('');
@@ -13,8 +13,10 @@ export default function PersonalWebsite() {
       alert('Please enter a valid email.');
       return;
     }
-    const url = `https://maurik.substack.com/subscribe?email=${encodeURIComponent(email)}`;
-    window.open(url, '_blank', 'noopener');
+  // open the Substack embed URL (include typed email as query param if present)
+  const base = 'https://maurikcreates.substack.com/embed';
+  const url = email ? `${base}?email=${encodeURIComponent(email)}` : base;
+  window.open(url, '_blank', 'noopener');
     setEmail('');
     alert('A new tab was opened to complete your subscription.');
   };
@@ -68,7 +70,7 @@ export default function PersonalWebsite() {
 
       {/* Social Links */}
       <div className="social-links">
-        <a href="https://www.youtube.com/@MaurikMunir" target="_blank" rel="noopener noreferrer" className="social-link">
+        <a href="https://www.youtube.com/@maurikcreates" target="_blank" rel="noopener noreferrer" className="social-link">
           <Image
             src="/YouTube Logo 2017.png"
             alt="YouTube"
@@ -79,7 +81,7 @@ export default function PersonalWebsite() {
           />
           YouTube
         </a>
-        <a href="https://x.com/MaurikMunir" target="_blank" rel="noopener noreferrer" className="social-link">
+        <a href="https://x.com/maurikcreates" target="_blank" rel="noopener noreferrer" className="social-link">
           <Image
             src="/X Logo White Background Vector.avif"
             alt="X"
@@ -88,9 +90,9 @@ export default function PersonalWebsite() {
             className="social-img"
             priority
           />
-          X (Twitter)
+          X
         </a>
-        <a href="https://www.tiktok.com/@maurik.munir" target="_blank" rel="noopener noreferrer" className="social-link tiktok">
+        <a href="https://www.tiktok.com/@maurikcreates" target="_blank" rel="noopener noreferrer" className="social-link tiktok">
           <Image
             src="/TikTok Logo.png"
             alt="TikTok"
@@ -100,17 +102,6 @@ export default function PersonalWebsite() {
             priority
           />
           TikTok
-        </a>
-        <a href="https://www.fiverr.com/s/6YWwYLB" target="_blank" rel="noopener noreferrer" className="social-link">
-          <Image
-            src="/Fiverr Logo.png"
-            alt="Fiverr"
-            width={32}
-            height={32}
-            className="social-img"
-            priority
-          />
-          Fiverr
         </a>
       </div>
 
@@ -182,13 +173,31 @@ export default function PersonalWebsite() {
       <section id="posts" className="section" style={{ marginBottom: '3.5rem' }}>
         <h2 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1.2rem' }}>Posts</h2>
 
-        {/* Supascribe feed embed (keeps your feed present) */}
-        <SupascribeEmbed />
+        {/* Substack link (simple card) */}
+        <div style={{ maxWidth: 820, margin: '16px 0' }}>
+          <a
+            href="https://maurikcreates.substack.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'block',
+              padding: '12px',
+              border: '1px solid #EEE',
+              borderRadius: 8,
+              textDecoration: 'none',
+              color: 'inherit',
+              background: '#fff'
+            }}
+          >
+            <strong>Read the newsletter</strong>
+            <p style={{ margin: '6px 0 0' }}>Latest posts and updates on Substack — click to open.</p>
+          </a>
+        </div>
       </section>
 
       {/* Newsletter Section - left-aligned minimal subscribe */}
       <section id="newsletter" className="section" style={{ marginTop: '2.5rem' }}>
-        <div style={{ maxWidth: 820, margin: '0 auto', padding: '1rem' }}>
+        <div style={{ maxWidth: 820, margin: '16px 0', padding: '1rem 0' }}>
           <div className="subscribe-box" style={{ marginLeft: 0 }}>
             <form className="subscribe-form" onSubmit={handleSubscribe}>
               <input

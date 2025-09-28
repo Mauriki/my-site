@@ -415,19 +415,21 @@ html, body {
 }
 
 /* Newsletter subscribe styles (left aligned, responsive) */
-#newsletter {}
+/* Newsletter subscribe styles (left aligned, responsive) */
+/* Removed empty #newsletter rule */
 
 /* Box that holds the form */
 #newsletter .subscribe-box {
   display: flex;
   justify-content: flex-start; /* keep left-aligned */
-  padding: 14px;
+  padding: 14px 0; /* reduce horizontal padding so left edge aligns */
   border-radius: 12px;
-  background: #ffffff;
-  box-shadow: 0 10px 30px rgba(12,15,20,0.06);
-  max-width: 520px; /* slightly smaller as requested */
+  background: transparent; /* remove boxed background */
+  box-shadow: none; /* remove shadow to align with content */
+  max-width: 520px; /* keep same width for inner content */
   width: 100%;
   align-items: center;
+  margin-left: 0;
 }
 
 /* Form layout (desktop: row; mobile: column) */
@@ -695,6 +697,8 @@ html, body {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  /* Standard property for compatibility */
+  line-clamp: 2;
 }
 
 .line-clamp-3 {
@@ -702,6 +706,8 @@ html, body {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  /* Standard property for compatibility */
+  line-clamp: 3;
 }
 
 /* ===== GIT INSTRUCTIONS ===== */
