@@ -30,7 +30,7 @@ export default function PrivacyPage() {
         <section className="legal-card">
           <h2>Third-party services</h2>
           <p>
-            Subscription handling and email delivery are performed by Substack (or other chosen provider). Please review their
+            Subscription handling and email delivery are performed by a third-party provider. Please review their
             policies for details on data usage. This site links to external services and is not responsible for their practices.
           </p>
         </section>

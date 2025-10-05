@@ -13,10 +13,6 @@ export default function PersonalWebsite() {
       alert('Please enter a valid email.');
       return;
     }
-  // open the Substack embed URL (include typed email as query param if present)
-  const base = 'https://maurikcreates.substack.com/embed';
-  const url = email ? `${base}?email=${encodeURIComponent(email)}` : base;
-  window.open(url, '_blank', 'noopener');
     setEmail('');
     alert('A new tab was opened to complete your subscription.');
   };
@@ -174,31 +170,14 @@ export default function PersonalWebsite() {
         <h2 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1.2rem' }}>Posts</h2>
 
         {/* Substack link (simple card) */}
-        <div style={{ maxWidth: 820, margin: '16px 0' }}>
-          <a
-            href="https://maurikcreates.substack.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'block',
-              padding: '12px',
-              border: '1px solid #EEE',
-              borderRadius: 8,
-              textDecoration: 'none',
-              color: 'inherit',
-              background: '#fff'
-            }}
-          >
-            <strong>Read the newsletter</strong>
-            <p style={{ margin: '6px 0 0' }}>Latest posts and updates on Substack — click to open.</p>
-          </a>
-        </div>
+        {/* Posts section removed (Substack) */}
       </section>
 
       {/* Newsletter Section - left-aligned minimal subscribe */}
       <section id="newsletter" className="section" style={{ marginTop: '2.5rem' }}>
         <div style={{ maxWidth: 820, margin: '16px 0', padding: '1rem 0' }}>
           <div className="subscribe-box" style={{ marginLeft: 0 }}>
+            {/* Newsletter section removed (Substack/subscribe) */}
             <form className="subscribe-form" onSubmit={handleSubscribe}>
               <input
                 type="email"
