@@ -1,21 +1,11 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 // Replaced SupascribeEmbed with a direct Substack iframe to avoid loading external Supascribe loader
 
 export default function PersonalWebsite() {
-  const [email, setEmail] = useState('');
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || !/\S+@\S+\.\S+/.test(email)) {
-      alert('Please enter a valid email.');
-      return;
-    }
-    setEmail('');
-    alert('A new tab was opened to complete your subscription.');
-  };
+  // Subscription UI removed per request
 
   return (
     <div className="container">
@@ -60,8 +50,6 @@ export default function PersonalWebsite() {
       <nav className="nav">
         <a href="#about" className="active">About</a>
         <a href="#projects">My Work</a>
-        <a href="#posts">Posts</a>
-        <a href="#newsletter">Newsletter</a>
       </nav>
 
       {/* Social Links */}
@@ -165,40 +153,9 @@ export default function PersonalWebsite() {
         </ul>
       </section>
 
-      {/* Blog Section -> Posts */}
-      <section id="posts" className="section" style={{ marginBottom: '3.5rem' }}>
-        <h2 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1.2rem' }}>Posts</h2>
+      {/* Posts section removed */}
 
-        {/* Substack link (simple card) */}
-        {/* Posts section removed (Substack) */}
-      </section>
-
-      {/* Newsletter Section - left-aligned minimal subscribe */}
-      <section id="newsletter" className="section" style={{ marginTop: '2.5rem' }}>
-        <div style={{ maxWidth: 820, margin: '16px 0', padding: '1rem 0' }}>
-          <div className="subscribe-box" style={{ marginLeft: 0 }}>
-            {/* Newsletter section removed (Substack/subscribe) */}
-            <form className="subscribe-form" onSubmit={handleSubscribe}>
-              <input
-                type="email"
-                aria-label="Email address"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="subscribe-input"
-              />
-              <button type="submit" className="subscribe-button">
-                Subscribe
-              </button>
-            </form>
-          </div>
-
-          <p className="subscribe-note">
-            By subscribing you agree to the <Link href="/privacy" style={{ color: '#0070f3' }}>Privacy Policy</Link>.
-          </p>
-        </div>
-      </section>
+      {/* Newsletter / subscribe removed */}
 
       {/* Footer */}
       <footer className="footer">
