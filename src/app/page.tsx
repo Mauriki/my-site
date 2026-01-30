@@ -48,8 +48,8 @@ export default function PersonalWebsite() {
 
       {/* Navigation */}
       <nav className="nav">
-        <a href="#about" className="active">About</a>
-        <a href="#projects">My Work</a>
+        <a href="#about">About</a>
+        <a href="#work">My Work</a>
       </nav>
 
       {/* Social Links */}

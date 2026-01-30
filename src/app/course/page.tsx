@@ -71,7 +71,7 @@ export default function CoursePage() {
                 </div>
 
                 <a href="#pricing" className="cta-ali animate-enter delay-500">
-                    Start Your Transformation
+                    Get Started Now
                 </a>
             </section>
 
