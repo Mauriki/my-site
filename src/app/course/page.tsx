@@ -44,10 +44,10 @@ export default function CoursePage() {
 
             {/* Hero Section */}
             <section className="hero-ali">
-                <h1>The Ultimate Guide to<br />Turning Your Life Around</h1>
+                <h1 className="animate-enter">The Ultimate Guide to<br />Turning Your Life Around</h1>
 
                 {/* Cinema Video Placeholder */}
-                <div className="video-ali">
+                <div className="video-ali animate-enter delay-200">
                     <div className="video-inner-ali">
                         <div className="video-play-ali">
                             <svg width="80" height="80" viewBox="0 0 24 24" fill="none">
@@ -60,7 +60,7 @@ export default function CoursePage() {
                 </div>
 
                 {/* GPS Metaphor */}
-                <div className="gps-ali">
+                <div className="gps-ali animate-enter delay-300">
                     <p>
                         Think about trying to drive somewhere you have never been before without a GPS.
                         You might be motivated, but you will miss turns and get lost.
@@ -70,8 +70,8 @@ export default function CoursePage() {
                     </p>
                 </div>
 
-                <a href={enrollUrl} target="_blank" rel="noopener noreferrer" className="cta-ali">
-                    Get The Course - $79
+                <a href="#pricing" className="cta-ali animate-enter delay-500">
+                    Start Your Transformation
                 </a>
             </section>
 
@@ -258,7 +258,7 @@ export default function CoursePage() {
             </section>
 
             {/* Pricing Block */}
-            <section className="section-ali pricing-ali">
+            <section id="pricing" className="section-ali pricing-ali">
                 <div className="section-inner-ali">
                     <div className="pricing-box-ali">
                         <span className="pricing-label-ali">The Complete Course</span>
@@ -271,7 +271,7 @@ export default function CoursePage() {
                             </div>
                             <div className="value-item-ali">
                                 <span className="value-check-ali">✓</span>
-                                <span>The Setup Vault - Google Keep Capture Templates</span>
+                                <span>Google Sheets Goal Trackers (Free)</span>
                             </div>
                             <div className="value-item-ali">
                                 <span className="value-check-ali">✓</span>
@@ -279,11 +279,11 @@ export default function CoursePage() {
                             </div>
                             <div className="value-item-ali">
                                 <span className="value-check-ali">✓</span>
-                                <span>Google Sheets Goal Trackers (Free)</span>
+                                <span>Routine-Building Framework</span>
                             </div>
                             <div className="value-item-ali">
                                 <span className="value-check-ali">✓</span>
-                                <span>Routine-Building Framework</span>
+                                <span>Curated Resource List (Apps & Books)</span>
                             </div>
                             <div className="value-item-ali">
                                 <span className="value-check-ali">✓</span>
@@ -297,7 +297,7 @@ export default function CoursePage() {
                         </div>
 
                         <a href={enrollUrl} target="_blank" rel="noopener noreferrer" className="pricing-cta-ali">
-                            Get The Course Now
+                            Get Started Now
                         </a>
                     </div>
                 </div>

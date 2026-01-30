@@ -2884,3 +2884,105 @@ html {
   max-width: 90%;
   margin: 0 auto;
 }
+
+/* ===== ANIMATIONS & VISUAL POLISH ===== */
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-enter {
+  animation: slideUpFade 0.8s ease-out forwards;
+  opacity: 0; /* Started hidden */
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Enhanced Hero Text */
+.hero-ali h1 {
+  background: linear-gradient(135deg, #000000 0%, #434343 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback */
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Enhanced CTA */
+.cta-ali {
+  box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cta-ali:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,118,255,0.23);
+}
+
+/* Colored Accents for Bonus Cards */
+.bonus-item-clean {
+  border-top: 4px solid transparent; /* Base state */
+}
+
+/* Specific colors for variety */
+.bonus-item-clean:nth-child(1) { border-top-color: #007AFF; }
+.bonus-item-clean:nth-child(2) { border-top-color: #34C759; }
+.bonus-item-clean:nth-child(3) { border-top-color: #FF9500; }
+
+
+/* ===== INTERACTIVITY & LIFE ===== */
+
+/* Pulse Animation for Video Play Button */
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+.video-play-ali {
+  animation: pulse 2s infinite;
+}
+
+/* Card Hover Effects */
+.pillar-card-ali, .bonus-item-clean, .value-item-ali {
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.pillar-card-ali:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.08); /* Material Design-ish lift */
+  border-color: var(--accent-color, #007AFF);
+}
+
+/* FAQ Smooth Open */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); max-height: 0; }
+  to { opacity: 1; transform: translateY(0); max-height: 500px; } /* max-height is approximate */
+}
+
+.faq-answer-ali {
+  animation: slideDown 0.3s ease-out forwards;
+  overflow: hidden; /* Ensure content doesn't spill during height animation */
+}
+
+/* Subtle gradient on body to break up white maybe? No, stick to clean white but add subtle texture to hero?
+   Let's just keep it clean as requested but add a soft overlay to the video placeholder to make it look 'premium'.
+*/
+
+.video-ali::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+  pointer-events: none;
+  border-radius: 16px;
+}
