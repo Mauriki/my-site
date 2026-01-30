@@ -54,38 +54,17 @@ export default function PersonalWebsite() {
 
       {/* Social Links */}
       <div className="social-links">
-        <a href="https://www.youtube.com/@maurikcreates" target="_blank" rel="noopener noreferrer" className="social-link">
-          <Image
-            src="/YouTube Logo 2017.png"
-            alt="YouTube"
-            width={32}
-            height={32}
-            className="social-img"
-            priority
-          />
-          YouTube
-        </a>
         <a href="https://x.com/maurikcreates" target="_blank" rel="noopener noreferrer" className="social-link">
-          <Image
-            src="/X Logo White Background Vector.avif"
-            alt="X"
-            width={32}
-            height={32}
-            className="social-img"
-            priority
-          />
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: '6px' }}>
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>
           X
         </a>
-        <a href="https://www.tiktok.com/@maurikcreates" target="_blank" rel="noopener noreferrer" className="social-link tiktok">
-          <Image
-            src="/TikTok Logo.png"
-            alt="TikTok"
-            width={32}
-            height={32}
-            className="social-img"
-            priority
-          />
-          TikTok
+        <a href="https://substack.com/@maurikcreates" target="_blank" rel="noopener noreferrer" className="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: '6px' }}>
+            <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
+          </svg>
+          Substack
         </a>
       </div>
 
@@ -93,63 +72,35 @@ export default function PersonalWebsite() {
       <section id="about" className="section">
         <h2>About Me</h2>
         <p>
-          I began my journey into programming during my first year at university, initially without a clear idea of what programming entailed. 
+          I began my journey into programming during my first year at university, initially without a clear idea of what programming entailed.
           Over time, I discovered my passion for coding, driven by the desire to create useful and innovative solutions.
         </p>
         <p>
-          Although I dropped out of university, I&apos;ve been self-learning and building my skills independently. 
-          I&apos;ve created a Notion template and a simple web component using HTML, CSS, and JavaScript. 
+          Although I dropped out of university, I&apos;ve been self-learning and building my skills independently.
+          I&apos;ve created a Notion template and a simple web component using HTML, CSS, and JavaScript.
           My ultimate goal is to develop applications that people find genuinely helpful and that offer better features at more affordable prices.
         </p>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="section" style={{ marginBottom: '3.5rem' }}>
-        <h2 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1.2rem' }}>Projects</h2>
-        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-          <li style={{ marginBottom: '1.2rem' }}>
-            <a
-              href="#"
-              style={{
-                fontSize: '1.15rem',
-                fontWeight: 600,
-                color: '#0070f3',
-                textDecoration: 'none',
-                transition: 'color 0.18s',
-              }}
-              onMouseOver={e => (e.currentTarget.style.color = '#0051a3')}
-              onMouseOut={e => (e.currentTarget.style.color = '#0070f3')}
-            >
-              Example Project (coming soon)
-            </a>
+      {/* Work Section */}
+      <section id="work" className="work-section">
+        <h2>Work</h2>
+        <ul className="work-list">
+          <li className="work-item">
+            <Link href="/course" className="work-link">
+              The Ultimate Guide Course
+            </Link>
           </li>
-          {/* Add more project links here in the future */}
-        </ul>
-      </section>
-
-      {/* Notion Templates Section */}
-      <section id="notion-templates" className="section" style={{ marginBottom: '3.5rem' }}>
-        <h2 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1.2rem' }}>Notion Templates</h2>
-        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-          <li style={{ marginBottom: '1.2rem' }}>
+          <li className="work-item">
             <a
-              href="https://maurik.gumroad.com/l/zdwgwb?_gl=1*13lfz2a*_ga*ODc0NDk4MTk1LjE3MzkwMjM4MzA.*_ga_6LJN6D94N6*czE3NTQ2NTg1NDgkbzE3JGcxJHQxNzU0NjU5MDk0JGo1NCRsMCRoMA.."
+              href="https://maurik.gumroad.com/l/zdwgwb"
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                fontSize: '1.15rem',
-                fontWeight: 600,
-                color: '#0070f3',
-                textDecoration: 'none',
-                transition: 'color 0.18s',
-              }}
-              onMouseOver={e => (e.currentTarget.style.color = '#0051a3')}
-              onMouseOut={e => (e.currentTarget.style.color = '#0070f3')}
+              className="work-link"
             >
-              Minimal Course & Lecture template
+              Course Notion Template
             </a>
           </li>
-          {/* Add more Notion template links here in the future */}
         </ul>
       </section>
 
