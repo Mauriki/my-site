@@ -1,4 +1,9 @@
-import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'Privacy policy for Maurik website and products.',
+};
 
 export default function PrivacyPage() {
   return (
@@ -38,7 +43,7 @@ export default function PrivacyPage() {
         <section className="legal-card">
           <h2>Contact</h2>
           <p>
-            Questions or requests about your data? <a href="mailto:maurikmunir@gmail.com">Contact me</a>.
+            Questions or requests about your data? <a href="mailto:millakumaurik@gmail.com">Contact me</a>.
           </p>
         </section>
 

@@ -1,125 +1,157 @@
-'use client';
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-// Replaced SupascribeEmbed with a direct Substack iframe to avoid loading external Supascribe loader
+import { HomeScrollSaver } from '@/components/layout/HomeScrollSaver';
 
 export default function PersonalWebsite() {
-  // Subscription UI removed per request
-
   return (
-    <div className="container">
-      {/* Header */}
-      <header
-        className="header"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '2rem',
-          marginBottom: '2.5rem',
-        }}
-      >
-        <Image
-          src="/1000030440-modified.png"
-          alt="Maurik Logo"
-          width={100}
-          height={100}
-          style={{
-            borderRadius: '50%',
-            boxShadow: '0 6px 24px rgba(0,0,0,0.12)',
-            border: '4px solid #fff',
-            background: '#f3f3f3',
-            objectFit: 'cover',
-          }}
-          priority
-        />
-        <h1
-          style={{
-            margin: 0,
-            fontSize: '3rem',
-            fontWeight: 700,
-            letterSpacing: '-1px',
-            lineHeight: 1.1,
-          }}
-        >
-          Maurik
-        </h1>
-      </header>
+    <>
+      <HomeScrollSaver />
+      <main id="main-content" className="container home-page">
+        <header className="home-hero">
+          <div className="home-identity">
+            <Image
+              src="/maurik-profile.jpg"
+              alt="Maurik"
+              width={112}
+              height={112}
+              className="home-avatar"
+              priority
+            />
+            <h1>Maurik</h1>
+            <p className="home-lead" style={{ marginBottom: '0.5rem', lineHeight: '1.7' }}>
+              I help people find what they need to do and get that thing done. After years of struggling, failing, and trying everything under the sun, I finally built a system that works. Now I am sharing everything I learned so you do not have to spend years figuring it out the hard way. You can find out more <Link href="/about" style={{ textDecoration: 'underline', color: 'inherit' }}>about me here</Link>.
+            </p>
+          </div>
+        </header>
 
-      {/* Navigation */}
-      <nav className="nav">
-        <a href="#about">About</a>
-        <a href="#work">My Work</a>
-      </nav>
+        <nav className="nav" aria-label="Primary">
+          <Link href="/about">About</Link>
+          <a href="#work">My Work</a>
+          <Link href="/ultimate-guide" className="nav-pill">
+            Ultimate Guide
+          </Link>
+        </nav>
 
-      {/* Social Links */}
-      <div className="social-links">
-        <a href="https://x.com/maurikcreates" target="_blank" rel="noopener noreferrer" className="social-link">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: '6px' }}>
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-          </svg>
-          X
-        </a>
-        <a href="https://substack.com/@maurikcreates" target="_blank" rel="noopener noreferrer" className="social-link">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: '6px' }}>
-            <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
-          </svg>
-          Substack
-        </a>
-      </div>
-
-      {/* About Section */}
-      <section id="about" className="section">
-        <h2>About Me</h2>
-        <p>
-          I began my journey into programming during my first year at university, initially without a clear idea of what programming entailed.
-          Over time, I discovered my passion for coding, driven by the desire to create useful and innovative solutions.
-        </p>
-        <p>
-          Although I dropped out of university, I&apos;ve been self-learning and building my skills independently.
-          I&apos;ve created a Notion template and a simple web component using HTML, CSS, and JavaScript.
-          My ultimate goal is to develop applications that people find genuinely helpful and that offer better features at more affordable prices.
-        </p>
-      </section>
-
-      {/* Work Section */}
-      <section id="work" className="work-section">
-        <h2>Work</h2>
-        <ul className="work-list">
-          <li className="work-item">
-            <Link href="/course" className="work-link">
-              The Ultimate Guide Course
-            </Link>
-          </li>
-          <li className="work-item">
-            <a
-              href="https://maurik.gumroad.com/l/zdwgwb"
+        <section className="newsletter-embed" aria-label="Substack newsletter signup">
+          <div className="newsletter-copy">
+            <p className="eyebrow">Newsletter</p>
+            <h2>Ideas for clarity, intention, and systems.</h2>
+            <p>
+              I write and share ideas that help people think more clearly, live with 
+              more intention, and build systems that actually work.
+            </p>
+          </div>
+          <div className="newsletter-frame-wrap">
+            <form
+              action="https://maurikmillaku.substack.com/subscribe"
+              method="get"
               target="_blank"
-              rel="noopener noreferrer"
-              className="work-link"
+              className="newsletter-simple-form"
             >
-              Course Notion Template
-            </a>
-          </li>
-        </ul>
-      </section>
+              <input type="hidden" name="autoSubmit" value="true" />
+              <input
+                type="email"
+                id="newsletter-email"
+                name="email"
+                placeholder="Type your email"
+                className="newsletter-simple-input"
+                aria-label="Email address"
+                autoComplete="email"
+                inputMode="email"
+                required
+              />
+              <button type="submit" className="newsletter-simple-button">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </section>
 
-      {/* Posts section removed */}
 
-      {/* Newsletter / subscribe removed */}
 
-      {/* Footer */}
-      <footer className="footer">
-        <p>&copy; 2024 Maurik. Built with Next.js and ❤️</p>
-        <div style={{ marginTop: '16px', fontSize: '14px' }}>
-          <Link href="/privacy" style={{ marginRight: '20px', color: '#666', textDecoration: 'none' }}>
-            Privacy Policy
-          </Link>
-          <Link href="/terms" style={{ color: '#666', textDecoration: 'none' }}>
-            Terms of Use
-          </Link>
-        </div>
-      </footer>
-    </div>
+        <section id="work" className="work-section" aria-labelledby="work-title">
+          <div className="work-header">
+            <h2 id="work-title">My Work</h2>
+          </div>
+          <ul className="work-list">
+            <li className="work-item work-item-featured">
+              <Link href="/ultimate-guide" className="work-link">
+                <span>
+                  <strong>The Ultimate Guide</strong>
+                  <small>Direction + execution framework to follow through</small>
+                </span>
+                <span className="work-tag">Featured</span>
+              </Link>
+            </li>
+            <li className="work-item">
+              <Link href="/find-your-direction" className="work-link">
+                <span>
+                  <strong>Find Your Direction</strong>
+                  <small>A free guide to figuring out what you actually want.</small>
+                </span>
+                <span className="work-external">Free</span>
+              </Link>
+            </li>
+            <li className="work-item">
+              <a
+                href="https://maurik.gumroad.com/l/zdwgwb"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="work-link"
+              >
+                <span>
+                  <strong>Free Notion Template</strong>
+                  <small>Free download with practical trackers</small>
+                </span>
+                <span className="work-external">Free</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section className="social-panel" aria-label="Social links">
+          <a
+            href="https://x.com/maurikmillaku"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+          >
+            <span className="social-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </span>
+            <span>
+              <strong>X</strong>
+              <small>@maurikmillaku</small>
+            </span>
+          </a>
+          <a
+            href="https://maurikmillaku.substack.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+          >
+            <span className="social-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
+              </svg>
+            </span>
+            <span>
+              <strong>Substack</strong>
+              <small>@maurikmillaku</small>
+            </span>
+          </a>
+        </section>
+
+        <footer className="footer">
+          <p>&copy; 2026 Maurik. All rights reserved.</p>
+          <div className="footer-links">
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms of Use</Link>
+          </div>
+        </footer>
+      </main>
+    </>
   );
 }

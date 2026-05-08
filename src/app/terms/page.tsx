@@ -1,4 +1,9 @@
-import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Terms of Use',
+  description: 'Terms of use for Maurik website and products.',
+};
 
 export default function TermsPage() {
   return (
@@ -37,15 +42,12 @@ export default function TermsPage() {
         <section className="legal-card">
           <h2>Contact</h2>
           <p>
-            To request changes, removal, or for legal questions, <Link href="/contact">get in touch</Link>.
+            To request changes, removal, or for legal questions,{' '}
+            <a href="mailto:millakumaurik@gmail.com">get in touch</a>.
           </p>
         </section>
 
-        <footer className="legal-note">
-          <small>
-            These terms are a readable summary; keep your full legal text available if required by law.
-          </small>
-        </footer>
+
       </main>
     </div>
   );
