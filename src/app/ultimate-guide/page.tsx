@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { BackToHomeLink } from '@/components/ui/BackToHomeLink';
 
 const enrollUrl = 'https://maurik.systeme.io/order-form';
@@ -74,12 +73,6 @@ const executionModules = [
     title: 'Routine Building Framework',
     text: 'Build morning and evening routines that actually stick, with a weekly rhythm that supports progress without burnout.',
   },
-];
-
-const heroBenefits = [
-  'Get clear on what actually matters this season of your life',
-  'Follow a practical weekly system that turns plans into finished work',
-  'Stay consistent without relying on motivation alone',
 ];
 
 const courseSchema = {
@@ -175,24 +168,11 @@ export default function UltimateGuidePage() {
             Build clarity, structure your weeks, and execute with consistency.
           </p>
 
-          <ul className="course-proof-list" aria-label="Guide highlights">
-            <li>12 HD lessons</li>
-            <li>Lifetime access</li>
-            <li>One-time payment</li>
-          </ul>
-
-          <ul className="course-benefit-list" aria-label="Core outcomes">
-            {heroBenefits.map((benefit) => (
-              <li key={benefit}>{benefit}</li>
-            ))}
-          </ul>
+          <p className="course-meta">12 HD lessons · Lifetime access · One-time payment</p>
 
           <div className="course-hero-actions">
-            <a href="#pricing" className="btn btn-primary">
-              Get Instant Access
-            </a>
             <a href="#inside" className="course-hero-link">
-              See Full Breakdown
+              See what&rsquo;s inside ↓
             </a>
           </div>
         </section>
