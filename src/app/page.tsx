@@ -25,7 +25,6 @@ export default function PersonalWebsite() {
         </header>
 
         <nav className="nav" aria-label="Primary">
-          <Link href="/about">About</Link>
           <a href="#work">My Work</a>
           <Link href="/ultimate-guide" className="nav-pill">
             Ultimate Guide

@@ -412,6 +412,7 @@ svg {
   outline: none;
   border-color: var(--ink);
   background: #fff;
+  box-shadow: 0 0 0 3px rgba(15, 15, 15, 0.06);
   transform: none;
 }
 
@@ -807,10 +808,10 @@ svg {
 
 .course-hero h1 {
   margin: var(--space-3) 0 0;
-  max-width: 16ch;
+  max-width: 22ch;
   font-family: var(--font-display), Georgia, serif;
   font-size: var(--heading-1);
-  line-height: 1.02;
+  line-height: 1.05;
   letter-spacing: -0.035em;
   font-weight: 500;
 }
