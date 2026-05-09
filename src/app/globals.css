@@ -794,7 +794,14 @@ svg {
   width: min(var(--container-max), calc(100% - 2rem));
   margin-inline: auto;
   text-align: left;
-  padding: var(--section-padding) 0 var(--space-8);
+  padding: var(--section-padding) 0 var(--space-6);
+}
+
+.course-hero-foot {
+  width: min(var(--container-max), calc(100% - 2rem));
+  margin-inline: auto;
+  text-align: left;
+  padding-bottom: var(--space-10);
 }
 
 .course-kicker {
@@ -891,8 +898,8 @@ svg {
 }
 
 .course-video-frame {
-  margin: var(--space-4) auto 0;
-  max-width: 980px;
+  width: min(980px, calc(100% - 2rem));
+  margin: 0 auto var(--space-2);
   border-radius: var(--radius-md);
   border: 1px solid rgba(17, 17, 17, 0.08);
   background: #fff;
@@ -1850,8 +1857,9 @@ h3 {
     gap: var(--space-2) !important;
   }
 
-  .course-hero, 
-  .course-section-inner, 
+  .course-hero,
+  .course-hero-foot,
+  .course-section-inner,
   .guide-split-content {
     text-align: left !important;
     align-items: flex-start !important;
@@ -1875,7 +1883,8 @@ h3 {
     width: calc(100% - var(--space-6)) !important;
   }
   
-  .course-section-inner {
+  .course-section-inner,
+  .course-hero-foot {
     width: calc(100% - var(--space-6)) !important;
   }
 

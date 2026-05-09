@@ -149,20 +149,22 @@ export default function UltimateGuidePage() {
         <section className="course-hero">
           <p className="course-kicker">The Ultimate Guide</p>
           <h1>The Ultimate Guide to Turning Your Life Around</h1>
+        </section>
 
-          <div className="course-video-frame">
-            <div className="course-video-ratio">
-              <iframe
-                src="https://player.mediadelivery.net/embed/586749/a71eebe6-3179-4ef2-b4e2-0e1c1d079049?autoplay=false&loop=false&muted=true&preload=true&responsive=true&playsinline=true"
-                loading="lazy"
-                title="Ultimate guide introduction video"
-                allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                allowFullScreen
-                referrerPolicy="strict-origin-when-cross-origin"
-              />
-            </div>
+        <div className="course-video-frame">
+          <div className="course-video-ratio">
+            <iframe
+              src="https://player.mediadelivery.net/embed/586749/a71eebe6-3179-4ef2-b4e2-0e1c1d079049?autoplay=false&loop=false&muted=true&preload=true&responsive=true&playsinline=true"
+              loading="lazy"
+              title="Ultimate guide introduction video"
+              allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
           </div>
+        </div>
 
+        <div className="course-hero-foot">
           <p className="course-subtitle">
             A complete framework for people who are tired of starting and stopping.
             Build clarity, structure your weeks, and execute with consistency.
@@ -175,7 +177,7 @@ export default function UltimateGuidePage() {
               See what&rsquo;s inside ↓
             </a>
           </div>
-        </section>
+        </div>
 
         <section className="course-section course-section-soft">
           <div className="course-section-inner">
