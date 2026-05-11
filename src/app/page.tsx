@@ -1,223 +1,156 @@
-'use client';
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getRecentPosts } from '@/data/blog-posts';
+import { HomeScrollSaver } from '@/components/layout/HomeScrollSaver';
 
 export default function PersonalWebsite() {
-
   return (
-    <div className="container">
-      {/* Header */}
-      <header
-        className="header"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '2rem',
-          marginBottom: '2.5rem',
-        }}
-      >
-        <Image
-          src="/1000030440-modified.png"
-          alt="Maurik Logo"
-          width={100}
-          height={100}
-          style={{
-            borderRadius: '50%',
-            boxShadow: '0 6px 24px rgba(0,0,0,0.12)',
-            border: '4px solid #fff',
-            background: '#f3f3f3',
-            objectFit: 'cover',
-          }}
-          priority
-        />
-        <h1
-          style={{
-            margin: 0,
-            fontSize: '3rem',
-            fontWeight: 700,
-            letterSpacing: '-1px',
-            lineHeight: 1.1,
-          }}
-        >
-          Maurik
-        </h1>
-      </header>
-
-      {/* Navigation */}
-      <nav className="nav">
-        <a href="#about" className="active">About</a>
-        <a href="#projects">My Work</a>
-        <a href="#blog">Blog</a>
-        <a href="#newsletter">Newsletter</a>
-      </nav>
-
-      {/* Social Links */}
-      <div className="social-links">
-        <a href="https://www.youtube.com/@MaurikMunir" target="_blank" rel="noopener noreferrer" className="social-link">
-          <Image
-            src="/YouTube Logo 2017.png"
-            alt="YouTube"
-            width={32}
-            height={32}
-            className="social-img"
-            priority
-          />
-          YouTube
-        </a>
-        <a href="https://x.com/MaurikMunir" target="_blank" rel="noopener noreferrer" className="social-link">
-          <Image
-            src="/X Logo White Background Vector.avif"
-            alt="X"
-            width={32}
-            height={32}
-            className="social-img"
-            priority
-          />
-          X (Twitter)
-        </a>
-        <a href="https://www.tiktok.com/@maurik.munir" target="_blank" rel="noopener noreferrer" className="social-link tiktok">
-          <Image
-            src="/TikTok Logo.png"
-            alt="TikTok"
-            width={32}
-            height={32}
-            className="social-img"
-            priority
-          />
-          TikTok
-        </a>
-        <a href="https://www.fiverr.com/s/6YWwYLB" target="_blank" rel="noopener noreferrer" className="social-link">
-          <Image
-            src="/Fiverr Logo.png"
-            alt="Fiverr"
-            width={32}
-            height={32}
-            className="social-img"
-            priority
-          />
-          Fiverr
-        </a>
-      </div>
-
-      {/* About Section */}
-      <section id="about" className="section">
-        <h2>About Me</h2>
-        <p>
-          I began my journey into programming during my first year at university, initially without a clear idea of what programming entailed. 
-          Over time, I discovered my passion for coding, driven by the desire to create useful and innovative solutions.
-        </p>
-        <p>
-          Although I dropped out of university, I&apos;ve been self-learning and building my skills independently. 
-          I&apos;ve created a Notion template and a simple web component using HTML, CSS, and JavaScript. 
-          My ultimate goal is to develop applications that people find genuinely helpful and that offer better features at more affordable prices.
-        </p>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="section" style={{ marginBottom: '3.5rem' }}>
-        <h2 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1.2rem' }}>Projects</h2>
-        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-          <li style={{ marginBottom: '1.2rem' }}>
-            <a
-              href="#"
-              style={{
-                fontSize: '1.15rem',
-                fontWeight: 600,
-                color: '#0070f3',
-                textDecoration: 'none',
-                transition: 'color 0.18s',
-              }}
-              onMouseOver={e => (e.currentTarget.style.color = '#0051a3')}
-              onMouseOut={e => (e.currentTarget.style.color = '#0070f3')}
-            >
-              Example Project (coming soon)
-            </a>
-          </li>
-          {/* Add more project links here in the future */}
-        </ul>
-      </section>
-
-      {/* Notion Templates Section */}
-      <section id="notion-templates" className="section" style={{ marginBottom: '3.5rem' }}>
-        <h2 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1.2rem' }}>Notion Templates</h2>
-        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-          <li style={{ marginBottom: '1.2rem' }}>
-            <a
-              href="https://maurik.gumroad.com/l/zdwgwb?_gl=1*13lfz2a*_ga*ODc0NDk4MTk1LjE3MzkwMjM4MzA.*_ga_6LJN6D94N6*czE3NTQ2NTg1NDgkbzE3JGcxJHQxNzU0NjU5MDk0JGo1NCRsMCRoMA.."
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                fontSize: '1.15rem',
-                fontWeight: 600,
-                color: '#0070f3',
-                textDecoration: 'none',
-                transition: 'color 0.18s',
-              }}
-              onMouseOver={e => (e.currentTarget.style.color = '#0051a3')}
-              onMouseOut={e => (e.currentTarget.style.color = '#0070f3')}
-            >
-              Minimal Course & Lecture template
-            </a>
-          </li>
-          {/* Add more Notion template links here in the future */}
-        </ul>
-      </section>
-
-      {/* Blog Section */}
-      <section id="blog" className="section">
-        <h2>Latest Posts</h2>
-        <p>Thoughts on programming, technology, and continuous learning.</p>
-        
-        <div className="blog-posts">
-          {getRecentPosts(3).map(post => (
-            <article key={post.id} className="blog-post">
-              <div className="date">{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
-              <h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3>
-              <p>{post.excerpt}</p>
-            </article>
-          ))}
-        </div>
-        
-        <div style={{ textAlign: 'center', marginTop: '40px' }}>
-          <Link href="/blog" className="cta-button">
-            View All Posts
-          </Link>
-        </div>
-      </section>
-
-      {/* Newsletter Section */}
-      <section id="newsletter" className="section">
-        <div className="newsletter">
-          <h3>The Manual</h3>
-          <p>
-            Subscribe to my monthly newsletter for exclusive content, programming insights, and curated resources. 
-            I don&apos;t share this content anywhere else.
-          </p>
-          <div style={{ textAlign: 'center', marginTop: '24px' }}>
-            <Link href="/newsletter" className="cta-button">
-              Subscribe to The Manual →
-            </Link>
+    <>
+      <HomeScrollSaver />
+      <main id="main-content" className="container home-page">
+        <header className="home-hero">
+          <div className="home-identity">
+            <Image
+              src="/maurik-profile.jpg"
+              alt="Maurik"
+              width={112}
+              height={112}
+              className="home-avatar"
+              priority
+            />
+            <h1>Maurik</h1>
+            <p className="home-lead" style={{ marginBottom: '0.5rem', lineHeight: '1.7' }}>
+              I help people find what they need to do and get that thing done. After years of struggling, failing, and trying everything under the sun, I finally built a system that works. Now I am sharing everything I learned so you do not have to spend years figuring it out the hard way. You can find out more <Link href="/about" style={{ textDecoration: 'underline', color: 'inherit' }}>about me here</Link>.
+            </p>
           </div>
-          <p style={{ textAlign: 'center', marginTop: '16px', fontSize: '14px', color: '#666' }}>
-            Monthly newsletter with personal stories and curated resources
-          </p>
-        </div>
-      </section>
+        </header>
 
-      {/* Footer */}
-      <footer className="footer">
-        <p>&copy; 2024 Maurik. Built with Next.js and ❤️</p>
-        <div style={{ marginTop: '16px', fontSize: '14px' }}>
-          <Link href="/privacy" style={{ marginRight: '20px', color: '#666', textDecoration: 'none' }}>
-            Privacy Policy
+        <nav className="nav" aria-label="Primary">
+          <a href="#work">My Work</a>
+          <Link href="/ultimate-guide" className="nav-pill">
+            Ultimate Guide
           </Link>
-          <Link href="/terms" style={{ color: '#666', textDecoration: 'none' }}>
-            Terms of Use
-          </Link>
-        </div>
-      </footer>
-    </div>
+        </nav>
+
+        <section className="newsletter-embed" aria-label="Articles newsletter signup">
+          <div className="newsletter-copy">
+            <p className="eyebrow">Articles</p>
+            <h2>Ideas for clarity, intention, and systems.</h2>
+            <p>
+              I write and share ideas that help people think more clearly, live with
+              more intention, and build systems that actually work.
+            </p>
+          </div>
+          <div className="newsletter-frame-wrap">
+            <form
+              action="https://maurikmillaku.substack.com/subscribe"
+              method="get"
+              target="_blank"
+              className="newsletter-simple-form"
+            >
+              <input type="hidden" name="autoSubmit" value="true" />
+              <input
+                type="email"
+                id="newsletter-email"
+                name="email"
+                placeholder="Type your email"
+                className="newsletter-simple-input"
+                aria-label="Email address"
+                autoComplete="email"
+                inputMode="email"
+                required
+              />
+              <button type="submit" className="newsletter-simple-button">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </section>
+
+
+
+        <section id="work" className="work-section" aria-labelledby="work-title">
+          <div className="work-header">
+            <h2 id="work-title">My Work</h2>
+          </div>
+          <ul className="work-list">
+            <li className="work-item work-item-featured">
+              <Link href="/ultimate-guide" className="work-link">
+                <span>
+                  <strong>The Ultimate Guide</strong>
+                  <small>Direction + execution framework to follow through</small>
+                </span>
+                <span className="work-tag">Featured</span>
+              </Link>
+            </li>
+            <li className="work-item">
+              <Link href="/find-your-direction" className="work-link">
+                <span>
+                  <strong>Find Your Direction</strong>
+                  <small>A free guide to figuring out what you actually want.</small>
+                </span>
+                <span className="work-external">Free</span>
+              </Link>
+            </li>
+            <li className="work-item">
+              <a
+                href="https://maurik.gumroad.com/l/zdwgwb"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="work-link"
+              >
+                <span>
+                  <strong>Free Notion Template</strong>
+                  <small>Free download with practical trackers</small>
+                </span>
+                <span className="work-external">Free</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section className="social-panel" aria-label="Social links">
+          <a
+            href="https://x.com/maurikmillaku"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+          >
+            <span className="social-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </span>
+            <span>
+              <strong>X</strong>
+              <small>@maurikmillaku</small>
+            </span>
+          </a>
+          <a
+            href="https://maurikmillaku.substack.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+          >
+            <span className="social-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
+              </svg>
+            </span>
+            <span>
+              <strong>Substack</strong>
+              <small>@maurikmillaku</small>
+            </span>
+          </a>
+        </section>
+
+        <footer className="footer">
+          <p>&copy; 2026 Maurik. All rights reserved.</p>
+          <div className="footer-links">
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms of Use</Link>
+          </div>
+        </footer>
+      </main>
+    </>
   );
 }

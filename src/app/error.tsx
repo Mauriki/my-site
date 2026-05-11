@@ -15,30 +15,20 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="container mx-auto px-6 py-12">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Something went wrong!</h1>
-        <p className="text-xl text-gray-600 mb-8">
-          An unexpected error occurred. Please try again.
-        </p>
-        <div className="space-y-4">
-          <button
-            onClick={reset}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-          >
+    <div className="state-shell">
+      <div className="state-card">
+        <p className="state-kicker">Error</p>
+        <h1>Something went wrong</h1>
+        <p>An unexpected error occurred. Please try again.</p>
+        <div className="state-actions">
+          <button onClick={reset} className="btn btn-primary state-button">
             Try again
           </button>
-          <div>
-            <Link
-              href="/"
-              className="text-blue-600 hover:text-blue-800 underline"
-            >
-              Go back home
-            </Link>
-          </div>
+          <Link href="/" className="state-link">
+            Go back home
+          </Link>
         </div>
       </div>
     </div>
   );
 }
-

@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# claude code local state
+.claude/
+
+# unused source images (use .jpg version)
+public/maurik-profile-source.png
+public/maurik-profile.heic
