@@ -280,37 +280,30 @@ svg {
 }
 
 .nav-pill {
-  color: var(--ink) !important;
-  background: transparent !important;
-  border: 1px solid var(--ink) !important;
+  color: #fff !important;
+  background: var(--ink) !important;
+  border: 1.5px solid var(--ink) !important;
   border-radius: var(--radius-round) !important;
-  padding: var(--space-2) var(--space-4) !important;
+  padding: var(--space-2) var(--space-5) !important;
   font-size: var(--text-xs) !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.04em;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em;
   display: inline-flex !important;
   align-items: center;
-  gap: var(--space-2);
-  transition: color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
 }
 
 .nav-pill::after {
   display: none !important;
 }
 
-.nav-pill .nav-pill-arrow {
-  display: inline-block;
-  transition: transform var(--transition-fast);
-}
-
 .nav-pill:hover {
   color: #fff !important;
   background: var(--ink) !important;
   border-color: var(--ink) !important;
-}
-
-.nav-pill:hover .nav-pill-arrow {
-  transform: translateX(3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+  transform: translateY(-1px);
 }
 
 .newsletter-embed {
@@ -612,23 +605,6 @@ svg {
   color: var(--brand);
 }
 
-.work-link::after {
-  content: '→';
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translate(8px, -50%);
-  opacity: 0;
-  color: var(--ink);
-  font-size: var(--text-base);
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
-  pointer-events: none;
-}
-
-.work-link:hover::after {
-  opacity: 1;
-  transform: translate(0, -50%);
-}
 
 .footer {
   margin-top: var(--space-16);

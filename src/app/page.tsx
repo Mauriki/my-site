@@ -28,7 +28,6 @@ export default function PersonalWebsite() {
           <a href="#work">My Work</a>
           <Link href="/ultimate-guide" className="nav-pill">
             Ultimate Guide
-            <span className="nav-pill-arrow" aria-hidden="true">→</span>
           </Link>
         </nav>
 
