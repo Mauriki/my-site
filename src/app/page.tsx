@@ -26,9 +26,9 @@ export default function PersonalWebsite() {
 
         <nav className="nav" aria-label="Primary">
           <a href="#work">My Work</a>
+          <Link href="/find-your-direction">Find Your Direction</Link>
           <Link href="/ultimate-guide" className="nav-pill">
             Ultimate Guide
-            <span className="nav-pill-arrow" aria-hidden="true">→</span>
           </Link>
         </nav>
 
@@ -145,7 +145,7 @@ export default function PersonalWebsite() {
         </section>
 
         <footer className="footer">
-          <p>&copy; 2026 Maurik. All rights reserved.</p>
+          <p suppressHydrationWarning>&copy; {new Date().getFullYear()} Maurik. All rights reserved.</p>
           <div className="footer-links">
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/terms">Terms of Use</Link>

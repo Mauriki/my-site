@@ -12,7 +12,7 @@ export default function TermsPage() {
         <header className="legal-card legal-header">
           <h1>Terms of Use</h1>
           <p className="legal-sub">
-            Clear, readable terms — short and focused on what matters for visitors.
+            Clear, readable terms. Short and focused on what matters for visitors.
           </p>
         </header>
 

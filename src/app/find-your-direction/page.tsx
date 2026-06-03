@@ -53,10 +53,6 @@ export default function GuideSignupPage() {
                                     style={{ fontSize: '1.05rem', padding: '0.9rem 1.6rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
                                 >
                                     Get Instant Access
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
                                 </a>
                                 <p style={{ fontSize: '0.8rem', color: 'var(--ink-soft)', margin: 0 }}>
                                     For personal use only. Do not copy or distribute.
@@ -67,7 +63,7 @@ export default function GuideSignupPage() {
                 </div>
 
                 <footer className="footer guide-footer">
-                    <p>&copy; 2026 Maurik. All rights reserved.</p>
+                    <p suppressHydrationWarning>&copy; {new Date().getFullYear()} Maurik. All rights reserved.</p>
                     <div className="footer-links">
                         <Link href="/privacy">Privacy Policy</Link>
                         <Link href="/terms">Terms of Use</Link>

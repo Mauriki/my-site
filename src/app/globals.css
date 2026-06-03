@@ -561,13 +561,12 @@ svg {
   background: transparent;
   text-decoration: none;
   padding: var(--space-5) 0;
-  transition: padding var(--transition-fast), color var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 
 .work-link:hover {
   border-color: var(--ink);
   transform: none;
-  padding-left: var(--space-2);
 }
 
 .work-item-featured .work-link {
@@ -610,24 +609,6 @@ svg {
 
 .work-tag {
   color: var(--brand);
-}
-
-.work-link::after {
-  content: '→';
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translate(8px, -50%);
-  opacity: 0;
-  color: var(--ink);
-  font-size: var(--text-base);
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
-  pointer-events: none;
-}
-
-.work-link:hover::after {
-  opacity: 1;
-  transform: translate(0, -50%);
 }
 
 .footer {
@@ -898,7 +879,7 @@ svg {
 }
 
 .course-video-frame {
-  width: min(980px, calc(100% - 2rem));
+  width: min(var(--container-max), calc(100% - 2rem));
   margin: 0 auto var(--space-2);
   border-radius: var(--radius-md);
   border: 1px solid rgba(17, 17, 17, 0.08);

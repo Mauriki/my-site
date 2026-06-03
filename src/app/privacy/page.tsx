@@ -12,7 +12,7 @@ export default function PrivacyPage() {
         <header className="legal-card legal-header">
           <h1>Privacy Policy</h1>
           <p className="legal-sub">
-            Short summary: how your data is handled — clear, minimal, and privacy-first.
+            Short summary: how your data is handled. Clear, minimal, and privacy-first.
           </p>
         </header>
 

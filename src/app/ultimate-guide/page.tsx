@@ -348,7 +348,7 @@ export default function UltimateGuidePage() {
       </main>
 
       <footer className="course-footer">
-        <p>&copy; 2026 Maurik. All rights reserved.</p>
+        <p suppressHydrationWarning>&copy; {new Date().getFullYear()} Maurik. All rights reserved.</p>
       </footer>
 
       <a
