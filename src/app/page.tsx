@@ -1,8 +1,14 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { HomeScrollSaver } from '@/components/layout/HomeScrollSaver';
 
 export default function PersonalWebsite() {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isLocked, setIsLocked] = useState(false);
+
   return (
     <>
       <HomeScrollSaver />
@@ -31,6 +37,57 @@ export default function PersonalWebsite() {
             Ultimate Guide
           </Link>
         </nav>
+
+        <section id="coaching" className="coaching-section" aria-labelledby="coaching-title">
+          <p className="eyebrow">Free Coaching &middot; 5 Spots</p>
+          <div className="coaching-title-wrapper">
+            <h2 id="coaching-title">Free Coaching Sessions</h2>
+            <button
+              type="button"
+              className="coaching-info-btn"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              onClick={() => setIsLocked((prev) => !prev)}
+              aria-label="Show coaching info"
+            >
+              i
+            </button>
+
+            <div 
+              className={`coaching-popup ${isHovered || isLocked ? 'visible' : ''}`}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <button
+                type="button"
+                className="coaching-popup-close"
+                onClick={() => {
+                  setIsLocked(false);
+                  setIsHovered(false);
+                }}
+                aria-label="Close info popup"
+              >
+                &times;
+              </button>
+              <p>
+                I&apos;m taking on 5 people for free coaching sessions. Three things we work on: building discipline, taking control over your life using tools like calendars, journaling, note-taking apps, and to-do lists, and finding your direction - a clear vision for what you&apos;re working towards. Apply below. I read every application personally.
+              </p>
+            </div>
+          </div>
+          <div className="coaching-action">
+            <a
+              href="https://forms.gle/H92c12huCVLQSqW6A"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              Apply for a Session &rarr;
+            </a>
+            <p className="coaching-subtext">
+              Free. I personally read every application.
+            </p>
+          </div>
+        </section>
 
         <section className="newsletter-embed" aria-label="Articles newsletter signup">
           <div className="newsletter-copy">
