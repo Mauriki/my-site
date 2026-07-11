@@ -298,6 +298,9 @@ export default function UltimateGuidePage() {
 
               <KitSubscribeForm />
               <p className="course-guarantee" style={{ marginTop: '1.25rem' }}>Free forever. Confirm your email to unlock the course instantly.</p>
+              <p style={{ fontSize: '0.8rem', color: 'var(--ink-soft)', marginTop: '0.5rem', marginBottom: 0 }}>
+                  For personal use only. Do not copy or distribute.
+              </p>
             </div>
           </div>
         </section>

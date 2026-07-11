@@ -500,6 +500,19 @@ svg {
   box-shadow: var(--shadow-md);
 }
 
+.guide-form-container .newsletter-simple-form,
+.course-pricing-card .newsletter-simple-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.guide-form-container .newsletter-simple-button,
+.course-pricing-card .newsletter-simple-button {
+  width: 100%;
+  padding: 0 var(--space-6);
+}
+
 .social-panel {
   display: flex;
   flex-wrap: wrap;
@@ -1880,6 +1893,9 @@ h3 {
     width: 100%;
     max-width: 500px;
   }
+  .guide-mockup-wrapper {
+    max-width: 240px !important;
+  }
   .guide-mockup-img {
     transform: scale(1.0) !important;
   }
@@ -1931,19 +1947,19 @@ h3 {
   }
 
   .course-brand {
-    font-size: 0.58rem !important;
-    letter-spacing: -0.01em !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.01em !important;
     padding: 0 !important;
   }
   .course-topbar-cta {
-    font-size: 0.58rem !important;
-    padding: 0.25rem 0.4rem !important;
+    font-size: 0.75rem !important;
+    padding: 0.35rem 0.6rem !important;
     min-height: auto !important;
   }
   .course-topbar-inner {
-    padding: 0.2rem 0 !important;
-    gap: 0.2rem !important;
-    min-height: 34px !important;
+    padding: 0.4rem 0 !important;
+    gap: 0.4rem !important;
+    min-height: 44px !important;
   }
 }
 
