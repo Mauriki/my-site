@@ -1399,7 +1399,7 @@ svg {
 .guide-split-layout {
   flex: 1;
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1.1fr 1fr;
   align-items: center;
   gap: var(--section-padding);
   padding: var(--space-6) 0;
@@ -1422,7 +1422,7 @@ svg {
   display: block;
   width: 100%;
   height: auto;
-  transform: scale(1.15);
+  transform: scale(1.4);
   transform-origin: center;
 }
 
@@ -1873,6 +1873,9 @@ h3 {
     margin: 0 auto;
     width: 100%;
     max-width: 500px;
+  }
+  .guide-mockup-img {
+    transform: scale(1.1) !important;
   }
 }
 
