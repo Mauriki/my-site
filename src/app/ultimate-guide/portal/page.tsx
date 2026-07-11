@@ -151,20 +151,26 @@ function CoursePortalInner() {
     }
     
     // Load completed progress
+    let loadedProgress = new Array(lectures.length).fill(false);
     const savedProgress = localStorage.getItem('ultimate_guide_progress');
     if (savedProgress) {
       try {
         const parsed = JSON.parse(savedProgress);
         if (Array.isArray(parsed) && parsed.length === lectures.length) {
-          setCompletedLessons(parsed);
-        } else {
-          setCompletedLessons(new Array(lectures.length).fill(false));
+          loadedProgress = parsed;
         }
       } catch {
-        setCompletedLessons(new Array(lectures.length).fill(false));
+        // Fallback
       }
+    }
+    setCompletedLessons(loadedProgress);
+
+    // Auto-select first uncompleted lesson on load
+    const firstUncompleted = loadedProgress.findIndex((completed) => !completed);
+    if (firstUncompleted !== -1) {
+      setActiveIdx(firstUncompleted);
     } else {
-      setCompletedLessons(new Array(lectures.length).fill(false));
+      setActiveIdx(0);
     }
 
     setLoading(false);
@@ -173,9 +179,17 @@ function CoursePortalInner() {
   // Save progress changes
   const toggleCompleted = (idx: number) => {
     const updated = [...completedLessons];
-    updated[idx] = !updated[idx];
+    const isNowCompleted = !updated[idx];
+    updated[idx] = isNowCompleted;
     setCompletedLessons(updated);
     localStorage.setItem('ultimate_guide_progress', JSON.stringify(updated));
+
+    // If marked as completed and there's a next lesson, auto-advance after a brief delay
+    if (isNowCompleted && idx === activeIdx && idx < lectures.length - 1) {
+      setTimeout(() => {
+        setActiveIdx(idx + 1);
+      }, 600);
+    }
   };
 
   const resetProgress = () => {
