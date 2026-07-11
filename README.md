@@ -144,12 +144,12 @@ Update CSS variables in `src/app/globals.css`:
 
 ## 🚀 Deployment
 
-The site is optimized for deployment on Vercel:
+The site is optimized for deployment on Firebase Hosting:
 
-1. Connect your GitHub repository
-2. Deploy automatically on push
-3. Custom domain support
-4. Edge functions for API routes
+1. Build the static site: `npm run build` (which creates the static files in the `out` directory)
+2. Deploy to Firebase: `npm run deploy` (which runs `firebase deploy`)
+
+See [MIGRATION_GUIDE.md](file:///Users/maurik/Documents/01%20Projects/Programming/My%20website/MIGRATION_GUIDE.md) for full details on linking and setting up the Firebase CLI.
 
 ## 📊 Performance
 

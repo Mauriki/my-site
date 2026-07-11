@@ -49,8 +49,7 @@ export default function GuideSignupPage() {
                                     href="https://drive.google.com/file/d/1sL_R_aN9clWEg3QB6Q03BW09FD4u0fY5/view?usp=share_link"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="btn btn-primary"
-                                    style={{ fontSize: '1.05rem', padding: '0.9rem 1.6rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                                    className="btn-special"
                                 >
                                     Get Instant Access
                                 </a>

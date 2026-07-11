@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { HomeScrollSaver } from '@/components/layout/HomeScrollSaver';
@@ -8,6 +8,24 @@ import { HomeScrollSaver } from '@/components/layout/HomeScrollSaver';
 export default function PersonalWebsite() {
   const [isHovered, setIsHovered] = useState(false);
   const [isLocked, setIsLocked] = useState(false);
+  const popupRef = useRef<HTMLDivElement>(null);
+  const infoBtnRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        isLocked &&
+        popupRef.current &&
+        !popupRef.current.contains(event.target as Node) &&
+        infoBtnRef.current &&
+        !infoBtnRef.current.contains(event.target as Node)
+      ) {
+        setIsLocked(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isLocked]);
 
   return (
     <>
@@ -39,39 +57,44 @@ export default function PersonalWebsite() {
         </nav>
 
         <section id="coaching" className="coaching-section" aria-labelledby="coaching-title">
-          <p className="eyebrow">Free Coaching &middot; 5 Spots</p>
-          <div className="coaching-title-wrapper">
-            <h2 id="coaching-title">Free Coaching Sessions</h2>
-            <button
-              type="button"
-              className="coaching-info-btn"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              onClick={() => setIsLocked((prev) => !prev)}
-              aria-label="Show coaching info"
-            >
-              i
-            </button>
-
-            <div 
-              className={`coaching-popup ${isHovered || isLocked ? 'visible' : ''}`}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
+          <div className="coaching-content">
+            <span className="badge-special">Free Coaching &middot; 5 Spots</span>
+            <div className="coaching-title-wrapper" style={{ marginTop: '0.25rem' }}>
+              <h2 id="coaching-title">Free Coaching Sessions</h2>
               <button
+                ref={infoBtnRef}
                 type="button"
-                className="coaching-popup-close"
-                onClick={() => {
-                  setIsLocked(false);
-                  setIsHovered(false);
-                }}
-                aria-label="Close info popup"
+                className="coaching-info-btn"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                onClick={() => setIsLocked((prev) => !prev)}
+                aria-label="Show coaching info"
               >
-                &times;
+                i
               </button>
-              <p>
-                I&apos;m taking on 5 people for free coaching sessions. Three things we work on: building discipline, taking control over your life using tools like calendars, journaling, note-taking apps, and to-do lists, and finding your direction - a clear vision for what you&apos;re working towards. Apply below. I read every application personally.
-              </p>
+
+              <div 
+                ref={popupRef}
+                className={`coaching-popup ${isHovered || isLocked ? 'visible' : ''}`}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <p style={{ fontWeight: 600, marginBottom: '0.5rem' }}>
+                  I&apos;m taking on 5 people for free coaching sessions.
+                </p>
+                <p style={{ marginBottom: '0.25rem' }}>The three core pillars we work on:</p>
+                <ul className="coaching-popup-list">
+                  <li><strong>Building discipline</strong></li>
+                  <li><strong>Taking control over your life</strong></li>
+                  <li><strong>Finding your vision & direction</strong> (getting clear on where you need to go and what you need to do)</li>
+                </ul>
+                <p style={{ marginTop: '0.5rem', marginBottom: '0.5rem' }}>
+                  During these sessions, we will also use tools like calendars, to-do lists, note-taking systems, and templates. You will learn how to integrate these into your routine, and get templates you can use immediately to keep yourself on track.
+                </p>
+                <p style={{ fontStyle: 'italic', marginTop: '0.5rem' }}>
+                  Apply below. I read every application personally.
+                </p>
+              </div>
             </div>
           </div>
           <div className="coaching-action">
@@ -81,7 +104,7 @@ export default function PersonalWebsite() {
               rel="noopener noreferrer"
               className="btn btn-primary"
             >
-              Apply for a Session &rarr;
+              Apply for a Session
             </a>
             <p className="coaching-subtext">
               Free. I personally read every application.
@@ -135,9 +158,9 @@ export default function PersonalWebsite() {
               <Link href="/ultimate-guide" className="work-link">
                 <span>
                   <strong>The Ultimate Guide</strong>
-                  <small>Direction + execution framework to follow through</small>
+                  <small>Complete direction & execution course (Now 100% Free)</small>
                 </span>
-                <span className="work-tag">Featured</span>
+                <span className="work-tag">Featured &middot; Free</span>
               </Link>
             </li>
             <li className="work-item">

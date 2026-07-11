@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { BackToHomeLink } from '@/components/ui/BackToHomeLink';
-
-const enrollUrl = 'https://maurik.systeme.io/order-form';
+import KitSubscribeForm from '@/components/ui/KitSubscribeForm';
 
 const faqs = [
   {
@@ -27,7 +26,7 @@ const faqs = [
   {
     question: 'What exactly is included?',
     answer:
-      '12 HD video lessons, the complete Setup Vault with Google Keep capture templates, Trello execution boards, Google Sheets goal trackers, and the Routine-Building Framework.',
+      '13 HD video lessons, the complete Setup Vault with Google Keep capture templates, Trello execution boards, Google Sheets goal trackers, and the Routine-Building Framework.',
   },
   {
     question: 'Can I use this for creative projects or business goals?',
@@ -37,7 +36,7 @@ const faqs = [
 ];
 
 const includedItems = [
-  '12 High-Definition Video Lessons',
+  '13 High-Definition Video Lessons',
   'Google Sheets Goal Trackers (Free)',
   'Trello Execution Boards',
   'Routine-Building Framework',
@@ -87,8 +86,8 @@ const courseSchema = {
   },
   offers: {
     '@type': 'Offer',
-    category: 'Paid',
-    price: '79',
+    category: 'Free',
+    price: '0',
     priceCurrency: 'USD',
     availability: 'https://schema.org/InStock',
   },
@@ -135,12 +134,10 @@ export default function UltimateGuidePage() {
         <div className="course-topbar-inner">
           <BackToHomeLink className="course-brand" />
           <a
-            href={enrollUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#enroll"
             className="course-topbar-cta"
           >
-            Get the Ultimate Guide
+            Get Free Access
           </a>
         </div>
       </header>
@@ -170,11 +167,14 @@ export default function UltimateGuidePage() {
             Build clarity, structure your weeks, and execute with consistency.
           </p>
 
-          <p className="course-meta">12 HD lessons · Lifetime access · One-time payment</p>
+          <p className="course-meta">13 HD lessons · Lifetime access · 100% Free</p>
 
-          <div className="course-hero-actions">
-            <a href="#inside" className="course-hero-link">
-              See what&rsquo;s inside ↓
+          <div className="course-hero-actions" style={{ display: 'flex', flexDirection: 'row', gap: '1rem', flexWrap: 'wrap' }}>
+            <a href="#enroll" className="btn-special">
+              Get the Guide (Free)
+            </a>
+            <a href="#inside" className="course-hero-link" style={{ marginTop: '0.65rem' }}>
+              See what&rsquo;s inside
             </a>
           </div>
         </div>
@@ -287,32 +287,26 @@ export default function UltimateGuidePage() {
           </div>
         </section>
 
-        <section id="pricing" className="course-section">
+        <section id="enroll" className="course-section">
           <div className="course-section-inner">
             <div className="course-pricing-card">
               <p className="course-pricing-label">The Complete Guide</p>
-              <h2>What You Get</h2>
+              <h2>Get Free Access</h2>
 
-              <ul className="course-value-list">
+              <ul className="course-value-list" style={{ marginBottom: '2rem' }}>
                 {includedItems.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
 
-              <div className="course-price-block">
-                <span className="course-price">$79</span>
-                <span className="course-price-note">One-time payment</span>
+              <div className="course-price-block" style={{ marginBottom: '1.5rem' }}>
+                <span className="course-price" style={{ textDecoration: 'line-through', fontSize: 'var(--text-lg)', opacity: 0.5, marginRight: '0.75rem' }}>$79</span>
+                <span className="course-price" style={{ color: 'var(--success)' }}>Free</span>
+                <span className="course-price-note" style={{ display: 'block', marginTop: '0.25rem' }}>Enter your email to receive the direct access link</span>
               </div>
 
-              <a
-                href={enrollUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary btn-block"
-              >
-                Get Instant Access
-              </a>
-              <p className="course-guarantee">Lifetime access. Future updates included.</p>
+              <KitSubscribeForm />
+              <p className="course-guarantee" style={{ marginTop: '1.25rem' }}>No payment required. Portal link sent to your email.</p>
             </div>
           </div>
         </section>
@@ -336,12 +330,10 @@ export default function UltimateGuidePage() {
             <h2>Ready to Turn Your Life Around?</h2>
             <p>Stop drifting. Start building with direction.</p>
             <a
-              href={enrollUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-light"
+              href="#enroll"
+              className="btn-special"
             >
-              Start the Ultimate Guide
+              Get Free Access
             </a>
           </div>
         </section>
@@ -352,9 +344,7 @@ export default function UltimateGuidePage() {
       </footer>
 
       <a
-        href={enrollUrl}
-        target="_blank"
-        rel="noopener noreferrer"
+        href="#enroll"
         className="floating-cta"
       >
         Get the Guide
