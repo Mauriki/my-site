@@ -1405,10 +1405,16 @@ svg {
   padding: var(--space-6) 0;
 }
 
+.guide-split-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .guide-mockup-wrapper {
   position: relative;
   width: 100%;
-  max-width: 980px;
+  max-width: 320px;
   margin: 0 auto;
   filter: none;
   transition: transform var(--transition-normal);

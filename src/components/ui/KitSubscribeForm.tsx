@@ -86,7 +86,7 @@ export default function KitSubscribeForm({
 
       {submitted && (
         <div className="kit-success-state">
-          <div className="success-icon-wrapper">
+          <div className="success-icon-wrapper" style={{ marginBottom: '0.25rem' }}>
             <svg
               className="checkmark-svg"
               xmlns="http://www.w3.org/2000/svg"
@@ -106,14 +106,14 @@ export default function KitSubscribeForm({
               />
             </svg>
           </div>
-          <h3>Check Your Inbox</h3>
-          <p style={{ marginTop: '0.5rem', fontSize: 'var(--text-sm)', color: 'var(--ink-soft)', lineHeight: '1.65' }}>
-            We sent the access link to <strong>{email}</strong>.
+          <h3 style={{ margin: '0.25rem 0' }}>Check Your Inbox</h3>
+          <p style={{ marginTop: '0.25rem', marginBottom: '0.25rem', fontSize: 'var(--text-sm)', color: 'var(--ink-soft)', lineHeight: '1.5' }}>
+            We sent the link to <strong>{email}</strong>.
             <br />
             {successMessage}
           </p>
-          <p style={{ marginTop: '0.75rem', fontSize: '12px', color: 'var(--ink-mute)' }}>
-            Can&rsquo;t find it? Check your spam or promotions folder.
+          <p style={{ marginTop: '0.35rem', marginBottom: 0, fontSize: '11px', color: 'var(--ink-mute)' }}>
+            Check spam if you don&rsquo;t see it.
           </p>
         </div>
       )}
