@@ -43,7 +43,7 @@ export default function TermsPage() {
           <h2>Contact</h2>
           <p>
             To request changes, removal, or for legal questions,{' '}
-            <a href="mailto:millakumaurik@gmail.com">get in touch</a>.
+            <a href="mailto:contact@maurikmillaku.com">get in touch</a>.
           </p>
         </section>
 

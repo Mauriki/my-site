@@ -43,7 +43,7 @@ export default function PrivacyPage() {
         <section className="legal-card">
           <h2>Contact</h2>
           <p>
-            Questions or requests about your data? <a href="mailto:millakumaurik@gmail.com">Contact me</a>.
+            Questions or requests about your data? <a href="mailto:contact@maurikmillaku.com">Contact me</a>.
           </p>
         </section>
 

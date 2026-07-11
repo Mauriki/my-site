@@ -1894,7 +1894,7 @@ h3 {
     max-width: 500px;
   }
   .guide-mockup-wrapper {
-    max-width: 240px !important;
+    max-width: 180px !important;
   }
   .guide-mockup-img {
     transform: scale(1.0) !important;
@@ -2172,7 +2172,7 @@ h3 {
 }
 
 .kit-success-state {
-  text-align: center;
+  text-align: left;
   padding: var(--space-4) var(--space-3);
   background: var(--brand-blue-100);
   border: 1px solid var(--brand-blue-200);
@@ -2190,7 +2190,7 @@ h3 {
 
 .success-icon-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: var(--space-2);
 }
 
