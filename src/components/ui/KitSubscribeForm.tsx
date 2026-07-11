@@ -2,7 +2,19 @@
 
 import { useState } from 'react';
 
-export default function KitSubscribeForm() {
+interface KitSubscribeFormProps {
+  formId?: string;
+  uid?: string;
+  buttonText?: string;
+  successMessage?: string;
+}
+
+export default function KitSubscribeForm({
+  formId = '9625976',
+  uid = 'b1979c1c5f',
+  buttonText = 'Get Free Access',
+  successMessage = 'Click "Confirm your subscription" in that email to open the course portal.',
+}: KitSubscribeFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [email, setEmail] = useState('');
 
@@ -14,19 +26,23 @@ export default function KitSubscribeForm() {
     <div className="kit-subscribe-container">
       {/* Hidden iframe to receive Kit's response without redirecting the main page */}
       <iframe
-        name="kit_post_iframe"
-        id="kit_post_iframe"
+        name={`kit_post_iframe_${formId}`}
+        id={`kit_post_iframe_${formId}`}
         style={{ display: 'none' }}
         title="Kit Submission Target"
       />
 
-      {!submitted ? (
+      {/* 
+        CRITICAL FIX: We keep the form in the DOM but hide it using CSS.
+        If we unmount the form instantly, the browser aborts the request before it reaches Kit.
+      */}
+      <div style={{ display: submitted ? 'none' : 'block' }}>
         <form
-          action="https://app.kit.com/forms/9625976/subscriptions"
+          action={`https://app.kit.com/forms/${formId}/subscriptions`}
           method="post"
-          data-sv-form="9625976"
-          data-uid="b1979c1c5f"
-          target="kit_post_iframe"
+          data-sv-form={formId}
+          data-uid={uid}
+          target={`kit_post_iframe_${formId}`}
           onSubmit={handleSubmit}
           className="newsletter-simple-form"
         >
@@ -43,10 +59,12 @@ export default function KitSubscribeForm() {
             required
           />
           <button type="submit" className="newsletter-simple-button">
-            Get Free Access
+            {buttonText}
           </button>
         </form>
-      ) : (
+      </div>
+
+      {submitted && (
         <div className="kit-success-state">
           <div className="success-icon-wrapper">
             <svg
@@ -72,7 +90,7 @@ export default function KitSubscribeForm() {
           <p style={{ marginTop: '0.5rem', fontSize: 'var(--text-sm)', color: 'var(--ink-soft)', lineHeight: '1.65' }}>
             We sent a confirmation email to <strong>{email}</strong>.
             <br />
-            Click <strong>&ldquo;Confirm your subscription&rdquo;</strong> in that email to open the course portal.
+            {successMessage}
           </p>
           <p style={{ marginTop: '0.75rem', fontSize: '12px', color: 'var(--ink-mute)' }}>
             Can&rsquo;t find it? Check your spam or promotions folder.

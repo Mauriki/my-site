@@ -1,0 +1,156 @@
+[debug] [2026-07-11T16:25:31.486Z] ----------------------------------------------------------------------
+[debug] [2026-07-11T16:25:31.492Z] Command:       /usr/local/Cellar/node/24.9.0/bin/node /usr/local/bin/firebase deploy --project maurik-web
+[debug] [2026-07-11T16:25:31.493Z] CLI Version:   14.26.0
+[debug] [2026-07-11T16:25:31.493Z] Platform:      darwin
+[debug] [2026-07-11T16:25:31.493Z] Node Version:  v24.9.0
+[debug] [2026-07-11T16:25:31.493Z] Time:          Sat Jul 11 2026 18:25:31 GMT+0200 (Central European Summer Time)
+[debug] [2026-07-11T16:25:31.493Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-11T16:25:32.344Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-11T16:25:32.345Z] > authorizing via signed-in user (millakumaurik@gmail.com)
+[debug] [2026-07-11T16:25:32.345Z] [iam] checking project maurik-web for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-07-11T16:25:32.347Z] No OAuth tokens found
+[debug] [2026-07-11T16:25:32.347Z] No OAuth tokens found
+[debug] [2026-07-11T16:25:32.348Z] > refreshing access token with scopes: []
+[debug] [2026-07-11T16:25:32.354Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-07-11T16:25:32.354Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-07-11T16:25:32.587Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-07-11T16:25:32.587Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-07-11T16:25:32.608Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/maurik-web:testIamPermissions [none]
+[debug] [2026-07-11T16:25:32.608Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/maurik-web:testIamPermissions x-goog-quota-user=projects/maurik-web
+[debug] [2026-07-11T16:25:32.608Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/maurik-web:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-11T16:25:33.606Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/maurik-web:testIamPermissions 200
+[debug] [2026-07-11T16:25:33.608Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/maurik-web:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-11T16:25:33.609Z] Checked if tokens are valid: true, expires at: 1783790731589
+[debug] [2026-07-11T16:25:33.609Z] Checked if tokens are valid: true, expires at: 1783790731589
+[debug] [2026-07-11T16:25:33.609Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/maurik-web [none]
+[debug] [2026-07-11T16:25:34.177Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/maurik-web 200
+[debug] [2026-07-11T16:25:34.177Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/maurik-web {"projectId":"maurik-web","projectNumber":"128408092656","displayName":"maurik-web","name":"projects/maurik-web","resources":{"hostingSite":"maurik-web"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_e7e7be3d-553d-4983-8586-30835b0ba39c"}
+[info] 
+[info] === Deploying to 'maurik-web'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2026-07-11T16:25:34.181Z] Checked if tokens are valid: true, expires at: 1783790731589
+[debug] [2026-07-11T16:25:34.182Z] Checked if tokens are valid: true, expires at: 1783790731589
+[debug] [2026-07-11T16:25:34.182Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/maurik-web/versions [none]
+[debug] [2026-07-11T16:25:34.183Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/maurik-web/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2026-07-11T16:25:36.713Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/maurik-web/versions 200
+[debug] [2026-07-11T16:25:36.713Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/maurik-web/versions {"name":"projects/128408092656/sites/maurik-web/versions/e15d3043e30eb003","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[maurik-web]: beginning deploy... 
+[info] i  hosting[maurik-web]: found 67 files in out 
+[debug] [2026-07-11T16:25:36.763Z] [hosting] uploading with 200 concurrency
+[debug] [2026-07-11T16:25:36.771Z] Checked if tokens are valid: true, expires at: 1783790731589
+[debug] [2026-07-11T16:25:36.771Z] Checked if tokens are valid: true, expires at: 1783790731589
+[debug] [2026-07-11T16:25:36.773Z] [hosting] hash cache [b3V0] stored for 67 files
+[debug] [2026-07-11T16:25:36.773Z] [hosting][hash queue][FINAL] {"max":3,"min":0,"avg":0.014283251249298712,"active":0,"complete":67,"success":67,"errored":0,"retried":0,"total":67,"elapsed":7}
+[debug] [2026-07-11T16:25:36.776Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/128408092656/sites/maurik-web/versions/e15d3043e30eb003:populateFiles [none]
+[debug] [2026-07-11T16:25:36.776Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/128408092656/sites/maurik-web/versions/e15d3043e30eb003:populateFiles {"files":{"/ultimate-guide.txt":"e2d0aa8ac2e819c6daeb1a81bbc766543199765e8153dc8a7c262d54f54f34a9","/ultimate-guide.html":"7df7e861e65fe58fdd0bccdfa22c1720f5da8997179f97737f0ea198005e1423","/toolkit.png":"b7e9c05959bc29097f7a6c3771420b087da96879232c3d5ddef22709220fb0ca","/terms.txt":"c7ee91d6e31188f453b1c3d345b34bac6af7f52b66802d4e55bfa1456da8ac8e","/terms.html":"9346412a3e792ef0bfcad515db5f48110cb20b8aa6c4db0eebb909c162a7f76a","/sitemap.xml":"dacd6d1716a02578f53a2db9a220670d5bb9ccf157cb9905c49bb003061d9027","/robots.txt":"3343dbf0d68bdb3855be86610f44acd785997b092c19f703a8a0c3973ec3e4dc","/privacy.txt":"470b19236a6c853a068a6f5ee96dcc2d765120e00ed869d91b16e8c99440e0e9","/privacy.html":"aa9457e5f2f33e8571b5bc47ba18ed31620721ee3fef180b05f22abea82fb99b","/mockup.png":"3d14ec68e6ee4cde5089c5cfff12aa27e1f64c0c62db3947388a8f268bdfe2e4","/mindset-zen.png":"6dbcf0b710444e2d1236ae22f9d30a0fd0ed5f095b739cfeee260fa575365cc3","/maurik-profile.jpg":"b2d61a45d5684f839094f2d651d34c0e63d1d7ca7354e61c7047b4c21c8d36b5","/index.txt":"d20c8632894d5274b91b4d76c758b92edf3a41bbe37005cf41ca8e2fea10043c","/index.html":"476c2cb62dcc14cc8ed1b895e0f75b49736242605c2a95f8dc23d78111b0d458","/icons-set-3.png":"7f000e5c22fa7db0a68adc22933e3567cd7e97f1775d7e2111487649ba149340","/icons-set-2.png":"e20123d42aaf455d10648e6eeb553395764db47f438b39aa4d6f7b6043a946d7","/icons-set-1.png":"21bb457f51df69b157a33734bfdb793399dec367b3892b867ccf6392c1867f1a","/hero-clarity.png":"cd2544cd625f0df643af7cf3f82a49ac56f7a476118bed27a1063fefe9226435","/find-your-direction.txt":"db6b709ae7fcbfd71173020aaf1ce149cb879dce26cf1eec9f58a5752e9e3aac","/find-your-direction.html":"b4e5ea137a541026a0d081acebb93330072a9f8d736d25b50b17bf265fa7b0dd","/execution-clockwork.png":"56c1f3f852b4894a5e51ece6218cf2de724d5dec06863293339bedf401820b00","/direction-prism.png":"708e9b5768d99340d364c7139473be18bc29fe4d7d2f4aa9eb776fbf1bbe24de","/direction-compass.png":"85b3f50e93bbefe80afb2ef30dbd127809ebb7212153c6b2ee20f58fc053d357","/course.txt":"8c181256f490f7cbf5de9c4cd718fe283e28d72eedd2112e50eb7979d6a08a97","/course.html":"8b7739c6e55204aa741521ba1cb2f5afb875ff26d4b5b0ee0722236c2063109c","/about.txt":"f7862c9cd92af308d35673d27e5e38e158e4563d5f0c5269b81a42627b348342","/about.html":"c41f63a4ddb31b6f4023829ec8623d74a269a83cc705ede6d007fd791a2999d3","/YouTube Logo 2017.png":"c86602a1034d59e0e10011a8e518625b50338b1353333d804d6c6e105b65e1f6","/X Logo White Background Vector.avif":"f9afdc1be4e2e4d922f9dcc118b6cf4b625c94c2e9fd9e1bba61cb1585e35856","/TikTok Logo.png":"f24a47e6104c1f153e38bafaa07652a8043e1711045008d5cec4917d974da83c","/Instagram Logo 2022.webp":"befe0a161bd196081292d20f72153ddc889e26832fe030dac67c8756556f40b9","/Fiverr Logo.png":"d9bbd1d95d02ef6cc1e5e6032bafa3c2eef9fd5e59c366a1435fcf80c32bde31","/404.html":"9cc527983f0cb20491c10bbce87704ef3bb0b848f40ae34d6895e5274edb5397","/1000030440-modified.png":"cdebd0ef38da005238810974dd8aad66d55d1b7ad776bca65f51fbd8f66dd152","/ultimate-guide/portal.txt":"8598ff43ee4b0ba20723a98f0d89d70ba748026d8009bceec3403a48693ab620","/ultimate-guide/portal.html":"3dd731f5a8cc0706bff64fd03206052e35b5bdc701a98b86ac6846bd2df20f2e","/_next/static/eO95ANi0zOABMg8t_cpWT/_ssgManifest.js":"02dbc1aeab6ef0a6ff2ff9a1643158cf9bb38929945eaa343a3627dee9ba6778","/_next/static/eO95ANi0zOABMg8t_cpWT/_buildManifest.js":"572cf10908f48dc03e6fa0004b178dc32880dfeb9445bee6c272222cc60ca83b","/_next/static/css/c5f434b921003f85.css":"e6e07b2625c6bd545b87c6a1f159c89ccf64f30b7d6c3acab3eccd2fd9d77121","/_next/static/chunks/webpack-6b3c4bafba00fe32.js":"b1885510bf6f69ca413a942c4fc95704cfeb48a34d082c2103249bc68ed49b2d","/_next/static/chunks/polyfills-42372ed130431b0a.js":"bea630d9824beca22855271c757404b58bb7b410c52a5e7d58d69ff26d9ddd0b","/_next/static/chunks/main-app-21b9a457853e3526.js":"42dc9ded6830b0752d13be1aefd79107bc8a0e95809861e609ca8229a0e15f22","/_next/static/chunks/main-0fcdc8cbb689550b.js":"0c43b900d94f17b7a51d22ae8fc60b597d1f784f90cd641c7306716d42ff1261","/_next/static/chunks/framework-7c95b8e5103c9e90.js":"d8aeac4c2027165aca3d3209873aff0aa2a34e92e051b7a593901348a89fa8f3","/_next/static/chunks/964-05defa3e0b8af640.js":"7275807d88bbf000b0d500a3062d3e103bd29e4d4dd387a5a052d2a63d1fcee3","/_next/static/chunks/874-437a265a67d6cfee.js":"4bf5a32781b834c4444c79033e490c9605a50fe1f9e298bd6d5f1bdac55bf244","/_next/static/chunks/766-469d9a6ca5adcb79.js":"c989c3c265573ec6d113356bc0c726099a0b6fad3bcd455a69609f80e3bcd93d","/_next/static/chunks/4bd1b696-cf72ae8a39fa05aa.js":"b24b723468c2798e7380b40940c626d3e15fb649673c80f877ad83a072537c5d","/_next/static/chunks/pages/_error-03529f2c21436739.js":"77a6a531981e16197fa48c681e54db83399f44717e17830e8f16f6ac48e94eb1","/_next/static/chunks/pages/_app-0a0020ddd67f79cf.js":"0cc691b3564f0d92076502fb7d4516e9de5df3742d4da971369ff3adb31ba4b5","/_next/static/chunks/app/page-b517bec01f22e704.js":"6e535d3c2e5234b397df29783f48da422ccbb0c20c1cdc76bef23b457db1c812","/_next/static/chunks/app/not-found-f0dced356d666998.js":"71ba4d263fd2638c648e4db64bb134d35ca0e1c7d5080248ad7c9ec31fd8f32b","/_next/static/chunks/app/loading-59be9d920b771c4f.js":"9bd2e1d36719685a8881d17c9df02c6dae7fd3accb387ca6d93b753db93b7284","/_next/static/chunks/app/layout-fc2e31d8750e35df.js":"ad6d58553da42b122e60d964fce5f14dbe99103c578f1e488cb56f3b3e61625e","/_next/static/chunks/app/global-error-e160695e24884e11.js":"06b87b4b071083846bc7825fc807d14928e2bcbc305b5e8afa4d9556a903c100","/_next/static/chunks/app/error-48e283dfcb4436cc.js":"fec2e88606e80837614a1731a7365295df3e32dcb2a96a85bd933f1fc5edf85b","/_next/static/chunks/app/ultimate-guide/page-122e9e486a410e39.js":"747b3ad102ece70a485f0383d5f76cc1e4288b80f30ecae190eeea5fbc53f935","/_next/static/chunks/app/ultimate-guide/portal/page-0ea28c80ddaea498.js":"8bd3c9caa8c1cca534d2fe57e05a0e7dcbf8dcc686fd8d26d83edf52fc0c493c","/_next/static/chunks/app/terms/page-59be9d920b771c4f.js":"9bd2e1d36719685a8881d17c9df02c6dae7fd3accb387ca6d93b753db93b7284","/_next/static/chunks/app/sitemap.xml/route-59be9d920b771c4f.js":"9bd2e1d36719685a8881d17c9df02c6dae7fd3accb387ca6d93b753db93b7284","/_next/static/chunks/app/robots.txt/route-59be9d920b771c4f.js":"9bd2e1d36719685a8881d17c9df02c6dae7fd3accb387ca6d93b753db93b7284","/_next/static/chunks/app/privacy/page-59be9d920b771c4f.js":"9bd2e1d36719685a8881d17c9df02c6dae7fd3accb387ca6d93b753db93b7284","/_next/static/chunks/app/find-your-direction/page-74b8c9fc97c5607d.js":"dd778d8a20ca36170f30a101a4a37468a0e800f426a33dd8decdd25ec6e77c36","/_next/static/chunks/app/find-your-direction/layout-59be9d920b771c4f.js":"9bd2e1d36719685a8881d17c9df02c6dae7fd3accb387ca6d93b753db93b7284","/_next/static/chunks/app/course/page-f0dced356d666998.js":"71ba4d263fd2638c648e4db64bb134d35ca0e1c7d5080248ad7c9ec31fd8f32b","/_next/static/chunks/app/about/page-ba0ae0decf65e960.js":"67e230ddf3f68545968ade8b8a54567dd0a0baff5196815ed5d26ce1a6f2ff6f","/_next/static/chunks/app/_not-found/page-59be9d920b771c4f.js":"9bd2e1d36719685a8881d17c9df02c6dae7fd3accb387ca6d93b753db93b7284"}}
+[debug] [2026-07-11T16:25:37.880Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/128408092656/sites/maurik-web/versions/e15d3043e30eb003:populateFiles 200
+[debug] [2026-07-11T16:25:37.880Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/128408092656/sites/maurik-web/versions/e15d3043e30eb003:populateFiles {"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/maurik-web/versions/e15d3043e30eb003/files"}
+[debug] [2026-07-11T16:25:37.881Z] [hosting][populate queue][FINAL] {"max":1110,"min":1110,"avg":1110,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1111}
+[debug] [2026-07-11T16:25:37.881Z] [hosting] uploads queued: 0
+[debug] [2026-07-11T16:25:37.881Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":0,"complete":0,"success":0,"errored":0,"retried":0,"total":0,"elapsed":1783787137881}
+[info] i  hosting: upload complete 
+[info] ✔  hosting[maurik-web]: file upload complete 
+[debug] [2026-07-11T16:25:37.886Z] [hosting] deploy completed after 1167ms
+[debug] [2026-07-11T16:25:37.887Z] [
+  {
+    "config": {
+      "public": "out",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://assets.mailerlite.com https://static.mailerlite.com https://groot.mailerlite.com https://assets.mlcdn.com https://f.convertkit.com https://f.kit.com; style-src 'self' 'unsafe-inline' https://assets.mailerlite.com https://static.mailerlite.com https://assets.mlcdn.com; img-src 'self' data: blob: https: https://assets.mlcdn.com; font-src 'self' data: https://assets.mlcdn.com; connect-src 'self' https: https://assets.mailerlite.com https://static.mailerlite.com https://groot.mailerlite.com https://assets.mlcdn.com https://api.kit.com https://api.convertkit.com https://app.kit.com https://app.convertkit.com https://f.convertkit.com https://f.kit.com; frame-src 'self' https://player.mediadelivery.net https://maurikmillaku.substack.com https://app.kit.com https://app.convertkit.com; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self' https://maurik.systeme.io https://maurikmillaku.substack.com https://assets.mailerlite.com https://groot.mailerlite.com https://app.kit.com https://app.convertkit.com; frame-ancestors 'none'; upgrade-insecure-requests"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "X-DNS-Prefetch-Control",
+              "value": "off"
+            },
+            {
+              "key": "Permissions-Policy",
+              "value": "camera=(), microphone=(), geolocation=(), browsing-topics=()"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains; preload"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(js|css)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public,max-age=31536000,immutable"
+            }
+          ]
+        },
+        {
+          "source": "**/*.html",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public,max-age=0,must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(png|jpg|jpeg|webp|avif|heic|heif|svg|gif|ico)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public,max-age=604800,stale-while-revalidate=86400"
+            }
+          ]
+        }
+      ],
+      "cleanUrls": true,
+      "site": "maurik-web"
+    },
+    "version": "projects/128408092656/sites/maurik-web/versions/e15d3043e30eb003"
+  }
+]
+[info] i  hosting[maurik-web]: finalizing version... 
+[debug] [2026-07-11T16:25:37.895Z] Checked if tokens are valid: true, expires at: 1783790731589
+[debug] [2026-07-11T16:25:37.895Z] Checked if tokens are valid: true, expires at: 1783790731589
+[debug] [2026-07-11T16:25:37.896Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/maurik-web/versions/e15d3043e30eb003 updateMask=status%2Cconfig
+[debug] [2026-07-11T16:25:37.896Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/maurik-web/versions/e15d3043e30eb003 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}],"headers":[{"glob":"**","headers":{"Cache-Control":"no-cache, no-store, must-revalidate","Content-Security-Policy":"default-src 'self'; script-src 'self' 'unsafe-inline' https://assets.mailerlite.com https://static.mailerlite.com https://groot.mailerlite.com https://assets.mlcdn.com https://f.convertkit.com https://f.kit.com; style-src 'self' 'unsafe-inline' https://assets.mailerlite.com https://static.mailerlite.com https://assets.mlcdn.com; img-src 'self' data: blob: https: https://assets.mlcdn.com; font-src 'self' data: https://assets.mlcdn.com; connect-src 'self' https: https://assets.mailerlite.com https://static.mailerlite.com https://groot.mailerlite.com https://assets.mlcdn.com https://api.kit.com https://api.convertkit.com https://app.kit.com https://app.convertkit.com https://f.convertkit.com https://f.kit.com; frame-src 'self' https://player.mediadelivery.net https://maurikmillaku.substack.com https://app.kit.com https://app.convertkit.com; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self' https://maurik.systeme.io https://maurikmillaku.substack.com https://assets.mailerlite.com https://groot.mailerlite.com https://app.kit.com https://app.convertkit.com; frame-ancestors 'none'; upgrade-insecure-requests","Referrer-Policy":"strict-origin-when-cross-origin","X-Content-Type-Options":"nosniff","X-Frame-Options":"DENY","X-DNS-Prefetch-Control":"off","Permissions-Policy":"camera=(), microphone=(), geolocation=(), browsing-topics=()","Strict-Transport-Security":"max-age=63072000; includeSubDomains; preload"}},{"glob":"**/*.@(js|css)","headers":{"Cache-Control":"public,max-age=31536000,immutable"}},{"glob":"**/*.html","headers":{"Cache-Control":"public,max-age=0,must-revalidate"}},{"glob":"**/*.@(png|jpg|jpeg|webp|avif|heic|heif|svg|gif|ico)","headers":{"Cache-Control":"public,max-age=604800,stale-while-revalidate=86400"}}],"cleanUrls":true}}
+[debug] [2026-07-11T16:25:39.484Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/maurik-web/versions/e15d3043e30eb003 200
+[debug] [2026-07-11T16:25:39.484Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/maurik-web/versions/e15d3043e30eb003 {"name":"projects/128408092656/sites/maurik-web/versions/e15d3043e30eb003","status":"FINALIZED","config":{"headers":[{"headers":{"X-Frame-Options":"DENY","X-DNS-Prefetch-Control":"off","Permissions-Policy":"camera=(), microphone=(), geolocation=(), browsing-topics=()","Strict-Transport-Security":"max-age=63072000; includeSubDomains; preload","Cache-Control":"no-cache, no-store, must-revalidate","Content-Security-Policy":"default-src 'self'; script-src 'self' 'unsafe-inline' https://assets.mailerlite.com https://static.mailerlite.com https://groot.mailerlite.com https://assets.mlcdn.com https://f.convertkit.com https://f.kit.com; style-src 'self' 'unsafe-inline' https://assets.mailerlite.com https://static.mailerlite.com https://assets.mlcdn.com; img-src 'self' data: blob: https: https://assets.mlcdn.com; font-src 'self' data: https://assets.mlcdn.com; connect-src 'self' https: https://assets.mailerlite.com https://static.mailerlite.com https://groot.mailerlite.com https://assets.mlcdn.com https://api.kit.com https://api.convertkit.com https://app.kit.com https://app.convertkit.com https://f.convertkit.com https://f.kit.com; frame-src 'self' https://player.mediadelivery.net https://maurikmillaku.substack.com https://app.kit.com https://app.convertkit.com; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self' https://maurik.systeme.io https://maurikmillaku.substack.com https://assets.mailerlite.com https://groot.mailerlite.com https://app.kit.com https://app.convertkit.com; frame-ancestors 'none'; upgrade-insecure-requests","Referrer-Policy":"strict-origin-when-cross-origin","X-Content-Type-Options":"nosniff"},"glob":"**"},{"headers":{"Cache-Control":"public,max-age=31536000,immutable"},"glob":"**/*.@(js|css)"},{"headers":{"Cache-Control":"public,max-age=0,must-revalidate"},"glob":"**/*.html"},{"headers":{"Cache-Control":"public,max-age=604800,stale-while-revalidate=86400"},"glob":"**/*.@(png|jpg|jpeg|webp|avif|heic|heif|svg|gif|ico)"}],"rewrites":[{"glob":"**","path":"/index.html"}],"cleanUrls":true},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2026-07-11T16:25:36.270825Z","createUser":{"email":"millakumaurik@gmail.com"},"finalizeTime":"2026-07-11T16:25:40.348204Z","finalizeUser":{"email":"millakumaurik@gmail.com"}}
+[debug] [2026-07-11T16:25:39.484Z] [hosting] finalized version for maurik-web:[object Object]
+[info] ✔  hosting[maurik-web]: version finalized 
+[info] i  hosting[maurik-web]: releasing new version... 
+[debug] [2026-07-11T16:25:39.485Z] Checked if tokens are valid: true, expires at: 1783790731589
+[debug] [2026-07-11T16:25:39.485Z] Checked if tokens are valid: true, expires at: 1783790731589
+[debug] [2026-07-11T16:25:39.485Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/maurik-web/channels/live/releases versionName=projects%2F128408092656%2Fsites%2Fmaurik-web%2Fversions%2Fe15d3043e30eb003
+[debug] [2026-07-11T16:25:39.485Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/maurik-web/channels/live/releases {}

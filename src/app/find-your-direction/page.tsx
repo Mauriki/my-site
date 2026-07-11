@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { BackToHomeLink } from '@/components/ui/BackToHomeLink';
+import KitSubscribeForm from '@/components/ui/KitSubscribeForm';
 
 export default function GuideSignupPage() {
 
@@ -40,20 +41,16 @@ export default function GuideSignupPage() {
                             <p className="guide-subtitle">
                                 This guide helps you find your direction and know what you actually want to do. It gives you action steps, questions, and a scoring method to analyze your progress and get clear on your next steps.
                             </p>
-                            <p className="guide-subtitle" style={{ marginBottom: '1.25rem', fontWeight: 500, color: 'var(--brand)' }}>
-                                100% free. Instant access, no email required.
+                            <p className="guide-subtitle" style={{ marginBottom: '1.25rem', fontWeight: 500 }}>
+                                Enter your email below to receive the free PDF guide straight to your inbox.
                             </p>
 
-                            <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', alignItems: 'flex-start' }}>
-                                <a
-                                    href="https://drive.google.com/file/d/1sL_R_aN9clWEg3QB6Q03BW09FD4u0fY5/view?usp=share_link"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="btn-special"
-                                >
-                                    Get Instant Access
-                                </a>
-                                <p style={{ fontSize: '0.8rem', color: 'var(--ink-soft)', margin: 0 }}>
+                            <div style={{ marginTop: '1.5rem' }}>
+                                <KitSubscribeForm 
+                                    buttonText="Get the PDF Guide"
+                                    successMessage="Click 'Confirm your subscription' in that email to download the PDF guide instantly."
+                                />
+                                <p style={{ fontSize: '0.8rem', color: 'var(--ink-soft)', marginTop: '1rem', marginBottom: 0 }}>
                                     For personal use only. Do not copy or distribute.
                                 </p>
                             </div>
