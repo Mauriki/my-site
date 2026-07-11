@@ -13,7 +13,7 @@ export default function KitSubscribeForm({
   formId = '9625976',
   uid = 'b1979c1c5f',
   buttonText = 'Get Free Access',
-  successMessage = 'Click "Confirm your subscription" in that email to open the course portal.',
+  successMessage = 'Click the link in that email to open the course portal.',
 }: KitSubscribeFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -108,7 +108,7 @@ export default function KitSubscribeForm({
           </div>
           <h3>Check Your Inbox</h3>
           <p style={{ marginTop: '0.5rem', fontSize: 'var(--text-sm)', color: 'var(--ink-soft)', lineHeight: '1.65' }}>
-            We sent a confirmation email to <strong>{email}</strong>.
+            We sent the access link to <strong>{email}</strong>.
             <br />
             {successMessage}
           </p>

@@ -168,15 +168,6 @@ export default function UltimateGuidePage() {
           </p>
 
           <p className="course-meta">13 HD lessons · Lifetime access · 100% Free</p>
-
-          <div className="course-hero-actions" style={{ display: 'flex', flexDirection: 'row', gap: '1rem', flexWrap: 'wrap' }}>
-            <a href="#enroll" className="btn-special">
-              Get the Guide
-            </a>
-            <a href="#inside" className="course-hero-link" style={{ marginTop: '0.65rem' }}>
-              See what&rsquo;s inside
-            </a>
-          </div>
         </div>
 
         <section className="course-section course-section-soft">
