@@ -48,7 +48,6 @@ export default function GuideSignupPage() {
                             <div style={{ marginTop: '1.5rem', width: '100%' }}>
                                 <KitSubscribeForm 
                                     formId="9672812"
-                                    uid="31ad94b8ed"
                                     buttonText="Get the PDF Guide"
                                     successMessage="Click the link in that email to download the PDF guide instantly."
                                 />

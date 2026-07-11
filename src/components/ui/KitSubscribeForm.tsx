@@ -4,14 +4,12 @@ import { useState } from 'react';
 
 interface KitSubscribeFormProps {
   formId?: string;
-  uid?: string;
   buttonText?: string;
   successMessage?: string;
 }
 
 export default function KitSubscribeForm({
   formId = '9625976',
-  uid = 'b1979c1c5f',
   buttonText = 'Get Free Access',
   successMessage = 'Click the link in that email to open the course portal.',
 }: KitSubscribeFormProps) {
