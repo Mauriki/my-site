@@ -1,21 +1,20 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 
 export default function KitSubscribeForm() {
   const [submitted, setSubmitted] = useState(false);
   const [email, setEmail] = useState('');
 
   const handleSubmit = () => {
-    // Set localStorage unlocked flag immediately
-    localStorage.setItem('ultimate_guide_unlocked', 'true');
+    // Do NOT unlock immediately — wait for email confirmation.
+    // Kit will redirect to /ultimate-guide/portal?unlocked=true after they confirm.
     setSubmitted(true);
   };
 
   return (
     <div className="kit-subscribe-container">
-      {/* Hidden iframe to receive Kit's redirect without reloading the page */}
+      {/* Hidden iframe so the form posts to Kit without navigating away */}
       <iframe
         name="kit_post_iframe"
         id="kit_post_iframe"
@@ -52,10 +51,11 @@ export default function KitSubscribeForm() {
       ) : (
         <div className="kit-success-state">
           <div className="success-icon-wrapper">
+            {/* Envelope icon instead of checkmark — signals "check your email" */}
             <svg
-              className="checkmark-svg"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 52 52"
+              className="checkmark-svg"
             >
               <circle
                 className="checkmark-circle"
@@ -71,13 +71,15 @@ export default function KitSubscribeForm() {
               />
             </svg>
           </div>
-          <h3>You&apos;re Unlocked!</h3>
-          <p style={{ marginTop: '0.5rem', marginBottom: '1.25rem', fontSize: 'var(--text-sm)', color: 'var(--ink-soft)' }}>
-            We have sent your confirmation link via email. You can also dive into the lectures right away by clicking the button below.
+          <h3>Check Your Inbox</h3>
+          <p style={{ marginTop: '0.5rem', fontSize: 'var(--text-sm)', color: 'var(--ink-soft)', lineHeight: '1.65' }}>
+            We sent a confirmation email to <strong>{email}</strong>.
+            <br />
+            Click <strong>&ldquo;Confirm your subscription&rdquo;</strong> in that email and you will be taken straight into the course.
           </p>
-          <Link href="/ultimate-guide/portal?unlocked=true" className="btn-special btn-block" style={{ textDecoration: 'none', display: 'block', textAlign: 'center' }}>
-            Go to Course Portal
-          </Link>
+          <p style={{ marginTop: '0.75rem', fontSize: '12px', color: 'var(--ink-mute)' }}>
+            Can&rsquo;t find it? Check your spam or promotions folder.
+          </p>
         </div>
       )}
     </div>

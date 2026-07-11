@@ -306,7 +306,7 @@ export default function UltimateGuidePage() {
               </div>
 
               <KitSubscribeForm />
-              <p className="course-guarantee" style={{ marginTop: '1.25rem' }}>No payment required. Portal link sent to your email.</p>
+              <p className="course-guarantee" style={{ marginTop: '1.25rem' }}>Free forever. Confirm your email to unlock the course instantly.</p>
             </div>
           </div>
         </section>

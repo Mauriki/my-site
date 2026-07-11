@@ -210,16 +210,16 @@ function CoursePortalInner() {
         </header>
         <main className="portal-gate-main">
           <div className="portal-gate-card">
-            <span className="gate-eyebrow">Unlock Access</span>
-            <h1>Enter the Ultimate Guide Vault</h1>
+            <span className="gate-eyebrow">Free Access</span>
+            <h1>Enter the Ultimate Guide</h1>
             <p>
-              Please enter your email below to unlock instant access to all 13 video lessons, worksheets, templates, and frameworks.
+              Enter your email below. We will send you a confirmation link — click it and you will land directly inside the course. No payment needed, ever.
             </p>
             <div style={{ marginTop: '2rem' }}>
               <KitSubscribeForm />
             </div>
             <p className="gate-footer-note">
-              Already signed up? Click the direct access link sent to your email, or re-enter your email above to enter.
+              Already confirmed? Check your email for the access link — it goes directly to the course.
             </p>
           </div>
         </main>
