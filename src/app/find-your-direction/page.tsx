@@ -45,7 +45,7 @@ export default function GuideSignupPage() {
                                 Enter your email below to receive the free PDF guide straight to your inbox.
                             </p>
 
-                            <div style={{ marginTop: '1.5rem' }}>
+                            <div style={{ marginTop: '1.5rem', width: '100%' }}>
                                 <KitSubscribeForm 
                                     formId="9672812"
                                     uid="31ad94b8ed"

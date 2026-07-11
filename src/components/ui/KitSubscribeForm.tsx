@@ -52,7 +52,7 @@ export default function KitSubscribeForm({
       {/* 
         We keep the form in the DOM so the browser does not abort the request.
       */}
-      <div style={{ display: submitted ? 'none' : 'block' }}>
+      <div style={{ display: submitted ? 'none' : 'block', width: '100%' }}>
         <form
           action={`https://app.kit.com/forms/${formId}/subscriptions`}
           method="post"
@@ -73,12 +73,10 @@ export default function KitSubscribeForm({
             autoComplete="email"
             inputMode="email"
             required
-            disabled={loading}
           />
           <button 
             type="submit" 
             className="newsletter-simple-button"
-            disabled={loading}
             style={{ opacity: loading ? 0.8 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}
           >
             {loading ? 'Processing...' : buttonText}
