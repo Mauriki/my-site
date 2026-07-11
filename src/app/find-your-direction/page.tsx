@@ -22,11 +22,11 @@ export default function GuideSignupPage() {
                     <div className="guide-split-image">
                         <div className="guide-mockup-wrapper">
                             <Image
-                                src="/mockup.png"
+                                src="/mockup.png?v=2"
                                 alt="Find Your Direction Ebook 3D Mockup"
                                 className="guide-mockup-img"
-                                width={900}
-                                height={600}
+                                width={399}
+                                height={640}
                                 priority
                                 style={{ width: '100%', height: 'auto' }}
                             />
