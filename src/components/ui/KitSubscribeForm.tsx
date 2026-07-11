@@ -19,46 +19,39 @@ export default function KitSubscribeForm({
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setLoading(true);
-    // Fallback: If for some reason the iframe load event doesn't fire, 
-    // force success screen after 1.8 seconds so the user isn't stuck.
-    const timer = setTimeout(() => {
-      setSubmitted(true);
-      setLoading(false);
-    }, 1800);
 
-    return () => clearTimeout(timer);
-  };
+    try {
+      const params = new URLSearchParams();
+      params.append('email_address', email);
 
-  const handleIframeLoad = () => {
-    if (loading) {
+      const response = await fetch(`https://app.kit.com/forms/${formId}/subscriptions`, {
+        method: 'POST',
+        body: params,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        setSubmitted(true);
+      }
+    } catch (err) {
+      console.error('Subscription error:', err);
       setSubmitted(true);
+    } finally {
       setLoading(false);
     }
   };
 
   return (
     <div className="kit-subscribe-container">
-      {/* Hidden iframe to receive Kit's response without redirecting the main page */}
-      <iframe
-        name={`kit_post_iframe_${formId}`}
-        id={`kit_post_iframe_${formId}`}
-        style={{ display: 'none' }}
-        title="Kit Submission Target"
-        onLoad={handleIframeLoad}
-      />
-
-      {/* 
-        We keep the form in the DOM so the browser does not abort the request.
-      */}
       <div style={{ display: submitted ? 'none' : 'block', width: '100%' }}>
         <form
-          action={`https://app.kit.com/forms/${formId}/subscriptions`}
-          method="post"
-          data-sv-form={formId}
-          data-uid={uid}
-          target={`kit_post_iframe_${formId}`}
           onSubmit={handleSubmit}
           className="newsletter-simple-form"
         >
