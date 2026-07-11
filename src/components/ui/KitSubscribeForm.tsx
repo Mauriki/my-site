@@ -16,10 +16,26 @@ export default function KitSubscribeForm({
   successMessage = 'Click "Confirm your subscription" in that email to open the course portal.',
 }: KitSubscribeFormProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
 
   const handleSubmit = () => {
-    setSubmitted(true);
+    setLoading(true);
+    // Fallback: If for some reason the iframe load event doesn't fire, 
+    // force success screen after 1.8 seconds so the user isn't stuck.
+    const timer = setTimeout(() => {
+      setSubmitted(true);
+      setLoading(false);
+    }, 1800);
+
+    return () => clearTimeout(timer);
+  };
+
+  const handleIframeLoad = () => {
+    if (loading) {
+      setSubmitted(true);
+      setLoading(false);
+    }
   };
 
   return (
@@ -30,11 +46,11 @@ export default function KitSubscribeForm({
         id={`kit_post_iframe_${formId}`}
         style={{ display: 'none' }}
         title="Kit Submission Target"
+        onLoad={handleIframeLoad}
       />
 
       {/* 
-        CRITICAL FIX: We keep the form in the DOM but hide it using CSS.
-        If we unmount the form instantly, the browser aborts the request before it reaches Kit.
+        We keep the form in the DOM so the browser does not abort the request.
       */}
       <div style={{ display: submitted ? 'none' : 'block' }}>
         <form
@@ -57,9 +73,15 @@ export default function KitSubscribeForm({
             autoComplete="email"
             inputMode="email"
             required
+            disabled={loading}
           />
-          <button type="submit" className="newsletter-simple-button">
-            {buttonText}
+          <button 
+            type="submit" 
+            className="newsletter-simple-button"
+            disabled={loading}
+            style={{ opacity: loading ? 0.8 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}
+          >
+            {loading ? 'Processing...' : buttonText}
           </button>
         </form>
       </div>

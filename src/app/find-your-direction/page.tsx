@@ -47,8 +47,10 @@ export default function GuideSignupPage() {
 
                             <div style={{ marginTop: '1.5rem' }}>
                                 <KitSubscribeForm 
+                                    formId="9672812"
+                                    uid="31ad94b8ed"
                                     buttonText="Get the PDF Guide"
-                                    successMessage="Click 'Confirm your subscription' in that email to download the PDF guide instantly."
+                                    successMessage="Click 'Find Your Direction PDF' in that email to download the PDF guide instantly."
                                 />
                                 <p style={{ fontSize: '0.8rem', color: 'var(--ink-soft)', marginTop: '1rem', marginBottom: 0 }}>
                                     For personal use only. Do not copy or distribute.
