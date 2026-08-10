@@ -1158,6 +1158,18 @@ svg {
   box-shadow: var(--shadow-md);
 }
 
+@media (max-width: 768px) {
+  .course-pricing-card {
+    padding: var(--space-5);
+  }
+  .course-pricing-card .course-value-list {
+    display: none;
+  }
+  .course-pricing-card .course-price-block {
+    margin: var(--space-3) 0 var(--space-3);
+  }
+}
+
 .course-pricing-label {
   margin: 0;
   text-transform: uppercase;
@@ -1316,10 +1328,16 @@ svg {
   border-radius: var(--radius-md);
   padding: var(--space-3) var(--space-4);
   box-shadow: var(--shadow-md);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, box-shadow var(--transition-fast);
 }
 
-.floating-cta:hover {
+.floating-cta.hide-floating {
+  transform: translateY(100px) scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.floating-cta:hover:not(.hide-floating) {
   transform: translateY(-1px);
   box-shadow: 0 22px 34px rgba(8, 8, 8, 0.32);
 }
@@ -1833,6 +1851,8 @@ svg {
   }
 }
 .work-section {
+  padding-top: var(--space-10);
+  border-top: 1px solid var(--border-soft);
   margin-bottom: var(--space-12);
 }
 
@@ -2020,7 +2040,6 @@ h3 {
   display: inline-flex;
   align-items: center;
   gap: var(--space-3);
-  margin-bottom: var(--space-4);
 }
 
 .coaching-section h2 {
@@ -2162,6 +2181,16 @@ h3 {
   .coaching-section {
     padding-top: var(--space-8);
     padding-bottom: var(--space-10);
+    gap: var(--space-3);
+  }
+  .work-section {
+    padding-top: var(--space-8);
+    margin-bottom: var(--space-10);
+  }
+  .coaching-section .badge-special {
+    padding: var(--space-1) var(--space-2);
+    font-size: 11px;
+    margin-bottom: var(--space-2);
   }
 }
 
@@ -2714,3 +2743,430 @@ h3 {
   }
 }
 
+/* Interactive Live Transcript Box */
+.transcript-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--border-soft);
+  color: var(--ink-soft);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  transition: all var(--transition-fast);
+}
+
+.transcript-toggle-btn:hover {
+  background: #f4f4f2;
+  color: var(--ink);
+  border-color: var(--ink-mute);
+}
+
+.transcript-container {
+  max-height: 280px;
+  overflow-y: auto;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  background: #fbfbf9;
+  margin-top: var(--space-3);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+  scrollbar-width: thin;
+}
+
+.transcript-line {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-2);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease, color 0.15s ease;
+  align-items: flex-start;
+}
+
+.transcript-line:hover {
+  background: #f3f3ee;
+}
+
+.transcript-line.active {
+  background: #eff6ff; /* soft brand blue */
+  border-left: 3px solid var(--brand-strong);
+  padding-left: calc(var(--space-2) - 3px);
+}
+
+.transcript-timestamp {
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-mute);
+  min-width: 45px;
+  text-align: right;
+  padding-top: 1px;
+  user-select: none;
+}
+
+.transcript-line.active .transcript-timestamp {
+  color: var(--brand-strong);
+}
+
+.transcript-text {
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.transcript-line.active .transcript-text {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* Interactive Worksheet Trigger */
+.btn-worksheet-trigger {
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  color: #ffffff;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-worksheet-trigger:hover {
+  background: #2a2a2a;
+  border-color: #2a2a2a;
+  transform: translateY(-1px);
+}
+
+/* Modal styles */
+.worksheet-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 15, 15, 0.45);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-6);
+}
+
+.worksheet-modal-content {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  max-width: 800px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: var(--space-10) var(--space-10);
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-soft);
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: thin;
+}
+
+.worksheet-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: var(--space-4);
+}
+
+.worksheet-modal-header h2 {
+  margin: 0;
+  font-size: var(--heading-3);
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.worksheet-modal-close-btn {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--ink-mute);
+  padding: var(--space-1);
+  transition: color var(--transition-fast);
+}
+
+.worksheet-modal-close-btn:hover {
+  color: var(--ink);
+}
+
+/* Form Styles inside Modal */
+.worksheet-form-group {
+  margin-bottom: var(--space-8);
+}
+
+.worksheet-form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--ink);
+  margin-bottom: var(--space-3);
+  line-height: 1.5;
+  white-space: normal !important;
+  word-break: break-word;
+}
+
+.worksheet-form-group label span {
+  display: inline-block;
+  white-space: normal !important;
+  word-break: break-word;
+}
+
+.worksheet-form-group textarea {
+  width: 100%;
+  min-height: 38px;
+  border: none;
+  border-bottom: 1px solid var(--border-soft);
+  border-radius: 0;
+  padding: var(--space-2) 0;
+  font-size: var(--text-sm);
+  font-family: var(--font-sans), sans-serif;
+  color: var(--ink);
+  background: transparent;
+  resize: none;
+  overflow: hidden;
+  line-height: 1.6;
+  transition: border-bottom-color var(--transition-fast);
+}
+
+.worksheet-form-group textarea:focus {
+  border-bottom-color: var(--brand-strong);
+  outline: none;
+}
+
+/* Card and Grid Elements */
+.worksheet-card {
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--border-soft);
+  border-radius: 0;
+  padding: var(--space-6) 0 0 0;
+  margin-top: var(--space-8);
+}
+
+.worksheet-grid-table {
+  width: 100%;
+  min-width: 800px; /* Prevent column squashing on narrower screens */
+  border-collapse: collapse;
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.worksheet-grid-table th,
+.worksheet-grid-table td {
+  border: 1px solid var(--border-soft);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+}
+
+.worksheet-grid-table th {
+  background: #1a1a1a;
+  color: #ffffff;
+  font-weight: 600;
+  border: 1px solid #1a1a1a;
+}
+
+.worksheet-grid-table tr:nth-child(even) {
+  background: #fbfbf9;
+}
+
+.worksheet-grid-table input[type="text"] {
+  width: 100%;
+  border: 1px solid transparent;
+  background: transparent;
+  padding: var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--ink);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.worksheet-grid-table input[type="text"]:focus {
+  border-color: var(--border-soft);
+  background: #ffffff;
+  outline: none;
+}
+
+.worksheet-grid-table select {
+  border: 1px solid var(--border-soft);
+  background: #ffffff;
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--ink);
+}
+
+/* Routine Split View */
+.routine-split-view {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .routine-split-view {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Print and PDF Optimizations */
+.print-only {
+  display: none !important;
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  /* Hide entire page structure */
+  header,
+  footer,
+  aside,
+  main,
+  .course-topbar,
+  .portal-sidebar,
+  .portal-content,
+  .lecture-action-bar,
+  .lecture-meta-details,
+  .transcript-toggle-btn,
+  .transcript-container,
+  .worksheet-modal-close-btn {
+    display: none !important;
+  }
+
+  .worksheet-modal-overlay {
+    position: static !important;
+    background: none !important;
+    padding: 0 !important;
+    display: block !important;
+    backdrop-filter: none !important;
+  }
+
+  .worksheet-modal-content {
+    box-shadow: none !important;
+    border: none !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    width: 100% !important;
+    display: block !important;
+    position: static !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .worksheet-modal-header h2 {
+    font-size: 24px !important;
+    border-bottom: 2px solid #000000 !important;
+    padding-bottom: 8px !important;
+  }
+
+  .print-hide {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-text-box {
+    border-bottom: 1px solid #000000;
+    padding: 8px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #000000;
+    min-height: 35px;
+    white-space: pre-wrap;
+    margin-top: 4px;
+  }
+
+  .worksheet-form-group {
+    margin-bottom: 24px !important;
+    page-break-inside: avoid;
+  }
+
+  .worksheet-card {
+    background: none !important;
+    border: 1px solid #000000 !important;
+    padding: 16px !important;
+    page-break-inside: avoid;
+  }
+
+  .worksheet-grid-table th {
+    background: #f1f5f9 !important;
+    color: #000000 !important;
+    border: 1px solid #000000 !important;
+  }
+
+  .worksheet-grid-table td,
+  .worksheet-grid-table tr {
+    border: 1px solid #000000 !important;
+    background: none !important;
+  }
+
+  .html2pdf-page-break {
+    page-break-before: always !important;
+    break-before: page !important;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+/* PDF Generation Overrides */
+.is-pdf-generating .print-hide {
+  display: none !important;
+}
+
+.is-pdf-generating .print-only {
+  display: block !important;
+}
+
+.is-pdf-generating.worksheet-modal-content,
+.is-pdf-generating .worksheet-modal-content {
+  box-shadow: none !important;
+  border: none !important;
+  background: #ffffff !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  max-height: none !important;
+  overflow: visible !important;
+  display: block !important;
+  position: static !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.is-pdf-generating .worksheet-modal-header {
+  display: none !important;
+}
+
+.is-pdf-generating .html2pdf-page-break {
+  page-break-before: always !important;
+  break-before: page !important;
+  height: 0;
+  overflow: hidden;
+}
