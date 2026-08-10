@@ -112,6 +112,8 @@ export default function PersonalWebsite() {
           </div>
         </section>
 
+        {/* Substack Article Subscription Form - Commented out while not writing articles.
+            To re-enable: remove the opening comment brace above and closing comment brace below this section.
         <section className="newsletter-embed" aria-label="Articles newsletter signup">
           <div className="newsletter-copy">
             <p className="eyebrow">Articles</p>
@@ -146,6 +148,7 @@ export default function PersonalWebsite() {
             </form>
           </div>
         </section>
+        */}
 
 
 
