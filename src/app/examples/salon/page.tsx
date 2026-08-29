@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { DemoTopBar } from '@/components/examples/DemoTopBar';
 import { LanguageProvider, useLanguage } from '@/components/examples/LanguageContext';
 import {
+  Scissors,
   Clock,
   MapPin,
   Phone,
@@ -17,7 +18,7 @@ import {
 
 interface ServiceItem {
   id: string;
-  category: 'hair' | 'face' | 'body' | 'nails';
+  category: 'hair' | 'beard' | 'combo' | 'treatment';
   nameEn: string;
   nameSq: string;
   descEn: string;
@@ -28,68 +29,68 @@ interface ServiceItem {
 
 const serviceCatalog: ServiceItem[] = [
   {
-    id: 'h1',
-    category: 'hair',
-    nameEn: 'Signature Botanical Scalp & Hair Therapy',
-    nameSq: 'Trajtim Botanik i Kokës & Flokëve',
-    descEn: 'Scalp detox wash, organic herbal conditioning mask, customized precision shaping and blowout.',
-    descSq: 'Larje detoksikuese e kokës, maskë me barëra organike, prerje precize dhe stilim me shkëlqim.',
-    duration: '60 min',
-    price: '€38',
-  },
-  {
-    id: 'h2',
-    category: 'hair',
-    nameEn: 'Glossing & Bond-Strengthening Ritual',
-    nameSq: 'Trajtim Rigjenerues me Shkëlqim Gloss',
-    descEn: 'Hand-painted glossing toner, bond-protecting olaplex seal, bespoke hydrating elixir.',
-    descSq: 'Nuancim me tonues me shkëlqim, mbrojtje e thellë e fijeve të flokut, eliksir hidratues bimor.',
-    duration: '90 min',
-    price: '€65',
-  },
-  {
-    id: 'f1',
-    category: 'face',
-    nameEn: 'Aura Radiance & Gua Sha Jade Facial',
-    nameSq: 'Trajtim Fytyre me Shkëlqim & Masazh Gua Sha',
-    descEn: 'Deep botanical enzyme peel, jade crystal lymphatic drainage, hyaluronic moisture infusion.',
-    descSq: 'Pastrim i thellë me enzima bimore, drenazh limfatik me gur lodhi, infuzion me acid hialuronik.',
-    duration: '75 min',
-    price: '€65',
-  },
-  {
-    id: 'f2',
-    category: 'face',
-    nameEn: 'Collagen Lift & Cellular Light Therapy',
-    nameSq: 'Terapi Kolagjeni & Dritë Qelizore Rinovuese',
-    descEn: 'Non-invasive microcurrent firming, collagen peptide serum, custom wavelength calming therapy.',
-    descSq: 'Tonifikim joinvaziv me mikrorrymë, serum me peptide kolagjeni, terapi qetësuese qelizore.',
-    duration: '60 min',
-    price: '€75',
-  },
-  {
     id: 'b1',
-    category: 'body',
-    nameEn: 'Warm Basalt Stone & Cedar Massage',
-    nameSq: 'Masazh me Gurë të Ngrohtë Vullkanikë & Dru Kedri',
-    descEn: 'Smooth volcanic basalt stones heated to 52°C, organic cedarwood oil for profound muscle release.',
-    descSq: 'Gurë vullkanikë të lëmuar të ngrohur në 52°C, vaj aromatik kedri për relaksim të thellë të muskujve.',
-    duration: '90 min',
-    price: '€70',
+    category: 'hair',
+    nameEn: 'Master Executive Haircut & Scissor Finish',
+    nameSq: 'Prerje Klasike me Gërshërë & Stilim Master',
+    descEn: 'Consultation, precision razor taper fade, hot neck lather & straight razor finish, cooling menthol wash.',
+    descSq: 'Konsultim i stilit, prerje precize me gërshërë, pastrim me brisk rroje në qafë dhe larje freskuese.',
+    duration: '45 min',
+    price: '€18',
   },
   {
-    id: 'n1',
-    category: 'nails',
-    nameEn: 'Luxury Japanese Mineral Manicure',
-    nameSq: 'Manikyr Luksoz me Minerale Japoneze',
-    descEn: 'Dry Russian cuticle care, botanical exfoliation scrub, non-toxic mineral glaze overlay.',
-    descSq: 'Kujdes i hollësishëm i kutikulave, eksfoliim bimor, veshje me minerale pa toksina.',
-    duration: '50 min',
-    price: '€30',
+    id: 'b2',
+    category: 'beard',
+    nameEn: 'Traditional Sandalwood Hot Towel Beard Sculpt',
+    nameSq: 'Rregullim Mjekre me Peshaqirë të Ngrohtë & Avull',
+    descEn: 'Triple hot towel eucalyptus steam, hand-drawn beard lines with Japanese steel razor, organic cedar balm massage.',
+    descSq: 'Avullim me peshqirë të ngrohtë eukalipti, vijëzim me brisk rroje çeliku dhe masazh me vaj kedri organik.',
+    duration: '35 min',
+    price: '€14',
+  },
+  {
+    id: 'b3',
+    category: 'combo',
+    nameEn: 'The Complete Kallfa Gentleman Ritual',
+    nameSq: 'Paketa e Plotë: Prerje + Mjekër + Trajtim Avulli',
+    descEn: 'Master haircut, full beard shaping, hot & cold towel treatment, invigorating scalp massage & styling tonic.',
+    descSq: 'Prerje e plotë flokësh, rregullim dhe vijëzim mjekre, terapi peshqiri të nxehtë dhe masazh i kokës.',
+    duration: '75 min',
+    price: '€28',
+  },
+  {
+    id: 'b4',
+    category: 'treatment',
+    nameEn: 'Detoxifying Charcoal Scalp & Pore Steam',
+    nameSq: 'Pastrim i Thellë i Kokës me Qymyr Aktiv & Avull',
+    descEn: 'Activated charcoal exfoliating wash, herbal steam therapy, and deep botanical hydration seal.',
+    descSq: 'Eksfoliim me qymyr aktiv, terapi me avull bimore dhe hidratim me ekstrakt menteje.',
+    duration: '30 min',
+    price: '€16',
+  },
+  {
+    id: 'b5',
+    category: 'hair',
+    nameEn: 'Classic Skin Fade & Razor Lineup',
+    nameSq: 'Prerje Skin Fade & Konturim Preciz me Brisk',
+    descEn: 'Zero foil gradient fade, crisp perimeter outline, matte clay natural texture styling.',
+    descSq: 'Shkrirje perfekte në lëkurë, konture të theksuara dhe stilim me dyllë mat.',
+    duration: '40 min',
+    price: '€16',
+  },
+  {
+    id: 'b6',
+    category: 'treatment',
+    nameEn: 'Beard Softening & Argan Oil Deep Hydration',
+    nameSq: 'Trajtim Zbutës i Mjekrës me Vaj Argani',
+    descEn: 'Deep conditioning warm argan oil bath, high-frequency follicle stimulation, and mustache wax grooming.',
+    descSq: 'Kujdes i thellë me vaj argani të ngrohtë, stimulim i rrënjëve dhe stilim i mustaqeve.',
+    duration: '25 min',
+    price: '€12',
   },
 ];
 
-function SalonContent() {
+function BarberContent() {
   const { lang, t } = useLanguage();
 
   // Booking Wizard State
@@ -103,7 +104,7 @@ function SalonContent() {
   const [bookingDone, setBookingDone] = useState(false);
 
   // Active Category filter for catalog display
-  const [activeCatalogTab, setActiveCatalogTab] = useState<'all' | 'hair' | 'face' | 'body' | 'nails'>('all');
+  const [activeCatalogTab, setActiveCatalogTab] = useState<'all' | 'hair' | 'beard' | 'combo' | 'treatment'>('all');
 
   // FAQ Accordion State
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -123,35 +124,40 @@ function SalonContent() {
     setBookingDone(true);
   };
 
-  const locationText = lang === 'sq' ? 'Lagjja Marigona, Rruga 4, Prishtinë' : '28 South Molton St, Mayfair, London W1K 5RE';
-  const phoneText = lang === 'sq' ? '+383 44 700 800' : '+44 20 7946 0991';
-  const sampleName = lang === 'sq' ? 'Zana Gashi' : 'Eleanor Vance';
+  const locationText = lang === 'sq' ? 'Rruga Garibaldi, Nr. 14, Prishtinë' : '18 Jermyn Street, St James’s, London SW1Y 6HP';
+  const phoneText = lang === 'sq' ? '+383 49 500 600' : '+44 20 7946 0772';
+  const sampleName = lang === 'sq' ? 'Dren Krasniqi' : 'Arthur Vance';
 
   return (
-    <div style={{ backgroundColor: '#f7f5f0', color: '#261f1c', minHeight: '100vh', fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif" }}>
+    <div style={{ backgroundColor: '#111215', color: '#e5e7eb', minHeight: '100vh', fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif" }}>
       <DemoTopBar
-        demoTitle={{ en: 'Salon & Botanical Spa Demo', sq: 'Shembull Faqeje: Sallon & Spa Botanike' }}
-        industry={{ en: 'Aesthetic Skincare & Thermal Spa', sq: 'Estetikë & Kujdes Personal' }}
-        badgeColor="#556b5a"
+        demoTitle={{ en: 'Gentlemen’s Barber & Grooming Demo', sq: 'Shembull Faqeje: Berber & Kujdes për Meshkuj' }}
+        industry={{ en: 'Traditional Barbering & Beard Lounge', sq: 'Berber Tradicional & Kujdes Personal' }}
+        badgeColor="#c59b27"
       />
 
       {/* Top Header */}
-      <header style={{ borderBottom: '1px solid #e5ded2', backgroundColor: '#f7f5f0', position: 'sticky', top: '49px', zIndex: 30 }}>
+      <header style={{ borderBottom: '1px solid rgba(255,255,255,0.08)', backgroundColor: '#111215', position: 'sticky', top: '49px', zIndex: 30 }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '18px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div>
-            <span style={{ fontSize: '1.4rem', fontWeight: 800, letterSpacing: '0.14em', color: '#261f1c', textTransform: 'uppercase' }}>
-              AURA
-            </span>
-            <span style={{ fontSize: '0.68rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#556b5a', display: 'block', fontWeight: 700 }}>
-              {t('BOTANICAL SANCTUARY', 'SANCTUAR BOTANIK')}
-            </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{ width: '32px', height: '32px', backgroundColor: 'rgba(197, 155, 39, 0.15)', border: '1px solid #c59b27', color: '#c59b27', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Scissors size={18} />
+            </div>
+            <div>
+              <span style={{ fontSize: '1.35rem', fontWeight: 900, letterSpacing: '0.12em', color: '#ffffff', display: 'block', lineHeight: 1 }}>
+                KALLFA
+              </span>
+              <span style={{ fontSize: '0.65rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#c59b27', fontWeight: 800 }}>
+                {t('CLASSIC BARBER & GROOMING', 'BERBER & ATELIE TRADICIONALE')}
+              </span>
+            </div>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '32px', fontSize: '0.88rem', fontWeight: 600 }} className="hidden-mobile">
-            <a href="#services" style={{ color: '#4a3f3a', textDecoration: 'none' }}>{t('Rituals', 'Ritualet')}</a>
-            <a href="#experience" style={{ color: '#4a3f3a', textDecoration: 'none' }}>{t('Sanctuary', 'Ambienti')}</a>
-            <a href="#faq" style={{ color: '#4a3f3a', textDecoration: 'none' }}>{t('FAQ', 'Pyetje')}</a>
-            <a href="#location" style={{ color: '#4a3f3a', textDecoration: 'none' }}>{t('Contact', 'Kontakt')}</a>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '32px', fontSize: '0.88rem', fontWeight: 700 }} className="hidden-mobile">
+            <a href="#services" style={{ color: '#9ca3af', textDecoration: 'none' }}>{t('Services & Rates', 'Shërbimet & Çmimet')}</a>
+            <a href="#atelier" style={{ color: '#9ca3af', textDecoration: 'none' }}>{t('The Atelier', 'Ambienti')}</a>
+            <a href="#faq" style={{ color: '#9ca3af', textDecoration: 'none' }}>{t('FAQ', 'Pyetje')}</a>
+            <a href="#location" style={{ color: '#9ca3af', textDecoration: 'none' }}>{t('Hours & Chairs', 'Orari & Vendndodhja')}</a>
           </div>
 
           <button
@@ -161,18 +167,19 @@ function SalonContent() {
               setIsWizardOpen(true);
             }}
             style={{
-              backgroundColor: '#261f1c',
-              color: '#f7f5f0',
+              backgroundColor: '#c59b27',
+              color: '#111215',
               border: 'none',
               padding: '10px 22px',
-              borderRadius: '6px',
+              borderRadius: '4px',
               fontSize: '0.82rem',
-              fontWeight: 700,
+              fontWeight: 800,
               letterSpacing: '0.04em',
               cursor: 'pointer',
+              boxShadow: '0 2px 10px rgba(197, 155, 39, 0.35)',
             }}
           >
-            {t('Book Appointment', 'Cakto Takim')}
+            {t('Book Chair Online', 'Rezervo Karrigen Online')}
           </button>
         </div>
       </header>
@@ -181,19 +188,19 @@ function SalonContent() {
       <section style={{ maxWidth: '1280px', margin: '0 auto', padding: '72px 24px 80px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '48px', alignItems: 'center' }}>
           <div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#556b5a', backgroundColor: '#ebe5da', padding: '5px 14px', borderRadius: '4px', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 800, marginBottom: '20px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#c59b27', backgroundColor: 'rgba(197, 155, 39, 0.12)', border: '1px solid rgba(197, 155, 39, 0.3)', padding: '5px 14px', borderRadius: '4px', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 800, marginBottom: '20px' }}>
               <Sparkles size={14} />
-              {t('Holistic Botanical Aesthetics & Thermal Stone Care', 'Kujdes Holistik me Barëra Botanike & Gurë Termikë')}
+              {t('Heritage Barbering & Hot Towel Beard Grooming', 'Prerje Tradicionale me Gërshërë & Kujdes Mjekre')}
             </div>
 
-            <h1 style={{ fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)', lineHeight: 1.12, fontWeight: 700, margin: '0 0 24px', letterSpacing: '-0.02em', color: '#261f1c', fontFamily: "'Playfair Display', Georgia, serif" }}>
-              {t('Where refined aesthetics meet deep, restorative calm.', 'Aty ku estetika e rafinuar takon qetësinë e thellë.')}
+            <h1 style={{ fontSize: 'clamp(2.4rem, 4.6vw, 3.8rem)', lineHeight: 1.1, fontWeight: 900, margin: '0 0 24px', letterSpacing: '-0.02em', color: '#ffffff' }}>
+              {t('Precision cuts, straight-razor lines, and timeless craftsmanship.', 'Përkushtim i pakompromis ndaj stilit, saktësisë dhe traditës.')}
             </h1>
 
-            <p style={{ maxWidth: '580px', margin: '0 0 32px', fontSize: '1.05rem', lineHeight: 1.7, color: '#635650', fontWeight: 400 }}>
+            <p style={{ maxWidth: '580px', margin: '0 0 32px', fontSize: '1.05rem', lineHeight: 1.7, color: '#9ca3af', fontWeight: 400 }}>
               {t(
-                'Experience customized organic scalp therapies, botanical enzyme facials, and basalt stone therapies designed for profound restoration.',
-                'Zbuloni trajtime organike të personalizuara për lëkurën dhe flokët, masazhe relaksuese me gurë vullkanikë dhe qetësi absolute.'
+                'Kallfa brings back the golden age of traditional gentleman grooming — classic scissor tapers, sandalwood hot towel steam, and organic beard care.',
+                'Kallfa rikhen përvojën klasike të berberit tradicional — prerje precize me gërshërë, avullim me peshqirë të nxehtë dhe vajra bimorë për mjekër.'
               )}
             </p>
 
@@ -205,135 +212,135 @@ function SalonContent() {
                   setIsWizardOpen(true);
                 }}
                 style={{
-                  backgroundColor: '#556b5a',
-                  color: '#ffffff',
+                  backgroundColor: '#c59b27',
+                  color: '#111215',
                   border: 'none',
                   padding: '14px 32px',
-                  borderRadius: '6px',
+                  borderRadius: '4px',
                   fontSize: '0.95rem',
-                  fontWeight: 700,
+                  fontWeight: 800,
                   cursor: 'pointer',
-                  boxShadow: '0 4px 16px rgba(85, 107, 90, 0.35)',
+                  boxShadow: '0 4px 16px rgba(197, 155, 39, 0.4)',
                 }}
               >
-                {t('Reserve Your Ritual', 'Rezervo Trajtimin')}
+                {t('Book Your Appointment', 'Rezervo Takimin Tënd')}
               </button>
               <a
                 href="#services"
                 style={{
                   backgroundColor: 'transparent',
-                  color: '#261f1c',
-                  border: '1px solid #c9c0b3',
+                  color: '#ffffff',
+                  border: '1px solid rgba(255,255,255,0.2)',
                   padding: '14px 26px',
-                  borderRadius: '6px',
+                  borderRadius: '4px',
                   fontSize: '0.95rem',
-                  fontWeight: 600,
+                  fontWeight: 700,
                   textDecoration: 'none',
                 }}
               >
-                {t('View Ritual Menu', 'Shiko Menynë')}
+                {t('View Services & Rates', 'Shiko Çmimet')}
               </a>
             </div>
           </div>
 
-          {/* Hero Image (Strictly Object / Hot Stones / Spa Interior - ZERO People) */}
-          <div style={{ position: 'relative', height: '420px', borderRadius: '12px', overflow: 'hidden', border: '1px solid #e0d8cc', boxShadow: '0 20px 40px -15px rgba(0,0,0,0.08)' }}>
+          {/* Hero Image (Strictly Leather Barber Chair / Interior - ZERO People) */}
+          <div style={{ position: 'relative', height: '420px', borderRadius: '8px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 20px 40px -15px rgba(0,0,0,0.5)' }}>
             <Image
-              src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80"
-              alt="Organic spa volcanic basalt stones, fresh bamboo and natural dropper oils on dark water reflection"
+              src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1000&q=80"
+              alt="Vintage brown leather barber chair with antique mirrors and brass finishes in heritage barbershop"
               fill
               sizes="(max-width: 768px) 100vw, 600px"
               style={{ objectFit: 'cover' }}
               priority
             />
-            <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px', backgroundColor: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(8px)', padding: '10px 16px', borderRadius: '8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#261f1c' }}>
-                {t('Thermal Basalt Suite & Organic Elixirs', 'Salla e Gurëve Termikë & Eliksirëve')}
+            <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px', backgroundColor: 'rgba(17,18,21,0.92)', backdropFilter: 'blur(8px)', padding: '10px 16px', borderRadius: '4px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#ffffff' }}>
+                {t('Handcrafted Vintage Leather Barber Chairs', 'Karrige Klasike Lëkure & Brisk Çeliku')}
               </span>
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#556b5a' }}>
-                {t('100% Certified Organic', '100% Organike')}
+              <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#c59b27' }}>
+                {t('Walk-Ins & Online Bookings', 'Me Termin ose Pa Termin')}
               </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Sanctuary Interior & Objects Grid (Strictly Objects/Interior - ZERO People) */}
-      <section id="experience" style={{ maxWidth: '1280px', margin: '0 auto 80px', padding: '0 24px' }}>
+      {/* Atelier Tools & Interior Grid (Strictly Objects/Interior - ZERO People) */}
+      <section id="atelier" style={{ maxWidth: '1280px', margin: '0 auto 80px', padding: '0 24px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
-          <div style={{ height: '280px', position: 'relative', borderRadius: '8px', overflow: 'hidden', border: '1px solid #e0d8cc' }}>
+          <div style={{ height: '280px', position: 'relative', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
             <Image
-              src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80"
-              alt="Clean organic cosmetic beauty bottles and ceramic display"
+              src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80"
+              alt="Forged steel straight razor and classic badger shaving brush on dark slate"
               fill
               sizes="(max-width: 768px) 100vw, 400px"
               style={{ objectFit: 'cover' }}
             />
-            <div style={{ position: 'absolute', bottom: '14px', left: '14px', backgroundColor: 'rgba(255,255,255,0.92)', padding: '4px 10px', borderRadius: '4px', fontSize: '0.78rem', fontWeight: 800 }}>
-              {t('Botanical Apothecary Dispensary', 'Koleksioni i Produkteve')}
+            <div style={{ position: 'absolute', bottom: '14px', left: '14px', backgroundColor: 'rgba(0,0,0,0.75)', padding: '4px 10px', borderRadius: '4px', fontSize: '0.78rem', fontWeight: 800, color: '#c59b27' }}>
+              {t('Japanese Forged Steel Straight Razors', 'Brisqe Çeliku të Punuar me Dorë')}
             </div>
           </div>
 
-          <div style={{ height: '280px', position: 'relative', borderRadius: '8px', overflow: 'hidden', border: '1px solid #e0d8cc' }}>
+          <div style={{ height: '280px', position: 'relative', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
             <Image
-              src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80"
-              alt="Natural clay face mask in stone bowl with wooden spatula and eucalyptus"
+              src="https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&w=800&q=80"
+              alt="Artisan beard balms, matte clay pomades, and sandalwood grooming tonics"
               fill
               sizes="(max-width: 768px) 100vw, 400px"
               style={{ objectFit: 'cover' }}
             />
-            <div style={{ position: 'absolute', bottom: '14px', left: '14px', backgroundColor: 'rgba(255,255,255,0.92)', padding: '4px 10px', borderRadius: '4px', fontSize: '0.78rem', fontWeight: 800 }}>
-              {t('Mineral Clay & Enzyme Preparations', 'Përgatitje me Argjilë Minerale')}
+            <div style={{ position: 'absolute', bottom: '14px', left: '14px', backgroundColor: 'rgba(0,0,0,0.75)', padding: '4px 10px', borderRadius: '4px', fontSize: '0.78rem', fontWeight: 800, color: '#c59b27' }}>
+              {t('Organic Sandalwood & Cedar Beard Care', 'Vajra & Dyllëra Natyralë me Dru Sandali')}
             </div>
           </div>
 
-          <div style={{ height: '280px', position: 'relative', borderRadius: '8px', overflow: 'hidden', border: '1px solid #e0d8cc' }}>
+          <div style={{ height: '280px', position: 'relative', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
             <Image
-              src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80"
-              alt="Travertine stone vanity basin with rolled organic cotton linen towels"
+              src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=800&q=80"
+              alt="Warm atmospheric barbershop station with industrial brass lighting and tools"
               fill
               sizes="(max-width: 768px) 100vw, 400px"
               style={{ objectFit: 'cover' }}
             />
-            <div style={{ position: 'absolute', bottom: '14px', left: '14px', backgroundColor: 'rgba(255,255,255,0.92)', padding: '4px 10px', borderRadius: '4px', fontSize: '0.78rem', fontWeight: 800 }}>
-              {t('Private Treatment Suites', 'Dhomat Private të Kujdesit')}
+            <div style={{ position: 'absolute', bottom: '14px', left: '14px', backgroundColor: 'rgba(0,0,0,0.75)', padding: '4px 10px', borderRadius: '4px', fontSize: '0.78rem', fontWeight: 800, color: '#c59b27' }}>
+              {t('Private Leather Grooming Stations', 'Hapësira Individuale me Karrige Lëkure')}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Interactive Treatment Price List */}
+      {/* Services & Rate List */}
       <section id="services" style={{ maxWidth: '1080px', margin: '0 auto 100px', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <span style={{ color: '#556b5a', fontSize: '0.8rem', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 800 }}>
-            {t('Curated Rituals', 'Menyja e Shërbimeve')}
+          <span style={{ color: '#c59b27', fontSize: '0.8rem', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 800 }}>
+            {t('Master Craftsmen', 'Menyja e Shërbimeve')}
           </span>
-          <h2 style={{ fontSize: '2.4rem', fontWeight: 700, margin: '8px 0 16px', color: '#261f1c', fontFamily: "'Playfair Display', Georgia, serif" }}>
-            {t('Signature Botanical Treatments', 'Shërbimet Kryesore & Ritualet')}
+          <h2 style={{ fontSize: '2.4rem', fontWeight: 900, margin: '8px 0 16px', color: '#ffffff' }}>
+            {t('Services & Grooming Rituals', 'Prerje, Mjekër & Kujdes')}
           </h2>
         </div>
 
         {/* Category Tabs */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '36px' }}>
           {[
-            { id: 'all', en: 'All Rituals', sq: 'Të Gjitha' },
-            { id: 'hair', en: 'Hair Care & Gloss', sq: 'Kujdes për Flokët' },
-            { id: 'face', en: 'Facial Aesthetics', sq: 'Trajtime Fytyre' },
-            { id: 'body', en: 'Body & Thermal Stones', sq: 'Masazh me Gurë' },
-            { id: 'nails', en: 'Nail Lounge', sq: 'Thonjtë & Manikyr' },
+            { id: 'all', en: 'All Services', sq: 'Të Gjitha' },
+            { id: 'hair', en: 'Haircuts & Fades', sq: 'Prerje Flokësh' },
+            { id: 'beard', en: 'Beard & Straight Razor', sq: 'Mjekër me Brisk' },
+            { id: 'combo', en: 'Full Ritual Packages', sq: 'Paketa të Plota' },
+            { id: 'treatment', en: 'Scalp & Steam', sq: 'Trajtime me Avull' },
           ].map((tab) => (
             <button
               key={tab.id}
               type="button"
               onClick={() => setActiveCatalogTab(tab.id as typeof activeCatalogTab)}
               style={{
-                backgroundColor: activeCatalogTab === tab.id ? '#556b5a' : '#ebe5da',
-                color: activeCatalogTab === tab.id ? '#ffffff' : '#4a3f3a',
+                backgroundColor: activeCatalogTab === tab.id ? '#c59b27' : '#1c1e24',
+                color: activeCatalogTab === tab.id ? '#111215' : '#9ca3af',
                 border: 'none',
                 padding: '8px 18px',
-                borderRadius: '6px',
+                borderRadius: '4px',
                 fontSize: '0.85rem',
-                fontWeight: 700,
+                fontWeight: 800,
                 cursor: 'pointer',
                 transition: 'all 0.2s',
               }}
@@ -349,51 +356,50 @@ function SalonContent() {
             <div
               key={service.id}
               style={{
-                backgroundColor: '#ffffff',
-                borderRadius: '8px',
+                backgroundColor: '#181a20',
+                borderRadius: '6px',
                 padding: '24px',
-                border: '1px solid #e2dbcf',
+                border: '1px solid rgba(255,255,255,0.06)',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 flexWrap: 'wrap',
                 gap: '20px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.02)',
               }}
             >
               <div style={{ flex: 1, minWidth: '260px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '4px' }}>
-                  <h3 style={{ margin: 0, fontSize: '1.2rem', fontWeight: 700, color: '#261f1c' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '6px' }}>
+                  <h3 style={{ margin: 0, fontSize: '1.2rem', fontWeight: 800, color: '#ffffff' }}>
                     {t(service.nameEn, service.nameSq)}
                   </h3>
-                  <span style={{ fontSize: '0.75rem', backgroundColor: '#efebe3', color: '#556b5a', padding: '3px 8px', borderRadius: '4px', fontWeight: 700 }}>
+                  <span style={{ fontSize: '0.75rem', backgroundColor: 'rgba(197, 155, 39, 0.15)', color: '#c59b27', padding: '3px 8px', borderRadius: '4px', fontWeight: 800 }}>
                     {service.duration}
                   </span>
                 </div>
-                <p style={{ margin: 0, color: '#635650', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                <p style={{ margin: 0, color: '#9ca3af', fontSize: '0.9rem', lineHeight: 1.5 }}>
                   {t(service.descEn, service.descSq)}
                 </p>
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#261f1c' }}>
+                <div style={{ fontSize: '1.4rem', fontWeight: 900, color: '#c59b27' }}>
                   {service.price}
                 </div>
                 <button
                   type="button"
                   onClick={() => startBookingWithService(service)}
                   style={{
-                    backgroundColor: '#261f1c',
-                    color: '#ffffff',
+                    backgroundColor: '#c59b27',
+                    color: '#111215',
                     border: 'none',
                     padding: '9px 18px',
-                    borderRadius: '6px',
+                    borderRadius: '4px',
                     fontSize: '0.82rem',
-                    fontWeight: 700,
+                    fontWeight: 800,
                     cursor: 'pointer',
                   }}
                 >
-                  {t('Book Now', 'Rezervo')}
+                  {t('Book Chair', 'Rezervo')}
                 </button>
               </div>
             </div>
@@ -402,13 +408,13 @@ function SalonContent() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" style={{ backgroundColor: '#ebe5da', padding: '80px 24px', borderTop: '1px solid #ded5c7' }}>
+      <section id="faq" style={{ backgroundColor: '#0d0e11', padding: '80px 24px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div style={{ maxWidth: '840px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '36px' }}>
-            <span style={{ color: '#556b5a', fontSize: '0.8rem', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 800 }}>
+            <span style={{ color: '#c59b27', fontSize: '0.8rem', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 800 }}>
               {t('Information', 'Informacion')}
             </span>
-            <h2 style={{ fontSize: '2.2rem', fontWeight: 700, margin: '8px 0 0', color: '#261f1c', fontFamily: "'Playfair Display', Georgia, serif" }}>
+            <h2 style={{ fontSize: '2.2rem', fontWeight: 900, margin: '8px 0 0', color: '#ffffff' }}>
               {t('Frequently Asked Questions', 'Pyetjet më të Shpeshta')}
             </h2>
           </div>
@@ -416,19 +422,19 @@ function SalonContent() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {[
               {
-                qEn: 'What is your appointment cancellation policy?',
-                qSq: 'Cila është politika e anulimit ose ndryshimit të orarit?',
-                aEn: 'We kindly request at least 24 hours advance notice for cancellations or modifications.',
-                aSq: 'Ju lutemi të na njoftoni të paktën 24 orë përpara për anulime apo ndryshime orari.',
+                qEn: 'Do I need an appointment or can I walk in?',
+                qSq: 'A duhet të caktoj termin apo mund të vij pa rezervim?',
+                aEn: 'We welcome walk-ins based on chair availability, but reserving online ensures priority zero-wait seating.',
+                aSq: 'Jeni të mirëpritur edhe pa termin, por rezervimi online ju garanton ulje të menjëhershme pa pritje.',
               },
               {
-                qEn: 'Are all products certified vegan and organic?',
-                qSq: 'A janë produktet tuaja organike dhe të pastra?',
-                aEn: 'Yes, all our haircare elixirs, skincare serums, and massage oils are certified vegan, organic, and ethically sourced from Europe.',
-                aSq: 'Po, të gjitha vajrat e masazhit, serumet dhe trajtimet tona janë të certifikuara organike dhe vegane.',
+                qEn: 'What grooming products do you use?',
+                qSq: 'Çfarë produktesh përdorni për flokët dhe mjekrën?',
+                aEn: 'We formulate our own 100% natural, alcohol-free beard oils, organic sandalwood lathers, and water-soluble clay pomades.',
+                aSq: 'Përdorim ekskluzivisht vajra natyralë pa alkool, shkumë rroje me dru sandali dhe dyllëra organikë me bazë uji.',
               },
             ].map((faq, idx) => (
-              <div key={idx} style={{ backgroundColor: '#ffffff', borderRadius: '8px', border: '1px solid #ded5c7', overflow: 'hidden' }}>
+              <div key={idx} style={{ backgroundColor: '#181a20', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.08)', overflow: 'hidden' }}>
                 <button
                   type="button"
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
@@ -442,16 +448,16 @@ function SalonContent() {
                     border: 'none',
                     textAlign: 'left',
                     fontSize: '0.95rem',
-                    fontWeight: 700,
-                    color: '#261f1c',
+                    fontWeight: 800,
+                    color: '#ffffff',
                     cursor: 'pointer',
                   }}
                 >
                   <span>{t(faq.qEn, faq.qSq)}</span>
-                  {openFaq === idx ? <ChevronUp size={18} color="#556b5a" /> : <ChevronDown size={18} color="#556b5a" />}
+                  {openFaq === idx ? <ChevronUp size={18} color="#c59b27" /> : <ChevronDown size={18} color="#c59b27" />}
                 </button>
                 {openFaq === idx && (
-                  <div style={{ padding: '0 20px 18px', color: '#635650', fontSize: '0.88rem', lineHeight: 1.6 }}>
+                  <div style={{ padding: '0 20px 18px', color: '#9ca3af', fontSize: '0.88rem', lineHeight: 1.6 }}>
                     {t(faq.aEn, faq.aSq)}
                   </div>
                 )}
@@ -464,41 +470,41 @@ function SalonContent() {
       {/* Location & Hours */}
       <section id="location" style={{ maxWidth: '1280px', margin: '0 auto', padding: '80px 24px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px' }}>
-          <div style={{ backgroundColor: '#ffffff', padding: '32px', borderRadius: '10px', border: '1px solid #e2dbcf' }}>
+          <div style={{ backgroundColor: '#181a20', padding: '32px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.06)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-              <Clock color="#556b5a" size={20} />
-              <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700 }}>{t('Sanctuary Hours', 'Orari i Punës')}</h3>
+              <Clock color="#c59b27" size={20} />
+              <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 800 }}>{t('Barbershop Hours', 'Orari i Punës')}</h3>
             </div>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.9rem', color: '#635650', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <li style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f2eee7', paddingBottom: '6px' }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.9rem', color: '#9ca3af', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <li style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '6px' }}>
                 <span>{t('Monday &ndash; Friday', 'E Hënë &ndash; E Premte')}</span>
-                <strong style={{ color: '#261f1c' }}>09:00 &ndash; 20:00</strong>
+                <strong style={{ color: '#ffffff' }}>09:00 &ndash; 21:00</strong>
               </li>
-              <li style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f2eee7', paddingBottom: '6px' }}>
+              <li style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '6px' }}>
                 <span>{t('Saturday', 'E Shtunë')}</span>
-                <strong style={{ color: '#261f1c' }}>10:00 &ndash; 18:00</strong>
+                <strong style={{ color: '#ffffff' }}>09:00 &ndash; 20:00</strong>
               </li>
-              <li style={{ display: 'flex', justifyContent: 'space-between', color: '#888' }}>
+              <li style={{ display: 'flex', justifyContent: 'space-between', color: '#666' }}>
                 <span>{t('Sunday', 'E Diel')}</span>
-                <span>{t('Closed (Private Rituals)', 'Mbyllur (Rituale Private)')}</span>
+                <span>{t('Closed', 'Mbyllur')}</span>
               </li>
             </ul>
           </div>
 
-          <div style={{ backgroundColor: '#ffffff', padding: '32px', borderRadius: '10px', border: '1px solid #e2dbcf' }}>
+          <div style={{ backgroundColor: '#181a20', padding: '32px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.06)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-              <MapPin color="#556b5a" size={20} />
-              <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700 }}>{t('Studio Location', 'Vendndodhja')}</h3>
+              <MapPin color="#c59b27" size={20} />
+              <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 800 }}>{t('Atelier Location', 'Vendndodhja')}</h3>
             </div>
-            <p style={{ fontSize: '0.95rem', color: '#635650', lineHeight: 1.6, margin: '0 0 16px' }}>
+            <p style={{ fontSize: '0.95rem', color: '#9ca3af', lineHeight: 1.6, margin: '0 0 16px' }}>
               {locationText}
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.9rem' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#261f1c' }}>
-                <Phone size={15} color="#556b5a" /> {phoneText}
+              <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#ffffff' }}>
+                <Phone size={15} color="#c59b27" /> {phoneText}
               </span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#261f1c' }}>
-                <ShieldCheck size={15} color="#556b5a" /> {t('Private Valet & Covered Parking', 'Parkim i Sigurt')}
+              <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#ffffff' }}>
+                <ShieldCheck size={15} color="#c59b27" /> {t('Reserved Customer Parking', 'Parkim i Rezervuar për Klientët')}
               </span>
             </div>
           </div>
@@ -506,9 +512,9 @@ function SalonContent() {
       </section>
 
       {/* Footer */}
-      <footer style={{ padding: '36px 24px', textAlign: 'center', fontSize: '0.85rem', color: '#736b64', borderTop: '1px solid #e5ded2', backgroundColor: '#f7f5f0' }}>
+      <footer style={{ padding: '36px 24px', textAlign: 'center', fontSize: '0.85rem', color: '#6b7280', borderTop: '1px solid rgba(255,255,255,0.08)', backgroundColor: '#111215' }}>
         <p style={{ margin: 0 }}>
-          &copy; {new Date().getFullYear()} Aura Botanical Sanctuary. {t('All rights reserved.', 'Të gjitha të drejtat të rezervuara.')}
+          &copy; {new Date().getFullYear()} Kallfa Classic Barber & Grooming Lounge. {t('All rights reserved.', 'Të gjitha të drejtat të rezervuara.')}
         </p>
       </footer>
 
@@ -519,8 +525,8 @@ function SalonContent() {
             position: 'fixed',
             inset: 0,
             zIndex: 100000,
-            backgroundColor: 'rgba(0,0,0,0.7)',
-            backdropFilter: 'blur(6px)',
+            backgroundColor: 'rgba(0,0,0,0.85)',
+            backdropFilter: 'blur(8px)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -530,19 +536,19 @@ function SalonContent() {
             if (e.target === e.currentTarget) setIsWizardOpen(false);
           }}
         >
-          <div style={{ backgroundColor: '#ffffff', maxWidth: '540px', width: '100%', borderRadius: '12px', padding: '28px', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}>
+          <div style={{ backgroundColor: '#181a20', color: '#fff', maxWidth: '540px', width: '100%', borderRadius: '8px', padding: '28px', border: '1px solid #c59b27', boxShadow: '0 25px 60px rgba(0,0,0,0.5)' }}>
             {bookingDone ? (
               <div style={{ textAlign: 'center', padding: '16px 0' }}>
-                <div style={{ width: '56px', height: '56px', backgroundColor: '#eef8f2', color: '#16a34a', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+                <div style={{ width: '56px', height: '56px', backgroundColor: 'rgba(34,197,94,0.15)', color: '#4ade80', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
                   <Check size={32} />
                 </div>
-                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, margin: '0 0 8px', color: '#261f1c' }}>
-                  {t('Appointment Reserved!', 'Takimi u Rezervua me Sukses!')}
+                <h3 style={{ fontSize: '1.4rem', fontWeight: 900, margin: '0 0 8px', color: '#fff' }}>
+                  {t('Barber Chair Reserved!', 'Takimi u Rezervua me Sukses!')}
                 </h3>
-                <p style={{ color: '#635650', fontSize: '0.9rem', lineHeight: 1.6, margin: '0 0 20px' }}>
+                <p style={{ color: '#9ca3af', fontSize: '0.9rem', lineHeight: 1.6, margin: '0 0 20px' }}>
                   {t(
-                    `Thank you, ${clientName || 'Valued Guest'}! We look forward to seeing you for ${t(selectedService.nameEn, selectedService.nameSq)} on ${bookingDate} at ${bookingTime}.`,
-                    `Faleminderit, ${clientName || 'Mysafir'}! Ju mirëpresim për ${t(selectedService.nameEn, selectedService.nameSq)} më datë ${bookingDate} në orën ${bookingTime}.`
+                    `Thank you, ${clientName || 'Sir'}! Your chair for ${t(selectedService.nameEn, selectedService.nameSq)} is reserved for ${bookingDate} at ${bookingTime}.`,
+                    `Faleminderit, ${clientName || 'Zotëri'}! Karrigia juaj për ${t(selectedService.nameEn, selectedService.nameSq)} është rezervuar më datë ${bookingDate} në orën ${bookingTime}.`
                   )}
                 </p>
                 <button
@@ -552,7 +558,7 @@ function SalonContent() {
                     setIsWizardOpen(false);
                     setWizardStep(1);
                   }}
-                  style={{ backgroundColor: '#261f1c', color: '#fff', padding: '10px 24px', borderRadius: '6px', border: 'none', fontWeight: 700, cursor: 'pointer' }}
+                  style={{ backgroundColor: '#c59b27', color: '#111215', padding: '10px 24px', borderRadius: '4px', border: 'none', fontWeight: 900, cursor: 'pointer' }}
                 >
                   {t('Done', 'Mbyll')}
                 </button>
@@ -561,23 +567,23 @@ function SalonContent() {
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
                   <div>
-                    <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#556b5a', textTransform: 'uppercase' }}>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#c59b27', textTransform: 'uppercase' }}>
                       {t(`Step ${wizardStep} of 3`, `Hapi ${wizardStep} nga 3`)}
                     </span>
-                    <h3 style={{ margin: '2px 0 0', fontSize: '1.25rem', fontWeight: 800, color: '#261f1c' }}>
-                      {wizardStep === 1 && t('Choose Your Ritual', 'Zgjidhni Trajtimin')}
+                    <h3 style={{ margin: '2px 0 0', fontSize: '1.25rem', fontWeight: 900, color: '#ffffff' }}>
+                      {wizardStep === 1 && t('Choose Service', 'Zgjidhni Shërbimin')}
                       {wizardStep === 2 && t('Select Date & Time', 'Zgjidhni Datën & Orën')}
-                      {wizardStep === 3 && t('Guest Information', 'Të Dhënat Tuaja')}
+                      {wizardStep === 3 && t('Contact Details', 'Të Dhënat Tuaja')}
                     </h3>
                   </div>
-                  <button onClick={() => setIsWizardOpen(false)} style={{ background: 'none', border: 'none', fontSize: '1.2rem', cursor: 'pointer', color: '#888' }}>
+                  <button onClick={() => setIsWizardOpen(false)} style={{ background: 'none', border: 'none', fontSize: '1.3rem', cursor: 'pointer', color: '#888' }}>
                     &times;
                   </button>
                 </div>
 
                 {/* Step 1: Select Service */}
                 {wizardStep === 1 && (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxHeight: '340px', overflowY: 'auto' }}>
                     {serviceCatalog.map((s) => (
                       <div
                         key={s.id}
@@ -586,10 +592,10 @@ function SalonContent() {
                           setWizardStep(2);
                         }}
                         style={{
-                          border: `1px solid ${selectedService.id === s.id ? '#556b5a' : '#e5ded6'}`,
-                          backgroundColor: selectedService.id === s.id ? '#f2eee7' : '#ffffff',
+                          border: `1px solid ${selectedService.id === s.id ? '#c59b27' : 'rgba(255,255,255,0.1)'}`,
+                          backgroundColor: selectedService.id === s.id ? 'rgba(197, 155, 39, 0.15)' : '#111215',
                           padding: '12px 16px',
-                          borderRadius: '8px',
+                          borderRadius: '6px',
                           cursor: 'pointer',
                           display: 'flex',
                           justifyContent: 'space-between',
@@ -597,10 +603,10 @@ function SalonContent() {
                         }}
                       >
                         <div>
-                          <strong style={{ display: 'block', fontSize: '0.92rem', color: '#261f1c' }}>{t(s.nameEn, s.nameSq)}</strong>
-                          <span style={{ fontSize: '0.78rem', color: '#635650' }}>{s.duration}</span>
+                          <strong style={{ display: 'block', fontSize: '0.92rem', color: '#ffffff' }}>{t(s.nameEn, s.nameSq)}</strong>
+                          <span style={{ fontSize: '0.78rem', color: '#9ca3af' }}>{s.duration}</span>
                         </div>
-                        <span style={{ fontWeight: 800, color: '#556b5a' }}>{s.price}</span>
+                        <span style={{ fontWeight: 900, color: '#c59b27', fontSize: '1.1rem' }}>{s.price}</span>
                       </div>
                     ))}
                   </div>
@@ -609,36 +615,36 @@ function SalonContent() {
                 {/* Step 2: Date & Time */}
                 {wizardStep === 2 && (
                   <div>
-                    <div style={{ backgroundColor: '#f2eee7', padding: '12px', borderRadius: '8px', marginBottom: '16px', border: '1px solid #e0d8cc' }}>
-                      <small style={{ color: '#635650' }}>{t('Selected Service:', 'Shërbimi i Zgjedhur:')}</small>
-                      <div style={{ fontWeight: 800, color: '#261f1c' }}>{t(selectedService.nameEn, selectedService.nameSq)} ({selectedService.price})</div>
+                    <div style={{ backgroundColor: '#111215', padding: '12px', borderRadius: '6px', marginBottom: '16px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                      <small style={{ color: '#9ca3af' }}>{t('Selected Service:', 'Shërbimi i Zgjedhur:')}</small>
+                      <div style={{ fontWeight: 800, color: '#ffffff' }}>{t(selectedService.nameEn, selectedService.nameSq)} ({selectedService.price})</div>
                     </div>
 
                     <div style={{ marginBottom: '16px' }}>
-                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, marginBottom: '6px' }}>{t('Select Date', 'Zgjidhni Datën')}</label>
+                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, marginBottom: '6px', color: '#cbd5e1' }}>{t('Select Date', 'Zgjidhni Datën')}</label>
                       <input
                         type="date"
                         value={bookingDate}
                         onChange={(e) => setBookingDate(e.target.value)}
-                        style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid #d4ccc2' }}
+                        style={{ width: '100%', padding: '10px', borderRadius: '4px', backgroundColor: '#111215', border: '1px solid #374151', color: '#fff' }}
                       />
                     </div>
 
                     <div style={{ marginBottom: '24px' }}>
-                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, marginBottom: '6px' }}>{t('Available Time Slot', 'Oraret e Lira')}</label>
+                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, marginBottom: '6px', color: '#cbd5e1' }}>{t('Available Chair Slot', 'Oraret e Lira')}</label>
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px' }}>
-                        {['10:00', '11:30', '14:00', '15:30', '17:00', '18:30'].map((timeSlot) => (
+                        {['10:00', '11:00', '13:00', '14:30', '16:00', '17:30', '19:00'].map((timeSlot) => (
                           <button
                             key={timeSlot}
                             type="button"
                             onClick={() => setBookingTime(timeSlot)}
                             style={{
                               padding: '8px',
-                              borderRadius: '6px',
-                              border: `1px solid ${bookingTime === timeSlot ? '#556b5a' : '#d4ccc2'}`,
-                              backgroundColor: bookingTime === timeSlot ? '#556b5a' : '#ffffff',
-                              color: bookingTime === timeSlot ? '#ffffff' : '#261f1c',
-                              fontWeight: 700,
+                              borderRadius: '4px',
+                              border: `1px solid ${bookingTime === timeSlot ? '#c59b27' : '#374151'}`,
+                              backgroundColor: bookingTime === timeSlot ? '#c59b27' : '#111215',
+                              color: bookingTime === timeSlot ? '#111215' : '#ffffff',
+                              fontWeight: 800,
                               fontSize: '0.82rem',
                               cursor: 'pointer',
                             }}
@@ -650,13 +656,13 @@ function SalonContent() {
                     </div>
 
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <button type="button" onClick={() => setWizardStep(1)} style={{ background: 'none', border: 'none', color: '#635650', cursor: 'pointer', fontWeight: 600 }}>
+                      <button type="button" onClick={() => setWizardStep(1)} style={{ background: 'none', border: 'none', color: '#9ca3af', cursor: 'pointer', fontWeight: 700 }}>
                         {t('← Back', '← Prapa')}
                       </button>
                       <button
                         type="button"
                         onClick={() => setWizardStep(3)}
-                        style={{ backgroundColor: '#261f1c', color: '#fff', border: 'none', padding: '10px 20px', borderRadius: '6px', fontWeight: 700, cursor: 'pointer' }}
+                        style={{ backgroundColor: '#c59b27', color: '#111215', border: 'none', padding: '10px 20px', borderRadius: '4px', fontWeight: 900, cursor: 'pointer' }}
                       >
                         {t('Continue →', 'Vazhdo →')}
                       </button>
@@ -668,38 +674,38 @@ function SalonContent() {
                 {wizardStep === 3 && (
                   <form onSubmit={handleBookingSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px' }}>{t('Full Name', 'Emri & Mbiemri')}</label>
+                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px', color: '#cbd5e1' }}>{t('Your Name', 'Emri & Mbiemri')}</label>
                       <input
                         type="text"
                         required
                         placeholder={sampleName}
                         value={clientName}
                         onChange={(e) => setClientName(e.target.value)}
-                        style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid #d4ccc2' }}
+                        style={{ width: '100%', padding: '10px', borderRadius: '4px', backgroundColor: '#111215', border: '1px solid #374151', color: '#fff' }}
                       />
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px' }}>{t('Phone Number', 'Numri i Telefonit')}</label>
+                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px', color: '#cbd5e1' }}>{t('Phone Number (WhatsApp)', 'Numri i Telefonit (WhatsApp)')}</label>
                       <input
                         type="tel"
                         required
                         placeholder={phoneText}
                         value={clientPhone}
                         onChange={(e) => setClientPhone(e.target.value)}
-                        style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid #d4ccc2' }}
+                        style={{ width: '100%', padding: '10px', borderRadius: '4px', backgroundColor: '#111215', border: '1px solid #374151', color: '#fff' }}
                       />
                     </div>
 
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '12px' }}>
-                      <button type="button" onClick={() => setWizardStep(2)} style={{ background: 'none', border: 'none', color: '#635650', cursor: 'pointer', fontWeight: 600 }}>
+                      <button type="button" onClick={() => setWizardStep(2)} style={{ background: 'none', border: 'none', color: '#9ca3af', cursor: 'pointer', fontWeight: 700 }}>
                         {t('← Back', '← Prapa')}
                       </button>
                       <button
                         type="submit"
-                        style={{ backgroundColor: '#556b5a', color: '#fff', border: 'none', padding: '11px 24px', borderRadius: '6px', fontWeight: 700, cursor: 'pointer' }}
+                        style={{ backgroundColor: '#c59b27', color: '#111215', border: 'none', padding: '11px 24px', borderRadius: '4px', fontWeight: 900, cursor: 'pointer' }}
                       >
-                        {t('Confirm Appointment', 'Konfirmo Takimin')}
+                        {t('Confirm Chair Booking', 'Konfirmo Rezervimin')}
                       </button>
                     </div>
                   </form>
@@ -716,7 +722,7 @@ function SalonContent() {
 export default function SalonPage() {
   return (
     <LanguageProvider>
-      <SalonContent />
+      <BarberContent />
     </LanguageProvider>
   );
 }
