@@ -1,0 +1,702 @@
+[
+  {
+    "time": 0.0,
+    "text": "Let's begin Lesson 3."
+  },
+  {
+    "time": 6.0,
+    "text": "In this lecture, we will learn how to organize your goals digitally."
+  },
+  {
+    "time": 12.0,
+    "text": "We are going to be using Trello and a Kanban board."
+  },
+  {
+    "time": 18.0,
+    "text": "In this lecture, we will learn why paper management doesn't work, a simple digital board that keeps your goals organized, and how to structure your 3-month, monthly, and weekly goals digitally."
+  },
+  {
+    "time": 24.0,
+    "text": "First, we will have to talk about why paper management doesn't work,"
+  },
+  {
+    "time": 30.0,
+    "text": "at least, let's say it is not really the best thing to do."
+  },
+  {
+    "time": 37.5,
+    "text": "And the first reason for that is because it gets messy and disorganized."
+  },
+  {
+    "time": 45.0,
+    "text": "So trying to manage your goals, your monthly goals, and your weekly goals on paper is going to be a hard thing; it is going to get messy and overloaded in a short period of time, and it's also not going to be visually pleasing."
+  },
+  {
+    "time": 52.5,
+    "text": "And the second reason is they are easy to lose"
+  },
+  {
+    "time": 60.0,
+    "text": "or misplace."
+  },
+  {
+    "time": 67.5,
+    "text": "So having your goals or your tasks on paper, or not in a specific digital place that is specifically for managing your goals, you will lose them or misplace them."
+  },
+  {
+    "time": 75.0,
+    "text": "So you may forget them, and then there's going to come a day you're going to go somewhere and you're probably going to forget your goals."
+  },
+  {
+    "time": 82.5,
+    "text": "You're probably going to forget your paper or your notebook, which"
+  },
+  {
+    "time": 90.0,
+    "text": "the goals or the stuff which you have are all in there."
+  },
+  {
+    "time": 97.5,
+    "text": "So that means that you can't really access them anywhere, you know?"
+  },
+  {
+    "time": 105.0,
+    "text": "You don't really have them everywhere you go, like, for example, a digital place where you have them everywhere you go—you have them on your phone, on your laptop, on your iPad, and whatever you use."
+  },
+  {
+    "time": 112.5,
+    "text": "And the third reason is it's so much harder to connect your long-term goals to"
+  },
+  {
+    "time": 120.0,
+    "text": "actions."
+  },
+  {
+    "time": 127.5,
+    "text": "So it's going to be so much harder to see them in one place, to have them in one place where you can visually see all of your goals."
+  },
+  {
+    "time": 135.0,
+    "text": "And the fourth reason: it is going to be hard for you to update the changes."
+  },
+  {
+    "time": 142.5,
+    "text": "As we said, you're probably sometimes going to want to change your weekly goals or tasks, or maybe also your monthly tasks, so it helps"
+  },
+  {
+    "time": 150.0,
+    "text": "3-month goals."
+  },
+  {
+    "time": 153.8,
+    "text": "So updating them on paper is going to be so much harder."
+  },
+  {
+    "time": 157.5,
+    "text": "It means that you're going to have to, you know, completely get rid of all of the goals which you have."
+  },
+  {
+    "time": 161.2,
+    "text": "Putting the monthly or the weekly goals on paper, it's not pleasing, it's not really..."
+  },
+  {
+    "time": 165.0,
+    "text": "it doesn't really look good, it doesn't really look clean, and it's not accessible anywhere."
+  },
+  {
+    "time": 168.8,
+    "text": "And it's hard to manage, you know?"
+  },
+  {
+    "time": 172.5,
+    "text": "It's very hard to manage."
+  },
+  {
+    "time": 176.2,
+    "text": "And again, it's also not a clear system as to what to"
+  },
+  {
+    "time": 180.0,
+    "text": "do next."
+  },
+  {
+    "time": 185.0,
+    "text": "You don't really have the best system."
+  },
+  {
+    "time": 190.0,
+    "text": "It's very good, but it doesn't really have..."
+  },
+  {
+    "time": 195.0,
+    "text": "it's not the best, it's not the best system to use."
+  },
+  {
+    "time": 200.0,
+    "text": "I will say that having it, for example, on clarifying what you're going to do tomorrow, it's such a good thing, and I recommend it to everybody to use a notebook to know what you're going to do tomorrow."
+  },
+  {
+    "time": 205.0,
+    "text": "But it's not necessarily the best thing to keep all of your goals from your 3-"
+  },
+  {
+    "time": 210.0,
+    "text": "month goals to monthly goals and into weekly goals, all on one paper."
+  },
+  {
+    "time": 216.0,
+    "text": "Again, it is very good, it's definitely better than not doing it, but there's a better way of doing that."
+  },
+  {
+    "time": 222.0,
+    "text": "And that better way is a Kanban board."
+  },
+  {
+    "time": 228.0,
+    "text": "It is a digital board which we will use to manage all our goals in one simple place."
+  },
+  {
+    "time": 234.0,
+    "text": "And I recommend using a tool called Trello in this course, but for"
+  },
+  {
+    "time": 240.0,
+    "text": "you, you can choose whatever you want; there's countless Kanban boards out there."
+  },
+  {
+    "time": 246.0,
+    "text": "But for me, this is what I use."
+  },
+  {
+    "time": 252.0,
+    "text": "Maybe it's also just a thing where I started using this and I'm, let's say, stuck or whatever."
+  },
+  {
+    "time": 258.0,
+    "text": "It doesn't matter; the point is it does the job, and the main purpose of this whole app is mostly just for this."
+  },
+  {
+    "time": 264.0,
+    "text": "And the reasons why we are going to use a digital Kanban board is, first thing, because everything is organ-"
+  },
+  {
+    "time": 270.0,
+    "text": "ized in one place, so you can see everything at a glance."
+  },
+  {
+    "time": 277.5,
+    "text": "It's hard to really lose or get messy, even though it can get messy for sure, but it is way more clear and way more visually pleasing than having a notebook to manage those goals."
+  },
+  {
+    "time": 285.0,
+    "text": "And the other reason is, again, the opposite, where now it's so much easier to update and rearrange."
+  },
+  {
+    "time": 292.5,
+    "text": "So if you have a change"
+  },
+  {
+    "time": 300.0,
+    "text": "in what you are going to do this month, because this helps you to move forward to the big goal, now it's going to be so much easier to change, or you can just remove the other text which was there and place the new goal, place the new rules, place the new text which you have in there."
+  },
+  {
+    "time": 310.0,
+    "text": "And the other reason, or the other good thing which happens when using a Kanban board, is that it's easier to break big goals into smaller tasks or smaller goals."
+  },
+  {
+    "time": 320.0,
+    "text": "So when you have the big goal of"
+  },
+  {
+    "time": 330.0,
+    "text": "three months, it is now going to be so much easier for you to break it into smaller goals for what you're going to do in the next months and in the next weeks, especially, for example, what you're going to do this month."
+  },
+  {
+    "time": 340.0,
+    "text": "And it's going to be so much easier to do, or to break down your goal for what you're going to do in this week or in the next week."
+  },
+  {
+    "time": 350.0,
+    "text": "And also, the other opposite thing which we said that with a notebook you don't really have it anywhere, and now with this, since"
+  },
+  {
+    "time": 360.0,
+    "text": "digitally, you can access it everywhere."
+  },
+  {
+    "time": 367.5,
+    "text": "You have it on your laptop, on your phone, on your iPad, or whatever you use."
+  },
+  {
+    "time": 375.0,
+    "text": "And on this digital Kanban board, we are going to be using six lists which will help us manage our goals with so much more efficiency and to have full control of our goals."
+  },
+  {
+    "time": 382.5,
+    "text": "So the six boards are, first, this 3-month goals, so the"
+  },
+  {
+    "time": 390.0,
+    "text": "goals you're going to do this three months; then one which you defined in the previous lecture, the next three months' goals."
+  },
+  {
+    "time": 397.5,
+    "text": "So this is going to be where you have ideas for what you want to do after this month; it usually may come after coming closer to completing this three months' goals, and then you put the ideas in there."
+  },
+  {
+    "time": 405.0,
+    "text": "Then the second category is going to be this month's goals, and to get processed next month."
+  },
+  {
+    "time": 412.5,
+    "text": "So this month's goal"
+  },
+  {
+    "time": 420.0,
+    "text": "is going to be the thing which you're going to do this month and probably just going to be, first of all, your first month, and then to get processed next month can be the second month and the third month, which is related to completing the three-month goal."
+  },
+  {
+    "time": 430.0,
+    "text": "And the third category is this week's tasks or goals."
+  },
+  {
+    "time": 440.0,
+    "text": "So again, this is related to trying to complete this month's goals and tasks, and goals to"
+  },
+  {
+    "time": 450.0,
+    "text": "be processed next week, so all of these are linked together in order for you to have the ultimate organization, the ultimate control over your goals."
+  },
+  {
+    "time": 465.0,
+    "text": "And so again, using this system, we will be able to now easily control our goals, easily break down the 3-month goal into monthly goals, and then, using those monthly goals, we are going to break them into weekly goals or"
+  },
+  {
+    "time": 480.0,
+    "text": "tasks, which will help us complete all of the levels above until we complete the 3-month goal."
+  },
+  {
+    "time": 487.5,
+    "text": "This creates a simple path from a long-term vision into a weekly execution."
+  },
+  {
+    "time": 495.0,
+    "text": "So the long-term vision which you have for completing the 3-month goal, the goal which is far, now it's going to be broken into weekly actions as we mentioned more in the previous lecture."
+  },
+  {
+    "time": 502.5,
+    "text": "And now, to show the example of how"
+  },
+  {
+    "time": 510.0,
+    "text": "this actually works."
+  },
+  {
+    "time": 516.0,
+    "text": "I'm in the Trello app, and as you can see in here, this is a Kanban board or, let's say, a Trello template which everybody can create."
+  },
+  {
+    "time": 522.0,
+    "text": "And in here, as we can see, there are the lists which we mentioned."
+  },
+  {
+    "time": 528.0,
+    "text": "First of all is this 3-month goals, and in here is the goal which you put for what you're going to do in the next 3 months."
+  },
+  {
+    "time": 534.0,
+    "text": "And this is just an example which may"
+  },
+  {
+    "time": 540.0,
+    "text": "not be realistic and may not be the best example, but just to show how this may work."
+  },
+  {
+    "time": 547.5,
+    "text": "But this is a card, and when you click on this card, now you can see things which you can add in here: you can add labels, dates, checklists, members."
+  },
+  {
+    "time": 555.0,
+    "text": "And also what you can do, and most likely or the best or a good thing to do, let's say, is that now in here you can just describe what you're going to do for each month to complete this 3-month goal."
+  },
+  {
+    "time": 562.5,
+    "text": "So the first month, as an"
+  },
+  {
+    "time": 570.0,
+    "text": "example, is just build the base."
+  },
+  {
+    "time": 576.0,
+    "text": "And then the second month is improve strength and endurance, and the third month is stabilize and lock consistently."
+  },
+  {
+    "time": 582.0,
+    "text": "And as well, you can describe here as much as you want; in here as well, you can put exactly for every week what you want to do."
+  },
+  {
+    "time": 588.0,
+    "text": "But you can just simply tell what you're going to do, what is the main goal for this month, and you can see completing all of these months is connected together."
+  },
+  {
+    "time": 594.0,
+    "text": "So when you complete each one—first month, second, and third—then you know"
+  },
+  {
+    "time": 600.0,
+    "text": "it is completed—in this case, build a sustainable fitness routine."
+  },
+  {
+    "time": 607.5,
+    "text": "And then here you can see the next 3-month goals."
+  },
+  {
+    "time": 615.0,
+    "text": "So in here, what most likely can happen is that after, for example, the first or second, or maybe probably close to the third month, then you start to have new ideas of what you're going to do next."
+  },
+  {
+    "time": 622.5,
+    "text": "And what you can do and what you can use this for is just, you can press here and then type your ideas and whatever you have in mind that you want to do next, or"
+  },
+  {
+    "time": 630.0,
+    "text": "whatever is immediately clear to you what you're going to do next."
+  },
+  {
+    "time": 640.0,
+    "text": "Because the good thing about this is when you start doing, when you start finishing your 3-month goal, you start having some new ideas which you did not have at the beginning."
+  },
+  {
+    "time": 650.0,
+    "text": "For example, you start a 3-month goal right now; you don't really know what you're going to do after these 3 months, but when you get close to completing these 3 months, you're going to have so many more new ideas because now you have a new experience, now you have some kind of"
+  },
+  {
+    "time": 660.0,
+    "text": "skill, or whatever the goal is which you have completed."
+  },
+  {
+    "time": 667.5,
+    "text": "And then here is the second part of this month's goals, or goal, because there can be more than one or two, whatever, but in this example, it's just one."
+  },
+  {
+    "time": 675.0,
+    "text": "As we saw here, we have the first month's goal, and in here as well, we have that exact monthly goal which you want to do."
+  },
+  {
+    "time": 682.5,
+    "text": "And in here, you can definitely go ahead and break each one of the weeks, what you're"
+  },
+  {
+    "time": 690.0,
+    "text": "going to do, as you can see they are all broken down."
+  },
+  {
+    "time": 697.5,
+    "text": "It's up to you; you can definitely not do this, you can just definitely go each week to what you're going to do to get closer to this."
+  },
+  {
+    "time": 705.0,
+    "text": "But it will definitely help if you make the list of what you're going to do every week—at least just the goals of what you're going to do, not exactly day by day, you don't have to do that at all."
+  },
+  {
+    "time": 712.5,
+    "text": "And then, as well, you can see the two other months which are on this board, or that are in this table or card"
+  },
+  {
+    "time": 720.0,
+    "text": "set."
+  },
+  {
+    "time": 725.0,
+    "text": "The title is \"To get processed next month,\" as you can see."
+  },
+  {
+    "time": 730.0,
+    "text": "This is the second month and the third month, and whatever other goals you have, because again, you can have more than one goal."
+  },
+  {
+    "time": 735.0,
+    "text": "You can have, for example, breaking a bad habit and achieving a goal, but again, I would suggest to try to focus, first of all, on just one thing."
+  },
+  {
+    "time": 740.0,
+    "text": "And again, these are the other two months' goals, which are broken down easily from this, and they are organized from the descriptions, as you can see in here."
+  },
+  {
+    "time": 745.0,
+    "text": "And as well,"
+  },
+  {
+    "time": 750.0,
+    "text": "here you can put what you're going to do every week."
+  },
+  {
+    "time": 756.0,
+    "text": "And now to the, let's say, final system of this lecture, or the final table or card, is this week's tasks."
+  },
+  {
+    "time": 762.0,
+    "text": "And in here, as you can see, this is what you're going to do this week."
+  },
+  {
+    "time": 768.0,
+    "text": "This is what you're going to break down your goals to do for this week, which is related to completing this month's goal, which is building the base."
+  },
+  {
+    "time": 774.0,
+    "text": "And as well, here is the first week which you can break down all the"
+  },
+  {
+    "time": 780.0,
+    "text": "goals which you need to do this week to complete this month's goal."
+  },
+  {
+    "time": 787.5,
+    "text": "And so, for example, the first week, or what you're going to do this week to complete this example task or goal of this month, is building the base."
+  },
+  {
+    "time": 795.0,
+    "text": "And then what you have to do this week is just, for example, pick your three workout days, learn basic execution form, start 8,000 steps per day, set a fixed wake-up time, and prepare a simple week plan."
+  },
+  {
+    "time": 802.5,
+    "text": "And if you're wondering why"
+  },
+  {
+    "time": 810.0,
+    "text": "are these cards more of a shadow?"
+  },
+  {
+    "time": 816.0,
+    "text": "This is something which Trello has where if you don't really use the cards for a long time, they just start to dim—the color starts to dim."
+  },
+  {
+    "time": 822.0,
+    "text": "And then the other one is that \"To get processed next week,\" this is, again, stuff which you may know in hand."
+  },
+  {
+    "time": 828.0,
+    "text": "You may know what you're going to do."
+  },
+  {
+    "time": 834.0,
+    "text": "As we said in here, you break the monthly goal into every week, and then you exactly know what you're going to do,"
+  },
+  {
+    "time": 840.0,
+    "text": "and you can just immediately put them in here."
+  },
+  {
+    "time": 846.0,
+    "text": "But if you don't do that, you can definitely just wait until after completing the first week you get the idea, or whatever, to just go further, and then try to just know what you're going to do the next week."
+  },
+  {
+    "time": 852.0,
+    "text": "And the good thing, again, with Trello is that you can easily grab a card and put it in here."
+  },
+  {
+    "time": 858.0,
+    "text": "For example, if you don't complete it this week, you can just easily move it to the next week's tasks."
+  },
+  {
+    "time": 864.0,
+    "text": "And how you, for example, when you"
+  },
+  {
+    "time": 870.0,
+    "text": "complete this, how you do it is just you press this."
+  },
+  {
+    "time": 876.0,
+    "text": "For example, if you have completed the task, and then if you want to not show it in here because it will get cluttered, you can just press archive or 'C', and it will archive in, let's say, the settings, which you can definitely go back to."
+  },
+  {
+    "time": 882.0,
+    "text": "And as you can see in here, you can undo it back again and it will pop up."
+  },
+  {
+    "time": 888.0,
+    "text": "And as well, you can do that for the other tasks."
+  },
+  {
+    "time": 894.0,
+    "text": "For example, again, you complete this month's goal, you mark it as complete, and then you just archive it,"
+  },
+  {
+    "time": 900.0,
+    "text": "and you know that you have done this task or this goal."
+  },
+  {
+    "time": 907.5,
+    "text": "And then you can come to your tasks in here and just add whatever idea that you have, and you can just put it in here or what you're going to do to complete this task."
+  },
+  {
+    "time": 915.0,
+    "text": "And the good thing is, again, you can also have dates, you can also have checklists which you can use, and also labels, which we will talk about in the next lecture."
+  },
+  {
+    "time": 922.5,
+    "text": "And you can just describe how to complete it or just in general, for example, help you"
+  },
+  {
+    "time": 930.0,
+    "text": "clarify what you are going to do."
+  },
+  {
+    "time": 937.5,
+    "text": "A thing to note in here is that you don't have to be perfect; you don't have to break everything piece by piece; you don't have to do this every single day—what you're going to do for every single day."
+  },
+  {
+    "time": 945.0,
+    "text": "You can do that, but I found out that most likely there's something which is going to happen, and I think is that when you are not really on the timeline, where you are not, for example, one day you miss, then you just kind of are turned off or whatever—it's like, it's not a good feeling."
+  },
+  {
+    "time": 952.5,
+    "text": "So you should definitely try to have a little bit of"
+  },
+  {
+    "time": 960.0,
+    "text": "time where, even if you fail a day or two, you can have a day extra."
+  },
+  {
+    "time": 966.0,
+    "text": "You know what I mean?"
+  },
+  {
+    "time": 972.0,
+    "text": "You should have a day in a week which you leave for, let's say, buffer or whatever—like a day where all the tasks you were not able to complete throughout the week, you can use that day."
+  },
+  {
+    "time": 978.0,
+    "text": "For example, if you completed all of them, then you can just rest, for example."
+  },
+  {
+    "time": 984.0,
+    "text": "So again, you can just try, whenever you're breaking your weekly goals, you can just try to calculate, for example, trying to complete them from"
+  },
+  {
+    "time": 990.0,
+    "text": "five to six days, so that you can definitely do them."
+  },
+  {
+    "time": 996.0,
+    "text": "Whatever you want—you can definitely go for six or seven days, whatever you want."
+  },
+  {
+    "time": 1002.0,
+    "text": "And again, the good thing about using a digital board is that things don't get lost."
+  },
+  {
+    "time": 1008.0,
+    "text": "You can have this on all of the devices which you can use."
+  },
+  {
+    "time": 1014.0,
+    "text": "And again, the good thing here, sometimes you don't even have to grab a notepad or a notebook or whatever you want to use to break the goals down, because it's going to be so much more visually appealing, or is"
+  },
+  {
+    "time": 1020.0,
+    "text": "displayed so much visually easier for you to see and break the goals down."
+  },
+  {
+    "time": 1027.5,
+    "text": "So we can see this is the goal which we are going to do—or you are going to do, for example, this 3 months."
+  },
+  {
+    "time": 1035.0,
+    "text": "And then you broke it down, or we broke it down, into \"To get processed next month,\" \"This month's goals,\" \"This week's goals or tasks,\" and \"To get processed next week.\" And as you can see, it's all broken down from the big goal right here, all the way into what you're going to do this week."
+  },
+  {
+    "time": 1042.5,
+    "text": "And for Kanban boards, you can definitely use"
+  },
+  {
+    "time": 1050.0,
+    "text": "other apps."
+  },
+  {
+    "time": 1055.0,
+    "text": "There's Notion; if you use it, there is a Kanban board capability—there's templates which have a Kanban board, and you can edit it the way that you want."
+  },
+  {
+    "time": 1060.0,
+    "text": "You can just grab the titles right here and then just put them into whatever app you are using."
+  },
+  {
+    "time": 1065.0,
+    "text": "There's a lot of other apps which have a Kanban capability, and you can definitely use whatever you want."
+  },
+  {
+    "time": 1070.0,
+    "text": "This is just an example; this is what I use."
+  },
+  {
+    "time": 1075.0,
+    "text": "You don't have to use it, again; you can just use"
+  },
+  {
+    "time": 1080.0,
+    "text": "paper, but it's going to be a bit harder to manage and going to be better if you use a digital board, in my opinion."
+  },
+  {
+    "time": 1087.5,
+    "text": "And as for Trello or this template, there is a link below which you can click in order for you to get this template."
+  },
+  {
+    "time": 1095.0,
+    "text": "And once you click that link, you're going to see this page."
+  },
+  {
+    "time": 1102.5,
+    "text": "And then what you need to do is just press this button of \"Create board from template.\" And here, you can name it the way you like it, as, for example, here,"
+  },
+  {
+    "time": 1110.0,
+    "text": "\"My Template.\" And also another selection: if you want to keep these cards right here, which is building a sustainable fitness routine, and all the other cards right here, you can get a better view of what you need to do and how you can break it."
+  },
+  {
+    "time": 1117.5,
+    "text": "But if you have broken the goal down from the previous lecture, it's going to be easy to do that."
+  },
+  {
+    "time": 1125.0,
+    "text": "So it's probably just going to be way easier and better for you to just press this button so these cards don't show up and you don't have to manually remove them."
+  },
+  {
+    "time": 1132.5,
+    "text": "And then you just press"
+  },
+  {
+    "time": 1140.0,
+    "text": "\"Create,\" and then you can see all of the cards, or boards, or tables, whatever you want to call them in here."
+  },
+  {
+    "time": 1147.5,
+    "text": "You can just press here, put the 3-month goal, and then all the other process—all the other goals or weekly tasks in the breakdown of what you're going to use, as we saw in this lecture."
+  },
+  {
+    "time": 1155.0,
+    "text": "And you can just put them in here."
+  },
+  {
+    "time": 1162.5,
+    "text": "And now, as for the next lecture, what we will learn is to turn the weekly goals into a simple daily execution using"
+  },
+  {
+    "time": 1170.0,
+    "text": "again the Kanban board."
+  },
+  {
+    "time": 1177.5,
+    "text": "And then, by the end of the next lecture, you'll know exactly what to do each day."
+  },
+  {
+    "time": 1185.0,
+    "text": "You're just going to have a clear list of tasks that move you forward and give you much more control."
+  },
+  {
+    "time": 1192.5,
+    "text": "So let's go."
+  }
+]

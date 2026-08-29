@@ -49,6 +49,9 @@ export default function PersonalWebsite() {
         </header>
 
         <nav className="nav" aria-label="Primary">
+          <Link href="/examples" className="nav-pill" style={{ borderColor: '#0b63f3', color: '#0b63f3' }}>
+            What I Can Build <span className="nav-pill-arrow">→</span>
+          </Link>
           <a href="#work">My Work</a>
           <Link href="/find-your-direction">Find Your Direction</Link>
           <Link href="/ultimate-guide" className="nav-pill">
@@ -158,6 +161,15 @@ export default function PersonalWebsite() {
           </div>
           <ul className="work-list">
             <li className="work-item work-item-featured">
+              <Link href="/examples" className="work-link">
+                <span>
+                  <strong>What I Can Build (Client Websites)</strong>
+                  <small>Interactive showcase of bespoke sites for restaurants, retail, salons, legal & trade</small>
+                </span>
+                <span className="work-tag" style={{ color: '#0b63f3' }}>5 Live Demos &middot; Explore &rarr;</span>
+              </Link>
+            </li>
+            <li className="work-item">
               <Link href="/ultimate-guide" className="work-link">
                 <span>
                   <strong>The Ultimate Guide</strong>

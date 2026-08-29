@@ -1,4 +1,7 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { BackToHomeLink } from '@/components/ui/BackToHomeLink';
 import KitSubscribeForm from '@/components/ui/KitSubscribeForm';
 
@@ -26,7 +29,7 @@ const faqs = [
   {
     question: 'What exactly is included?',
     answer:
-      '13 HD video lessons, the complete Setup Vault with Google Keep capture templates, Trello execution boards, Google Sheets goal trackers, and the Routine-Building Framework.',
+      '13 HD video lessons, interactive web-based Goal Breakdown and Routine Tracking worksheets (with PDF export), ready-to-use Trello execution boards, Google Keep capture setups, and Google Calendar time-blocking templates.',
   },
   {
     question: 'Can I use this for creative projects or business goals?',
@@ -37,7 +40,7 @@ const faqs = [
 
 const includedItems = [
   '13 High-Definition Video Lessons',
-  'Google Sheets Goal Trackers (Free)',
+  'Interactive Goal & Routine Trackers',
   'Trello Execution Boards',
   'Routine-Building Framework',
   'Curated Resource List (Apps and Books)',
@@ -55,7 +58,7 @@ const directionModules = [
   },
   {
     title: 'Free Templates and Trackers',
-    text: 'Access Google Sheets goal trackers and Trello boards that break your goals down visually and keep you accountable without paid subscriptions.',
+    text: 'Access interactive goal-breakdown worksheets and Trello boards that break your goals down visually and keep you accountable without paid subscriptions.',
   },
 ];
 
@@ -106,19 +109,36 @@ const faqSchema = {
   })),
 };
 
-export const metadata: Metadata = {
-  title: 'The Ultimate Guide',
-  description:
-    'A complete guide for direction and execution with practical lessons, templates, and frameworks.',
-  openGraph: {
-    title: 'The Ultimate Guide to Turning Your Life Around',
-    description:
-      'Practical systems for clarity, action, and consistency. Includes 12 HD lessons and lifetime access.',
-    type: 'website',
-  },
-};
-
 export default function UltimateGuidePage() {
+  const [isUnlocked, setIsUnlocked] = useState(false);
+  const [hideFloating, setHideFloating] = useState(false);
+  const enrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsUnlocked(localStorage.getItem('ultimate_guide_unlocked') === 'true');
+    }
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHideFloating(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    const target = enrollRef.current;
+    if (target) {
+      observer.observe(target);
+    }
+
+    return () => {
+      if (target) {
+        observer.unobserve(target);
+      }
+    };
+  }, []);
   return (
     <div className="course-page ultimate-guide-page">
       <script
@@ -133,12 +153,15 @@ export default function UltimateGuidePage() {
       <header className="course-topbar">
         <div className="course-topbar-inner">
           <BackToHomeLink className="course-brand" />
-          <a
-            href="#enroll"
-            className="course-topbar-cta"
-          >
-            Get Free Access
-          </a>
+          {isUnlocked ? (
+            <Link href="/ultimate-guide/portal" className="course-topbar-cta">
+              Resume Course
+            </Link>
+          ) : (
+            <a href="#enroll" className="course-topbar-cta">
+              Get Free Access
+            </a>
+          )}
         </div>
       </header>
 
@@ -278,11 +301,11 @@ export default function UltimateGuidePage() {
           </div>
         </section>
 
-        <section id="enroll" className="course-section">
+        <section id="enroll" ref={enrollRef} className="course-section">
           <div className="course-section-inner">
             <div className="course-pricing-card">
               <p className="course-pricing-label">The Complete Guide</p>
-              <h2>Get Free Access</h2>
+              <h2>{isUnlocked ? 'Resume Your Training' : 'Get Free Access'}</h2>
 
               <ul className="course-value-list" style={{ marginBottom: '2rem' }}>
                 {includedItems.map((item) => (
@@ -293,10 +316,29 @@ export default function UltimateGuidePage() {
               <div className="course-price-block" style={{ marginBottom: '1.5rem' }}>
                 <span className="course-price" style={{ textDecoration: 'line-through', fontSize: 'var(--text-lg)', opacity: 0.5, marginRight: '0.75rem' }}>$79</span>
                 <span className="course-price" style={{ color: 'var(--success)' }}>Free</span>
-                <span className="course-price-note" style={{ display: 'block', marginTop: '0.25rem' }}>Enter your email to receive the direct access link</span>
+                <span className="course-price-note" style={{ display: 'block', marginTop: '0.25rem' }}>
+                  {isUnlocked ? 'You have unlocked lifetime access to this course' : 'Enter your email to receive the direct access link'}
+                </span>
               </div>
 
-              <KitSubscribeForm />
+              {isUnlocked ? (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <Link href="/ultimate-guide/portal" className="btn btn-primary" style={{ width: '100%', padding: '1rem', textDecoration: 'none', textAlign: 'center' }}>
+                    Resume Course
+                  </Link>
+                  <button
+                    onClick={() => {
+                      localStorage.removeItem('ultimate_guide_unlocked');
+                      setIsUnlocked(false);
+                    }}
+                    style={{ fontSize: '0.8rem', color: 'var(--ink-soft)', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline', alignSelf: 'center' }}
+                  >
+                    Access another email account
+                  </button>
+                </div>
+              ) : (
+                <KitSubscribeForm />
+              )}
               <p className="course-guarantee" style={{ marginTop: '1.25rem' }}>Free forever. Confirm your email to unlock the course instantly.</p>
               <p style={{ fontSize: '0.8rem', color: 'var(--ink-soft)', marginTop: '0.5rem', marginBottom: 0 }}>
                   For personal use only. Do not copy or distribute.
@@ -323,12 +365,22 @@ export default function UltimateGuidePage() {
           <div className="course-section-inner">
             <h2>Ready to Turn Your Life Around?</h2>
             <p>Stop drifting. Start building with direction.</p>
-            <a
-              href="#enroll"
-              className="btn-special"
-            >
-              Get Free Access
-            </a>
+            {isUnlocked ? (
+              <Link
+                href="/ultimate-guide/portal"
+                className="btn-special"
+                style={{ textDecoration: 'none' }}
+              >
+                Resume Course
+              </Link>
+            ) : (
+              <a
+                href="#enroll"
+                className="btn-special"
+              >
+                Get Free Access
+              </a>
+            )}
           </div>
         </section>
       </main>
@@ -337,12 +389,22 @@ export default function UltimateGuidePage() {
         <p suppressHydrationWarning>&copy; {new Date().getFullYear()} Maurik. All rights reserved.</p>
       </footer>
 
-      <a
-        href="#enroll"
-        className="floating-cta"
-      >
-        Get the Guide
-      </a>
+      {isUnlocked ? (
+        <Link
+          href="/ultimate-guide/portal"
+          className={`floating-cta ${hideFloating ? 'hide-floating' : ''}`}
+          style={{ textDecoration: 'none' }}
+        >
+          Resume Course
+        </Link>
+      ) : (
+        <a
+          href="#enroll"
+          className={`floating-cta ${hideFloating ? 'hide-floating' : ''}`}
+        >
+          Get the Guide
+        </a>
+      )}
     </div>
   );
 }
