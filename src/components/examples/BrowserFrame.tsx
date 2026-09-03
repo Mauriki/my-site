@@ -1,7 +1,7 @@
 'use client';
 
 import React, { ReactNode } from 'react';
-import { Lock, ArrowLeft, ArrowRight, RotateCw, ExternalLink } from 'lucide-react';
+import { Lock, ExternalLink } from 'lucide-react';
 
 interface BrowserFrameProps {
   url: string;
@@ -55,13 +55,6 @@ export function BrowserFrame({
           <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#ef4444', display: 'inline-block' }} />
           <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#f59e0b', display: 'inline-block' }} />
           <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#10b981', display: 'inline-block' }} />
-        </div>
-
-        {/* Navigation arrows */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: textColor, opacity: 0.6 }} className="browser-nav-icons">
-          <ArrowLeft size={13} />
-          <ArrowRight size={13} />
-          <RotateCw size={12} />
         </div>
 
         {/* Address Bar */}

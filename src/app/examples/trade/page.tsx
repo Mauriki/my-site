@@ -7,10 +7,7 @@ import { LanguageProvider, useLanguage } from '@/components/examples/LanguageCon
 import {
   Compass,
   CheckCircle2,
-  ArrowRight,
   HardHat,
-  Clock,
-  ShieldCheck,
   MapPin,
   Phone,
 } from 'lucide-react';
@@ -141,7 +138,6 @@ function TradeContent() {
                 }}
               >
                 <span>{t('Instant Cost Estimator', 'Llogarit Koston Menjëherë')}</span>
-                <ArrowRight size={16} />
               </a>
 
               <a

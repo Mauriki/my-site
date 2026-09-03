@@ -1,31 +1,10 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { HomeScrollSaver } from '@/components/layout/HomeScrollSaver';
 
 export default function PersonalWebsite() {
-  const [isHovered, setIsHovered] = useState(false);
-  const [isLocked, setIsLocked] = useState(false);
-  const popupRef = useRef<HTMLDivElement>(null);
-  const infoBtnRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        isLocked &&
-        popupRef.current &&
-        !popupRef.current.contains(event.target as Node) &&
-        infoBtnRef.current &&
-        !infoBtnRef.current.contains(event.target as Node)
-      ) {
-        setIsLocked(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isLocked]);
 
   return (
     <>
@@ -50,15 +29,13 @@ export default function PersonalWebsite() {
 
         <nav className="nav" aria-label="Primary">
           <Link href="/examples" className="nav-pill" style={{ borderColor: '#0b63f3', color: '#0b63f3' }}>
-            What I Can Build <span className="nav-pill-arrow">→</span>
+            What I Can Build
           </Link>
           <a href="#work">My Work</a>
           <Link href="/find-your-direction">Find Your Direction</Link>
-          <Link href="/ultimate-guide" className="nav-pill">
-            Ultimate Guide
-          </Link>
         </nav>
 
+        {/* Free Coaching Sessions - Archived while spots are closed. To re-enable, uncomment this section.
         <section id="coaching" className="coaching-section" aria-labelledby="coaching-title">
           <div className="coaching-content">
             <span className="badge-special">Free Coaching &middot; 5 Spots</span>
@@ -114,6 +91,7 @@ export default function PersonalWebsite() {
             </p>
           </div>
         </section>
+        */}
 
         {/* Substack Article Subscription Form - Commented out while not writing articles.
             To re-enable: remove the opening comment brace above and closing comment brace below this section.
@@ -153,8 +131,6 @@ export default function PersonalWebsite() {
         </section>
         */}
 
-
-
         <section id="work" className="work-section" aria-labelledby="work-title">
           <div className="work-header">
             <h2 id="work-title">My Work</h2>
@@ -163,19 +139,10 @@ export default function PersonalWebsite() {
             <li className="work-item work-item-featured">
               <Link href="/examples" className="work-link">
                 <span>
-                  <strong>What I Can Build (Client Websites)</strong>
-                  <small>Interactive showcase of bespoke sites for restaurants, retail, salons, legal & trade</small>
+                  <strong>Selected Work (Client Websites)</strong>
+                  <small>Bespoke digital architecture and working systems for restaurants, retail, architecture, and professional services</small>
                 </span>
-                <span className="work-tag" style={{ color: '#0b63f3' }}>5 Live Demos &middot; Explore &rarr;</span>
-              </Link>
-            </li>
-            <li className="work-item">
-              <Link href="/ultimate-guide" className="work-link">
-                <span>
-                  <strong>The Ultimate Guide</strong>
-                  <small>Complete direction & execution course (Now 100% Free)</small>
-                </span>
-                <span className="work-tag">Featured &middot; Free</span>
+                <span className="work-tag" style={{ color: '#0b63f3' }}>6 Production Demos</span>
               </Link>
             </li>
             <li className="work-item">

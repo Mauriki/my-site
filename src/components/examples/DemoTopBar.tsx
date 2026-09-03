@@ -3,10 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useLanguage } from './LanguageContext';
-import { LanguageToggle } from './LanguageToggle';
 import {
-  ArrowLeft,
-  Sparkles,
   Send,
   CheckCircle2,
   X,
@@ -129,7 +126,7 @@ export function DemoTopBar({ demoTitle, industry, badgeColor = '#0b63f3' }: Demo
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
           <Link
-            href="/examples"
+            href={lang === 'sq' ? '/examples/al' : '/examples'}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -153,8 +150,7 @@ export function DemoTopBar({ demoTitle, industry, badgeColor = '#0b63f3' }: Demo
               e.currentTarget.style.color = '#d1d5db';
             }}
           >
-            <ArrowLeft size={14} />
-            <span>{t('← All Examples', '← Të gjithë shembujt')}</span>
+            <span>{t('All Examples', 'Të Gjithë Shembujt')}</span>
           </Link>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -174,17 +170,12 @@ export function DemoTopBar({ demoTitle, industry, badgeColor = '#0b63f3' }: Demo
                 borderLeft: `3px solid ${badgeColor}`,
               }}
             >
-              <Sparkles size={11} color="#f59e0b" />
               {t(demoTitle.en, demoTitle.sq)}
             </span>
           </div>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.08)', borderRadius: '9999px' }}>
-            <LanguageToggle />
-          </div>
-
           <button
             type="button"
             onClick={() => setIsModalOpen(true)}
@@ -408,8 +399,8 @@ export function DemoTopBar({ demoTitle, industry, badgeColor = '#0b63f3' }: Demo
                 </h3>
                 <p style={{ color: '#64748b', fontSize: '0.88rem', margin: '0 0 16px', lineHeight: 1.5 }}>
                   {t(
-                    'I design fast, high-converting websites crafted for any legitimate business — with zero slow templates or recurring agency bloat.',
-                    'Ndërtoj faqe të shpejta dhe moderne, të përshtatura posaçërisht për çdo lloj biznesi — pa shabllone të ngadalta apo tarifa agjencish.'
+                    'I design fast, high-converting websites crafted for any legitimate business, with zero slow templates or recurring agency bloat.',
+                    'Ndërtoj faqe të shpejta dhe moderne, të përshtatura posaçërisht për çdo lloj biznesi, pa shabllone të ngadalta apo tarifa agjencish.'
                   )}
                 </p>
 
@@ -421,7 +412,7 @@ export function DemoTopBar({ demoTitle, industry, badgeColor = '#0b63f3' }: Demo
                     <input
                       type="text"
                       required
-                      placeholder={lang === 'sq' ? 'p.sh. Arben Krasniqi – City Clinic' : 'e.g. Marcus Sterling – Apex Studio'}
+                      placeholder={lang === 'sq' ? 'p.sh. Arben Krasniqi, City Clinic' : 'e.g. Marcus Sterling, Apex Studio'}
                       value={clientName}
                       onChange={(e) => setClientName(e.target.value)}
                       style={{

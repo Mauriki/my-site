@@ -199,8 +199,8 @@ function BarberContent() {
 
             <p style={{ maxWidth: '580px', margin: '0 0 32px', fontSize: '1.05rem', lineHeight: 1.7, color: '#9ca3af', fontWeight: 400 }}>
               {t(
-                'Kallfa brings back the golden age of traditional gentleman grooming — classic scissor tapers, sandalwood hot towel steam, and organic beard care.',
-                'Kallfa rikhen përvojën klasike të berberit tradicional — prerje precize me gërshërë, avullim me peshqirë të nxehtë dhe vajra bimorë për mjekër.'
+                'Kallfa brings back the golden age of traditional gentleman grooming, featuring classic scissor tapers, sandalwood hot towel steam, and organic beard care.',
+                'Kallfa rikhen përvojën klasike të berberit tradicional, me prerje precize me gërshërë, avullim me peshqirë të nxehtë dhe vajra bimorë për mjekër.'
               )}
             </p>
 
@@ -255,7 +255,7 @@ function BarberContent() {
             />
             <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px', backgroundColor: 'rgba(17,18,21,0.92)', backdropFilter: 'blur(8px)', padding: '10px 16px', borderRadius: '4px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid rgba(255,255,255,0.08)' }}>
               <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#ffffff' }}>
-                {t('Handcrafted Vintage Leather Barber Chairs', 'Karrige Klasike Lëkure & Brisk Çeliku')}
+                {t('Custom Vintage Leather Barber Chairs', 'Karrige Klasike Lëkure & Brisk Çeliku')}
               </span>
               <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#c59b27' }}>
                 {t('Walk-Ins & Online Bookings', 'Me Termin ose Pa Termin')}

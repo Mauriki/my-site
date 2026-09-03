@@ -4,10 +4,10 @@ import React from 'react';
 import { LanguageProvider } from '@/components/examples/LanguageContext';
 import { ExamplesShowcase } from '@/components/examples/ExamplesShowcase';
 
-export default function ExamplesPage() {
+export default function ExamplesAlbanianPage() {
   return (
-    <LanguageProvider forcedLang="en">
-      <ExamplesShowcase forcedLanguage="en" />
+    <LanguageProvider forcedLang="sq">
+      <ExamplesShowcase forcedLanguage="sq" />
     </LanguageProvider>
   );
 }

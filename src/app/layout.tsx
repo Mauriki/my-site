@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: '%s | Maurik',
   },
   description:
-    'Personal website and ultimate guide by Maurik. Practical systems for direction, consistency, and meaningful execution.',
+    'Personal website by Maurik. Practical systems for direction, consistency, and meaningful execution.',
   applicationName: 'Maurik',
   icons: {
     icon: '/1000030440-modified.png',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         url: 'https://maurikmillaku.com/og-preview.png',
         width: 1200,
         height: 630,
-        alt: 'The Ultimate Guide to Turning Your Life Around',
+        alt: 'Maurik | Systems, Direction, Execution',
       },
     ],
   },

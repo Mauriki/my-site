@@ -8,9 +8,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // List of static routes in the application
     const routes = [
         '',
-        '/course',
+        '/about',
+        '/examples',
         '/find-your-direction',
-        '/ultimate-guide',
         '/privacy',
         '/terms',
     ];

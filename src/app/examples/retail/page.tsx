@@ -12,7 +12,6 @@ import {
   Check,
   X,
   Sparkles,
-  ArrowRight,
   ShieldCheck,
   Truck,
   RotateCcw,
@@ -315,7 +314,6 @@ function RetailContent() {
                 }}
               >
                 <span>{t('Browse Catalog', 'Eksploro Katalogun')}</span>
-                <ArrowRight size={16} />
               </a>
               <a
                 href="#subscription"
@@ -853,7 +851,6 @@ function RetailContent() {
                 }}
               >
                 <span>{t('Proceed to Checkout', 'Vazhdo te Pagesa')}</span>
-                <ArrowRight size={16} />
               </button>
             </div>
           </div>

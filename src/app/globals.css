@@ -424,7 +424,7 @@ svg {
   line-height: 1.64;
 }
 
-/* duplicate removed — see earlier .newsletter-frame-wrap rule */
+/* duplicate removed: see earlier .newsletter-frame-wrap rule */
 
 .newsletter-simple-form {
   display: grid;
@@ -1544,7 +1544,7 @@ svg {
   display: none;
 }
 
-/* Hide MailerLite heading / description text — we have our own */
+/* Hide MailerLite heading / description text: we have our own */
 .ml-form-embedBody .ml-form-embedContent h4,
 .ml-form-embedBody .ml-form-embedContent p,
 .ml-form-embedBody .ml-form-embedContent .ml-form-embedDescription {
@@ -1835,7 +1835,7 @@ svg {
   }
 }
 
-/* Tablet / Half-width scaling protection — handled via clamp() now */
+/* Tablet / Half-width scaling protection: handled via clamp() now */
 
 @media (prefers-reduced-motion: reduce) {
   html {

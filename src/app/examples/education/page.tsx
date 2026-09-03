@@ -15,7 +15,6 @@ import {
   Clock,
   Download,
   Lock,
-  ArrowRight,
   ChevronDown,
   ChevronUp,
   X,
@@ -333,7 +332,6 @@ function EducationContent() {
                 }}
               >
                 <span>{t('View Enrollment Options', 'Shiko Opsionet e Regjistrimit')}</span>
-                <ArrowRight size={16} />
               </a>
 
               <button

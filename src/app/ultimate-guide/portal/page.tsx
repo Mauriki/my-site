@@ -403,13 +403,13 @@ function CoursePortalInner() {
             <span className="gate-eyebrow">Free Access</span>
             <h1>Enter the Ultimate Guide</h1>
             <p>
-              Enter your email below. We will send you a confirmation link — click it and you will land directly inside the course. No payment needed, ever.
+              Enter your email below. We will send you a confirmation link, click it and you will land directly inside the course. No payment needed, ever.
             </p>
             <div style={{ marginTop: '2rem' }}>
               <KitSubscribeForm />
             </div>
             <p className="gate-footer-note">
-              Already confirmed? Check your email for the access link — it goes directly to the course.
+              Already confirmed? Check your email for the access link, it goes directly to the course.
             </p>
           </div>
         </main>

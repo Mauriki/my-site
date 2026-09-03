@@ -8,7 +8,6 @@ import {
   ShieldCheck,
   Briefcase,
   Scale,
-  ArrowRight,
   CheckCircle2,
   Lock,
   Globe,
@@ -157,7 +156,6 @@ function ProfessionalContent() {
                 }}
               >
                 <span>{t('Evaluate Your Case Scope', 'Vlerëso Çështjen Tuaj')}</span>
-                <ArrowRight size={16} />
               </a>
 
               <a

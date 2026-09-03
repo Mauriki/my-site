@@ -12,39 +12,59 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType>({
-  lang: 'sq',
+  lang: 'en',
   setLang: () => {},
   toggleLang: () => {},
-  t: (_enText: string, sqText: string) => sqText,
+  t: (enText: string) => enText,
 });
 
-export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  // Default to Albanian ('sq') for the examples section as requested
-  const [lang, setLangState] = useState<Language>('sq');
+interface LanguageProviderProps {
+  children: ReactNode;
+  forcedLang?: Language;
+  defaultLang?: Language;
+}
+
+export const LanguageProvider = ({
+  children,
+  forcedLang,
+  defaultLang = 'en',
+}: LanguageProviderProps) => {
+  const [lang, setLangState] = useState<Language>(forcedLang || defaultLang);
 
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem('site_preview_lang') as Language;
-      if (saved === 'en' || saved === 'sq') {
-        setLangState(saved);
-      }
-    } catch {
-      // ignore storage access error
+    if (forcedLang) {
+      setLangState(forcedLang);
+      return;
     }
-  }, []);
+
+    // Auto-detect based on current URL path
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname.toLowerCase();
+      if (path.includes('/examples/al') || path.includes('/examples/sq')) {
+        setLangState('sq');
+        return;
+      }
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get('lang');
+      if (urlLang === 'sq' || urlLang === 'al') {
+        setLangState('sq');
+        return;
+      }
+      if (urlLang === 'en') {
+        setLangState('en');
+        return;
+      }
+    }
+  }, [forcedLang]);
 
   const setLang = (newLang: Language) => {
+    if (forcedLang) return;
     setLangState(newLang);
-    try {
-      localStorage.setItem('site_preview_lang', newLang);
-    } catch {
-      // ignore
-    }
   };
 
   const toggleLang = () => {
-    const nextLang = lang === 'sq' ? 'en' : 'sq';
-    setLang(nextLang);
+    if (forcedLang) return;
+    setLangState((prev) => (prev === 'sq' ? 'en' : 'sq'));
   };
 
   const t = (enText: string, sqText: string) => (lang === 'sq' ? sqText : enText);

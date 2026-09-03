@@ -9,7 +9,7 @@ export default function GuideSignupPage() {
 
     return (
         <>
-            {/* Exact clone of the Ultimate Guide top bar — same classes, no right CTA */}
+            {/* Exact clone of the Ultimate Guide top bar - same classes, no right CTA */}
             <header className="course-topbar">
                 <div className="course-topbar-inner">
                     <BackToHomeLink className="course-brand" />
